@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fast-Food-Fast</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poor+Story" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/mobileview.css">
+    <script src="js/mobileview.js"></script>
+
+
+    <style>
+        body {
+            font-family: 'Poor Story', cursive;
+        }
+    
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="left">
+            <ul>
+                <li>
+                    <a id="myfood">Fast-Food-Fast</a>
+                </li>
+                <li>
+                    <a style="font-weight: bolder;color: wheat" id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" id="myhome">Home</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <ul>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div class="content">
+        <p id="myText"></p>
+
+        <div class="home">
+
+            <form name="signupForm" id="signupForm" action="admin-dashboard.html">
+                <div class="formcontainer">
+                    <h2 style="margin-top: -4.5em;" id="getUser">Register</h2>
+                    <label for="myname">
+                        <b>First Name</b>
+                    </label>
+                    <input type="text" placeholder="Enter First Name" name="mynameSignup"  required>
+
+                    <label for="email1">
+                        <b>Email</b>
+                    </label>
+                    <input type="email" placeholder="Enter Email" name="emailSignup" required>
+
+                    <label for="pass1">
+                        <b>Password</b>
+                    </label>
+                    <input type="password" placeholder="Enter Password" name="passSignup" id="pas1" required>
+                    <div id="matchP"></div>
+                    <label for="pwrd-repeat">
+                        <b>Confirm Password</b>
+                    </label>
+                    <input type="password" placeholder="Confirm Password" name="pwrd-repeat" id="pas2" required>
+
+                    <button type="submit" id="submitid" class="myregisterbtn">Register</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+            emmygozi &#169; 2018
+    </div>
+</body>
+
+<script>
+hamburger();
+
+</script>
+</html>
