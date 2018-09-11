@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fast-Food-Fast</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/buttonstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poor+Story" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/mobileview.css">
+    <script src="js/mobileview.js"></script>
+
+
+    <style>
+        body {
+            font-family: 'Poor Story', cursive;
+        }
+    
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="left">
+            <ul>
+                <li>
+                    <a id="myfood">Fast-Food-Fast</a>
+                </li>
+                <li>
+                    <a style="font-weight: bolder;color: wheat" id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="home.html" id="myhome">Home</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+                 
+            <ul>
+                <li>
+                    <a href="orders.html">Orders </a>
+                </li>
+                <li style=" vertical-align: top; color: white">&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;welcome admin <i class="fas fa-user-ninja"></i></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div>
+        <h1 id="meal-heading">All Meals</h1>
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Samosa and sauce</b></h4> 
+                      <em>12 October 2018</em>
+                      <p>Get your meals on the go in the most efficient manner. Our snacks are very tasty.</p> 
+                      <div class="flex-container shift-flex-container">
+                            <div class="center-flex-child">
+                                    <!-- Trigger/Open The Modal -->
+                                    <a id="myBtn">Edit <i class="far fa-edit"></i></a>
+                            </div>
+    
+                            <div class="center-flex-child">
+                               <a id="myDelete"> Delete <i class="fas fa-trash"></i></a>
+                            </div>
+                      </div>
+                    </div>
+            </div>
+
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Fried Chicken</b></h4> 
+                      <em>12 October 2018</em>
+                      <p>Get your meals on the go in the most efficient manner. Our snacks are very tasty.</p> 
+                      <div class="flex-container shift-flex-container">
+                            <div class="center-flex-child">
+                                    <!-- Trigger/Open The Modal -->
+                                    <a id="myBtn2">Edit <i class="far fa-edit"></i></a>
+                            </div>
+    
+                            <div class="center-flex-child">
+                               <a id="myDelete2"> Delete <i class="fas fa-trash"></i></a>
+                            </div>
+                      </div>
+                    </div>
+            </div>
+
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Burger and Soda</b></h4> 
+                      <em>12 October 2018</em>
+                      <p>Get your meals on the go in the most efficient manner. Our snacks are very tasty.</p> 
+                      <div class="flex-container shift-flex-container">
+                        <div class="center-flex-child">
+                                <!-- Trigger/Open The Modal -->
+                                <a id="myBtn3">Edit <i class="far fa-edit"></i></a>
+                        </div>
+
+                        <div class="center-flex-child">
+                           <a id="myDelete4"> Delete <i class="fas fa-trash"></i></a>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Extra large pizza</h4>
+                         <em>12 October 2018</em>
+                      <p>Get your meals on the go in the most efficient manner. Our snacks are very tasty.</p> 
+                      <div class="flex-container shift-flex-container">
+                            <div class="center-flex-child">
+                                    <!-- Trigger/Open The Modal -->
+                                    <a id="myBtn4">Edit <i class="far fa-edit"></i></a>
+                            </div>
+    
+                            <div class="center-flex-child">
+                               <a id="myDelete6"> Delete <i class="fas fa-trash"></i></a>
+                            </div>
+                      </div>
+                    </div>
+            </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <p class="closed" style="margin-top: -0.7em;">&times;</p>
+          <form action="">
+            <div style="margin-left: 2em;">
+              <label for="foodname">Fast Food Name</label>
+              <input type="text" name="foodname"><br>
+              <label for="fooddescription">Description</label>
+              <input type="text" name="fooddescription"><br>
+              <label for="pic">Upload Picture<picture></picture></label>
+              <input type="file" name="pic" accept="image/*"><br><br>
+              <button type="submit" class="buttongreen">save</button>
+            </div>
+          </form>
+        </div>
+      
+      </div>
+      
+      <script>
+      // Get the modal
+      let modal = document.getElementById('myModal');
+      
+      // Get the button that opens the modal
+      let btn = document.getElementById("myBtn");
+      let btn2 = document.getElementById("myBtn2");
+      let btn3 = document.getElementById("myBtn3");
+      let btn4 = document.getElementById("myBtn4");
+      
+      // Get the <span> element that closes the modal
+      let span = document.getElementsByClassName("closed")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+          modal.style.display = "block";
+      }
+
+      btn2.onclick = function() {
+          modal.style.display = "block";
+      }
+
+      btn3.onclick = function() {
+          modal.style.display = "block";
+      }
+
+      btn4.onclick = function() {
+          modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+      </script>
+      
+      
+      
+
+    </div>
+
+    <div class="footer">
+            emmygozi &#169; 2018
+    </div>
+</body>
+
+<script>
+hamburger();
+
+</script>
+</html>
