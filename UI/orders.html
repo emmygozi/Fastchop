@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fast-Food-Fast</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/buttonstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poor+Story" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/mobileview.css">
+    <script src="js/mobileview.js"></script>
+
+
+    <style>
+        body {
+            font-family: 'Poor Story', cursive;
+        }
+    
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="left">
+            <ul>
+                <li>
+                    <a id="myfood">Fast-Food-Fast</a>
+                </li>
+                <li>
+                    <a style="font-weight: bolder;color: wheat" id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="home.html" id="myhome">Home</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+                 
+            <ul>
+                <li>
+                    <a href="orders.html">Orders </a>
+                </li>
+                <li style=" vertical-align: top; color: white">&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;welcome admin <i class="fas fa-user-ninja"></i></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div>
+        <h1 id="meal-heading">All Orders</h1>
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Christiano Ronaldo</b></h4> 
+                      <em>12 October 2018</em>
+                      <p>Fried Chicken</>
+                      <div class="flex-container shift-flex-container">
+                            <div class="center-flex-child">
+                                    <!-- Trigger/Open The Modal -->
+                                    <a id="myBtnTwo">Accept order <i class="fas fa-check"></i></a>
+                            </div>
+    
+                            <div class="center-flex-child">
+                               <a id="myDeleteTwo"> Decline order <i class="fas fa-trash"></i></a>
+                            </div>
+                      </div>
+                    </div>
+            </div>
+
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Lionel Messi</b></h4> 
+                      <em>12 October 2018</em>
+                      <p>Burger and soda</p> 
+                      <div class="completed-order">Completed order</div>
+                    </div>
+            </div>
+
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Neymar Junior</b></h4> 
+                      <em>12 October 2018</em>
+                      <p>Doughnut and sauce</p> 
+                      <div class="flex-container shift-flex-container">
+                        <div class="center-flex-child">
+                                <!-- Trigger/Open The Modal -->
+                                <a id="myBtnTwo3">Accept order <i class="fas fa-check"></i></a>
+                        </div>
+
+                        <div class="center-flex-child">
+                           <a id="myDeleteTwo4"> Decline order <i class="fas fa-trash"></i></a>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Luka Modric</h4>
+                         <em>12 October 2018</em>
+                      <p>Extra large pizza</p> 
+                      <div class="completed-order">Completed order</div>
+                    </div>
+            </div>
+
+<!-- The Modal -->
+<div id="myModalTwo" class="modalTwo">
+
+        <!-- Modal content -->
+        <div class="modal-contentTwo">
+          <p class="closedTwo" style="margin-top: -0.7em;">&times;</p>
+          <form action="">
+            <div style="margin-left: 2em;">
+              <h3>Do you want to accept this order?</h3>
+              <button type="submit" class="buttongreen">Yes</button>
+            </div>
+          </form>
+        </div>
+      
+      </div>
+      
+      <script>
+      // Get the modal
+      let modal = document.getElementById('myModalTwo');
+      
+      // Get the button that opens the modal
+      let btn = document.getElementById("myBtnTwo");
+      let btn2 = document.getElementById("myBtnTwo3");
+    
+      // Get the <span> element that closes the modal
+      let span = document.getElementsByClassName("closedTwo")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+          modal.style.display = "block";
+      }
+
+      btn2.onclick = function() {
+          modal.style.display = "block";
+      }
+
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+      </script>
+      
+      
+      
+
+    </div>
+
+    <div class="footer">
+            emmygozi &#169; 2018
+    </div>
+</body>
+
+<script>
+hamburger();
+
+</script>
+</html>
