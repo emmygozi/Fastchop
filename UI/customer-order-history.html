@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fast-Food-Fast</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/buttonstyles.css">
+    <link rel="stylesheet" type="text/css" href="css/toast.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poor+Story" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/mobileview.css">
+    <script src="js/mobileview.js"></script>
+
+
+    <style>
+        body {
+            font-family: 'Poor Story', cursive;
+        }
+        
+        .center-flex-child {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width : 800px){
+        .shift-flex-container {
+        margin: 0em 0em 0em -4em;
+         }
+
+        }
+       
+    
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="left">
+            <ul>
+                <li>
+                    <a id="myfood">Fast-Food-Fast</a>
+                </li>
+                <li>
+                    <a style="font-weight: bolder;color: wheat" id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="home.html" id="myhome">Home</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+                 
+            <ul>
+                <li style=" vertical-align: top; color: white">&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;welcome Ronaldo <i class="fas fa-user-ninja"></i></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div>
+        <h1 id="meal-heading">All Orders</h1>
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Christiano Ronaldo</b></h4> 
+                      <em>12 October 2018</em>
+                      <p>Fried Chicken</>
+                        <div class="flex-container shift-flex-container">
+                                <div class="center-flex-child" onclick="myFunction()">
+                                        View order
+                                </div>
+                              </div>
+                              <div id="mysnackbar">Christiano Ronaldo ordered fried chicken on 12, October 2018</div>
+                    </div>
+            </div>
+
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Lionel Messi</b></h4> 
+                      <em>12 October 2018</em>
+                      <p>Burger and soda</p> 
+                    </div>
+            </div>
+
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Neymar Junior</b></h4> 
+                      <em>12 October 2018</em>
+                      <p>Doughnut and sauce</p> 
+                    </div>
+            </div>
+
+            <div class="card">
+                    <div class="inside-card">
+                      <h4 ><b>Luka Modric</h4>
+                         <em>12 October 2018</em>
+                      <p>Extra large pizza</p> 
+                    </div>
+            </div>
+
+
+    </div>
+
+    <div class="footer">
+            emmygozi &#169; 2018
+    </div>
+</body>
+<script>
+        function myFunction() {
+            let x = document.getElementById("mysnackbar");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+        </script>
+<script>
+hamburger();
+
+</script>
+</html>
