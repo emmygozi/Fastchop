@@ -8,7 +8,10 @@
   "scripts": {
     "start": "node ./server/dist/app.js",
     "build": "cross-env NODE_ENV=production babel ./server/ -d ./server/dist",
-    "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./server/app.js"
+    "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./server/app.js",
+    "lint": "eslint \"server/**/*.js\" app.js --fix",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "cross-env NODE_ENV=test nyc mocha ./server/tests/**/'*.test.js' --recursive --timeout 100000 --exit"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -16,20 +19,24 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "express": "^4.16.3",
     "body-parser": "^1.18.3",
-    "morgan": "^1.9.0",
     "cross-env": "^5.1.5",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3"
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-istanbul": "^4.1.6",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
     "istanbul": "^0.4.5",
-    "nodemon": "^1.17.5"
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5",
+    "nyc": "^13.0.1"
   }
 }
