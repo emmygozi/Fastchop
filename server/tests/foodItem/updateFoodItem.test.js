@@ -5,16 +5,17 @@ import app from '../../app';
 chai.use(chaiHttp);
 const { expect } = chai;
 
-describe('POST /', () => {
+describe('PUT /', () => {
   let name;
   let description;
   let price;
   let imageurl;
+  let urlId;
 
   const exec = async () => {
     try {
       return await chai.request(app)
-        .post('/api/v1/foodItem')
+        .put(`/api/v1/foodItem/${urlId}`)
         .send({
           name, description, price, imageurl
         });
@@ -26,12 +27,13 @@ describe('POST /', () => {
     description = 'a description message here';
     price = 700;
     imageurl = 'http://sometesturl';
+    urlId = 3;
   });
 
-  it('should return a success status 201', async () => {
+  it('should return a success status 200', async () => {
     try {
       const res = await exec();
-      expect(res.status).to.equal(201);
+      expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
     } catch (err) {
       throw err.message;
@@ -52,7 +54,7 @@ describe('POST /', () => {
   it('should return a failure status for empty request', async () => {
     try {
       chai.request(app)
-        .post('/api/v1/foodItem')
+        .put(`/api/v1/foodItem/${urlId}`)
         .send({
         })
         .end((err, res) => {
@@ -63,11 +65,23 @@ describe('POST /', () => {
     }
   });
 
-  it('should return a failure status for duplicate food item name 409', async () => {
+  it('should return a failure status for invalid ID 401', async () => {
     try {
-      // duplicate of status 200
+      urlId = 'E';
+
       const res = await exec();
-      expect(res.status).to.equal(409);
+      expect(res.status).to.equal(401);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a not found status 404', async () => {
+    try {
+      urlId = 10000;
+
+      const res = await exec();
+      expect(res.status).to.equal(404);
     } catch (err) {
       throw err.message;
     }

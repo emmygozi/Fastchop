@@ -7,9 +7,6 @@ class FoodItem {
   }
 
   static postFoodItem(req, res) {
-    if (Object.keys(req.body).length === 0) {
-      return res.status(400).json({ message: 'Empty request' });
-    }
     const { error } = validateFoodItem(req.body);
 
     if (error) return res.status(400).send(error.details[0].message);
@@ -34,6 +31,21 @@ class FoodItem {
     }
     foodItem.push(anFoodItem);
     res.status(201).json({ message: 'Created new food item', foodItem });
+  }
+
+  static updateFoodItem(req, res) {
+    const updateItem = foodItem.find(c => c.id === parseInt(req.params.id, 10));
+    if (!updateItem) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
+
+    const { error } = validateFoodItem(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
+    updateItem.name = req.body.name;
+    updateItem.description = req.body.description;
+    updateItem.price = req.body.price;
+    updateItem.imageurl = req.body.imageurl;
+
+    res.status(200).json({ message: 'Update suceeded', foodItem });
   }
 }
 
