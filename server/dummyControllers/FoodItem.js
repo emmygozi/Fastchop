@@ -55,6 +55,18 @@ class FoodItem {
     foodItem.splice(removeItem, 1);
     res.status(200).json({ message: 'Deleted food item', foodItem });
   }
+
+  static getSpecifiedFoodItem(req, res) {
+    const specifiedItem = foodItem.findIndex(c => c.id === parseInt(req.params.id, 10));
+    if (specifiedItem === -1) {
+      return res.status(404)
+        .json({ message: 'The food item with the given ID was not found!' });
+    }
+
+    const singleFoodItem = foodItem[specifiedItem];
+
+    res.status(200).json({ message: 'Retrieved specified food item', singleFoodItem });
+  }
 }
 
 export default FoodItem;
