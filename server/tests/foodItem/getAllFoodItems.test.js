@@ -11,7 +11,7 @@ describe('GET /', () => {
       const res = await chai.request(app)
         .get('/api/v1/foodItem');
       expect(res.status).to.equal(200);
-      expect(res.body).to.be.an('array');
+      expect(res.body).to.be.an('object');
     } catch (err) {
       throw err.message;
     }
