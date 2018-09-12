@@ -47,6 +47,14 @@ class FoodItem {
 
     res.status(200).json({ message: 'Update suceeded', foodItem });
   }
+
+  static removeFoodItem(req, res) {
+    const removeItem = foodItem.find(c => c.id === parseInt(req.params.id, 10));
+    if (!removeItem) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
+
+    foodItem.splice(removeItem, 1);
+    res.status(200).json({ message: 'Deleted food item', foodItem });
+  }
 }
 
 export default FoodItem;
