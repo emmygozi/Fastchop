@@ -1,0 +1,28 @@
+{
+  "name": "Fastchop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/emmygozi/Fastchop.git",
+  "author": "emmygozi <mygitmail@yahoo.com>",
+  "license": "MIT",
+  "scripts": {
+    
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "express": "^4.16.3",
+    "body-parser": "^1.18.3",
+    "morgan": "^1.9.0",
+    "cross-env": "^5.1.5"
+  },
+  "devDependencies": {
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-istanbul": "^4.1.6",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "istanbul": "^0.4.5"
+  }
+}
