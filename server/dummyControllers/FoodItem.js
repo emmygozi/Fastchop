@@ -63,9 +63,9 @@ class FoodItem {
         .json({ message: 'The food item with the given ID was not found!' });
     }
 
-    const singleFoodItem = foodItem[specifiedItem];
+    const aFoodItem = foodItem[specifiedItem];
 
-    res.status(200).json({ message: 'Retrieved specified food item', singleFoodItem });
+    res.status(200).json({ message: 'Retrieved specified food item', aFoodItem });
   }
 }
 
