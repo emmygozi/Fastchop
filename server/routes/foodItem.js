@@ -6,13 +6,13 @@ import UserIdValidator from '../middlewares/UserIdValidator';
 
 const router = express.Router();
 
-router.get('/foodItem', FoodItem.getAll);
-router.get('/foodItem/:id', UserIdValidator.validator, FoodItem.getSpecifiedFoodItem);
-router.post('/foodItem', EmptyRequestValidator.validator, FoodItem.postFoodItem);
+router.get('/fooditem', FoodItem.getAll);
+router.get('/fooditem/:id', UserIdValidator.validator, FoodItem.getSpecifiedFoodItem);
+router.post('/fooditem', EmptyRequestValidator.validator, FoodItem.postFoodItem);
 router.put(
-  '/foodItem/:id', UserIdValidator.validator,
+  '/fooditem/:id', UserIdValidator.validator,
   EmptyRequestValidator.validator, FoodItem.updateFoodItem
 );
-router.delete('/foodItem/:id', UserIdValidator.validator, FoodItem.removeFoodItem);
+router.delete('/fooditem/:id', UserIdValidator.validator, FoodItem.removeFoodItem);
 
 export default router;
