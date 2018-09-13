@@ -9,7 +9,7 @@ const orders = [
     id: 2,
     userid: 4,
     mealid: 7,
-    status: 0// default
+    status: 0// pending order
   },
   {
     id: 3,
