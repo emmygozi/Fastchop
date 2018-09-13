@@ -6,13 +6,13 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 
-describe('DELETE /:ID', () => {
+describe('GET /:ID', () => {
   let urlId;
 
   const exec = async () => {
     try {
       return await chai.request(app)
-        .delete(`/api/v1/orders/${urlId}`);
+        .get(`/api/v1/orders/${urlId}`);
     } catch (err) { throw err.message; }
   };
 
