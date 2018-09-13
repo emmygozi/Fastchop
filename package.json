@@ -8,6 +8,7 @@
   "scripts": {
     "start": "node ./server/dist/app.js",
     "build": "cross-env NODE_ENV=production babel ./server/ -d ./server/dist",
+    "heroku-postbuild": "npm run build",
     "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./server/app.js",
     "lint": "eslint \"server/**/*.js\" app.js --fix",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
