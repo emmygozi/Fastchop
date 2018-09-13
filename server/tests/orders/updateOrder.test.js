@@ -25,7 +25,7 @@ describe('PUT /', () => {
     userid = 1;
     mealid = 3;
     status = 1;
-    urlId = 1;
+    urlId = 2;
   });
 
   it('should return a success status 200', async () => {
