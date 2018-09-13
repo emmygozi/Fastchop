@@ -25,6 +25,25 @@ class Orders {
     myOrder.push(anOrder);
     res.status(201).json({ message: 'Created new food item', myOrder });
   }
+
+  static updateOrder(req, res) {
+    const updateOrder = myOrder.find(c => c.id === parseInt(req.params.id, 10));
+    if (!updateOrder) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
+
+    const { error } = validateOrder(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
+    updateOrder.status = req.body.status;
+    res.status(200).json({ message: 'Update suceeded', myOrder });
+  }
+
+  static removeOrder(req, res) {
+    const toRemove = myOrder.find(c => c.id === parseInt(req.params.id, 10));
+    if (!toRemove) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
+
+    myOrder.splice(toRemove, 1);
+    res.status(200).json({ message: 'Deleted food item', myOrder });
+  }
 }
 
 export default Orders;
