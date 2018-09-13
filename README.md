@@ -7,6 +7,9 @@ Fastchop is a food delivery service app for a restaurant.
 ## Template
 Template hosted at https://emmygozi.github.io/Fastchop/UI/
 
+## API hosted on
+API Hosted on https://mydiary-entry.herokuapp.com/api/v1/
+
 
 ## Table of Contents
 
