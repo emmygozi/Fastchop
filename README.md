@@ -1,10 +1,14 @@
 # Fastchop
-[![Maintainability](https://api.codeclimate.com/v1/badges/181a862e781120cf1663/maintainability)](https://codeclimate.com/github/emmygozi/Fastchop/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/181a862e781120cf1663/test_coverage)](https://codeclimate.com/github/emmygozi/Fastchop/test_coverage) [![Coverage Status](https://coveralls.io/repos/github/emmygozi/Fastchop/badge.svg?branch=develop)](https://coveralls.io/github/emmygozi/Fastchop?branch=develop) [![Build Status](https://travis-ci.com/emmygozi/Fastchop.svg?branch=develop)](https://travis-ci.com/emmygozi/Fastchop)
+[![Maintainability](https://api.codeclimate.com/v1/badges/181a862e781120cf1663/maintainability)](https://codeclimate.com/github/emmygozi/Fastchop/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/181a862e781120cf1663/test_coverage)](https://codeclimate.com/github/emmygozi/Fastchop/test_coverage) [![Coverage Status](https://coveralls.io/repos/github/emmygozi/Fastchop/badge.svg?branch=ch-update-project-readme-160494582)](https://coveralls.io/github/emmygozi/Fastchop?branch=ch-update-project-readme-160494582) [![Build Status](https://travis-ci.com/emmygozi/Fastchop.svg?branch=develop)](https://travis-ci.com/emmygozi/Fastchop)
+
 
 Fastchop is a food delivery service app for a restaurant.
 
 ## Template
 Template hosted at https://emmygozi.github.io/Fastchop/UI/
+
+## API hosted on
+API Hosted on https://mydiary-entry.herokuapp.com/api/v1/
 
 
 ## Table of Contents
