@@ -15,7 +15,7 @@ class FoodItem {
     } = req.body;
     const id = foodItem[foodItem.length - 1].id + 1;
 
-    const anFoodItem = {
+    const aFoodItem = {
       id,
       name,
       description,
@@ -23,13 +23,13 @@ class FoodItem {
       imageurl
     };
 
-    const foundItem = foodItem.find(myentry =>
-      (myentry.name.toLowerCase() === name.toLowerCase()));
+    const foundItem = foodItem.find(mySearchValue =>
+      (mySearchValue.name.toLowerCase() === name.toLowerCase()));
 
     if (foundItem) {
       return res.status(409).json({ message: `An item with '${name}' is already in food items` });
     }
-    foodItem.push(anFoodItem);
+    foodItem.push(aFoodItem);
     res.status(201).json({ message: 'Created new food item', foodItem });
   }
 
