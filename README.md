@@ -1,5 +1,5 @@
 # Fastchop
-[![Maintainability](https://api.codeclimate.com/v1/badges/181a862e781120cf1663/maintainability)](https://codeclimate.com/github/emmygozi/Fastchop/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/181a862e781120cf1663/test_coverage)](https://codeclimate.com/github/emmygozi/Fastchop/test_coverage) [![Coverage Status](https://coveralls.io/repos/github/emmygozi/Fastchop/badge.svg?branch=develop)](https://coveralls.io/github/emmygozi/Fastchop?branch=develop)
+[![Maintainability](https://api.codeclimate.com/v1/badges/181a862e781120cf1663/maintainability)](https://codeclimate.com/github/emmygozi/Fastchop/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/181a862e781120cf1663/test_coverage)](https://codeclimate.com/github/emmygozi/Fastchop/test_coverage) [![Coverage Status](https://coveralls.io/repos/github/emmygozi/Fastchop/badge.svg?branch=develop)](https://coveralls.io/github/emmygozi/Fastchop?branch=develop) [![Build Status](https://travis-ci.com/emmygozi/Fastchop.svg?branch=develop)](https://travis-ci.com/emmygozi/Fastchop)
 
 Fastchop is a food delivery service app for a restaurant.
 
@@ -107,7 +107,6 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 		<td>/api/v1/orders/:id</td> 
 		<td>Delete an order</td>
 	</tr>
-    
 	<tr>
 		<td>GET /</td>
 		<td>/api/v1/fooditem</td> 
