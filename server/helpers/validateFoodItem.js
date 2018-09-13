@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
-const validateFoodItem = (myitem) => {
-  const foodschema = {
+const validateFoodItem = (item) => {
+  const schema = {
     name: Joi.string().min(5).max(70).trim()
       .required(),
     description: Joi.string().trim().min(5).max(700)
@@ -11,7 +11,7 @@ const validateFoodItem = (myitem) => {
     imageurl: Joi.string().min(5).max(350).trim()
       .required(),
   };
-  return Joi.validate(myitem, foodschema);
+  return Joi.validate(item, schema);
 };
 
 

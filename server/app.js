@@ -9,7 +9,8 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/api/v1', routes);
+app.use('/api/v1', routes.foodItem);
+app.use('/api/v1', routes.myOrder);
 app.use(error);
 
 const port = process.env.PORT || 8000;
