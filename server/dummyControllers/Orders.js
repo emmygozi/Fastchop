@@ -44,6 +44,18 @@ class Orders {
     myOrder.splice(toRemove, 1);
     res.status(200).json({ message: 'Deleted food item', myOrder });
   }
+
+  static getSpecifiedOrder(req, res) {
+    const specifiedOrder = myOrder.findIndex(c => c.id === parseInt(req.params.id, 10));
+    if (specifiedOrder === -1) {
+      return res.status(404)
+        .json({ message: 'The food item with the given ID was not found!' });
+    }
+
+    const anOrder = myOrder[specifiedOrder];
+
+    res.status(200).json({ message: 'Retrieved specified food item', anOrder });
+  }
 }
 
 export default Orders;
