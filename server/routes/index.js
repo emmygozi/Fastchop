@@ -1,15 +1,10 @@
-import express from 'express';
-import FoodItem from '../dummyControllers/FoodItem';
-import EmptyRequestValidator from '../middlewares/EmptyRequestValidator';
-import UserIdValidator from '../middlewares/UserIdValidator';
+import foodItem from './foodItem';
+import myOrder from './orders';
+
+const loader = {
+  foodItem,
+  myOrder
+};
 
 
-const router = express.Router();
-
-router.get('/foodItem', FoodItem.getAll);
-router.get('/foodItem/:id', UserIdValidator.validator, FoodItem.getSpecifiedFoodItem);
-router.post('/foodItem', EmptyRequestValidator.validator, FoodItem.postFoodItem);
-router.put('/foodItem/:id', UserIdValidator.validator, EmptyRequestValidator.validator, FoodItem.updateFoodItem);
-router.delete('/foodItem/:id', UserIdValidator.validator, FoodItem.removeFoodItem);
-
-export default router;
+export default loader;
