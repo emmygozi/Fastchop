@@ -62,6 +62,8 @@
 
     <div>
         <h1 id="meal-heading">All Meals</h1>
+        <div style=" text-align: right" ><a id="myAdd"><i class="fas fa-plus-circle" style="color: #1fce6d; margin: 0em 3em 0em 0em;  font-size: 4em; text-shadow: 2px 4px 8px black;
+            "></i></a> </div>
             <div class="card">
                     <div class="inside-card">
                       <h4 ><b>Samosa and sauce</b></h4> 
@@ -143,11 +145,32 @@
           <form action="">
             <div style="margin-left: 2em;">
               <label for="foodname">Fast Food Name</label>
-              <input type="text" name="foodname"><br>
+              <input type="text" name="name"><br>
               <label for="fooddescription">Description</label>
-              <input type="text" name="fooddescription"><br>
+              <input type="text" name="description"><br>
               <label for="pic">Upload Picture<picture></picture></label>
-              <input type="file" name="pic" accept="image/*"><br><br>
+              <input type="file" name="imageurl" accept="image/*"><br><br>
+              <button type="submit" class="buttongreen">save</button>
+            </div>
+          </form>
+        </div>
+      
+      </div>
+
+      <!-- The Modal -->
+<div id="addModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <p class="closed" style="margin-top: -0.7em;">&times;</p>
+          <form action="">
+            <div style="margin-left: 2em;">
+              <label for="foodname">Fast Food Name</label>
+              <input type="text" name="name"><br>
+              <label for="fooddescription">Description</label>
+              <input type="text" name="description"><br>
+              <label for="pic">Upload Picture<picture></picture></label>
+              <input type="file" name="imageurl" accept="image/*"><br><br>
               <button type="submit" class="buttongreen">save</button>
             </div>
           </form>
@@ -158,36 +181,45 @@
       <script>
       // Get the modal
       let modal = document.getElementById('myModal');
+      let modalForAdd = document.getElementById('addModal');
       
       // Get the button that opens the modal
       let btn = document.getElementById("myBtn");
       let btn2 = document.getElementById("myBtn2");
       let btn3 = document.getElementById("myBtn3");
       let btn4 = document.getElementById("myBtn4");
+      let addBtn = document.getElementById("myAdd");
       
       // Get the <span> element that closes the modal
+      
       let span = document.getElementsByClassName("closed")[0];
+      let span2 = document.getElementsByClassName("closed")[1];
+      
       
       // When the user clicks the button, open the modal 
       btn.onclick = function() {
           modal.style.display = "block";
       }
-
       btn2.onclick = function() {
           modal.style.display = "block";
       }
-
       btn3.onclick = function() {
           modal.style.display = "block";
       }
-
       btn4.onclick = function() {
           modal.style.display = "block";
+      }
+      addBtn.onclick = function() {
+          modalForAdd.style.display = "block";
       }
       
       // When the user clicks on <span> (x), close the modal
       span.onclick = function() {
           modal.style.display = "none";
+      }
+      // When the user clicks on <span> (x), close the modal
+            span2.onclick = function() {
+          modalForAdd.style.display = "none";
       }
       
       // When the user clicks anywhere outside of the modal, close it
@@ -210,6 +242,5 @@
 
 <script>
 hamburger();
-
 </script>
 </html>
