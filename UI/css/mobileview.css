@@ -51,7 +51,7 @@
          display: none;
      }
 
-     #myfoodd {
+     #myfood {
          font-size: 1em;
          margin-top: 0.5em;
      }
@@ -224,6 +224,10 @@ div.mycontainer{
   
   .mealscenter{
     margin: 0em 0em 0em 1em;
+  }
+
+  #meal-heading {
+    margin-left: 30%;
   }
   
   div.grid_1_of_4.images_1_of_4{

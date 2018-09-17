@@ -16,3 +16,4 @@ router.put(
 router.delete('/foodItem/:id', UserIdValidator.validator, FoodItem.removeFoodItem);
 
 export default router;
+

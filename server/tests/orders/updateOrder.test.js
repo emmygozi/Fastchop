@@ -63,12 +63,12 @@ describe('PUT /', () => {
     }
   });
 
-  it('should return a failure status for invalid ID 401', async () => {
+  it('should return a failure status for invalid ID 400', async () => {
     try {
       urlId = 'E';
 
       const res = await exec();
-      expect(res.status).to.equal(401);
+      expect(res.status).to.equal(400);
     } catch (err) {
       throw err.message;
     }

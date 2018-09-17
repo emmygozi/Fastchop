@@ -34,7 +34,7 @@ class FoodItem {
   }
 
   static updateFoodItem(req, res) {
-    const updateItem = foodItem.find(c => c.id === parseInt(req.params.id, 10));
+    const updateItem = foodItem.find(food => food.id === parseInt(req.params.id, 10));
     if (!updateItem) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
 
     const { error } = validateFoodItem(req.body);
@@ -49,7 +49,7 @@ class FoodItem {
   }
 
   static removeFoodItem(req, res) {
-    const removeItem = foodItem.find(c => c.id === parseInt(req.params.id, 10));
+    const removeItem = foodItem.find(food => food.id === parseInt(req.params.id, 10));
     if (!removeItem) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
 
     foodItem.splice(removeItem, 1);
@@ -57,7 +57,7 @@ class FoodItem {
   }
 
   static getSpecifiedFoodItem(req, res) {
-    const specifiedItem = foodItem.findIndex(c => c.id === parseInt(req.params.id, 10));
+    const specifiedItem = foodItem.findIndex(food => food.id === parseInt(req.params.id, 10));
     if (specifiedItem === -1) {
       return res.status(404)
         .json({ message: 'The food item with the given ID was not found!' });

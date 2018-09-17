@@ -27,7 +27,7 @@ class Orders {
   }
 
   static updateOrder(req, res) {
-    const updateOrder = myOrder.find(c => c.id === parseInt(req.params.id, 10));
+    const updateOrder = myOrder.find(order => order.id === parseInt(req.params.id, 10));
     if (!updateOrder) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
 
     const { error } = validateOrder(req.body);
@@ -38,7 +38,7 @@ class Orders {
   }
 
   static removeOrder(req, res) {
-    const toRemove = myOrder.find(c => c.id === parseInt(req.params.id, 10));
+    const toRemove = myOrder.find(order => order.id === parseInt(req.params.id, 10));
     if (!toRemove) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
 
     myOrder.splice(toRemove, 1);
@@ -46,7 +46,7 @@ class Orders {
   }
 
   static getSpecifiedOrder(req, res) {
-    const specifiedOrder = myOrder.findIndex(c => c.id === parseInt(req.params.id, 10));
+    const specifiedOrder = myOrder.findIndex(order => order.id === parseInt(req.params.id, 10));
     if (specifiedOrder === -1) {
       return res.status(404)
         .json({ message: 'The food item with the given ID was not found!' });

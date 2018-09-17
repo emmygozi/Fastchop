@@ -1,10 +1,10 @@
 import foodItem from './foodItem';
 import myOrder from './orders';
 
-const loader = {
+const allRoutes = {
   foodItem,
   myOrder
 };
 
 
-export default loader;
+export default allRoutes;
