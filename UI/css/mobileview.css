@@ -51,7 +51,7 @@
          display: none;
      }
 
-     #myfoodd {
+     #myfood {
          font-size: 1em;
          margin-top: 0.5em;
      }
@@ -221,9 +221,22 @@ div.mycontainer{
     float: none;
     width: 100%;
   }
+
+  .flex-home > .firstborder {
+    display: none;
+    width: 0%;
+  }
+
+  .flex-home > .secondborder {
+    width: 100%;
+  } 
   
   .mealscenter{
     margin: 0em 0em 0em 1em;
+  }
+
+  #meal-heading {
+    margin-left: 30%;
   }
   
   div.grid_1_of_4.images_1_of_4{
@@ -242,5 +255,18 @@ div.mycontainer{
   margin-top: 30%;
   height: 80%;
 }
+
+ul >li >a {
+  display: table;
+}
+
+.left {
+  background-color: #171616;
+}
+
+.right {
+  background-color: #202C45;
+}
+
 
 }

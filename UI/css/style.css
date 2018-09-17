@@ -1,5 +1,6 @@
 body {
-    background-color: #4a4b4c;
+	background-color: whitesmoke;
+	font-family: 'Poor Story', cursive;
 }
 #menuset{
 	width: 30%;
@@ -146,7 +147,7 @@ a {
 }
 
 form {
-	background-color: #ddd;
+	background-color: #336896;
 }
 
 .centerheading {
@@ -175,7 +176,7 @@ a {
 	}
 
 
-.right{background-color: #202C45;; 
+.right{background-color: #202C45;
 	height: 70px; 
 	width: 20%; 
 	float: left;
@@ -416,7 +417,7 @@ th, td {
   padding: 1.5%;
   position: relative;
   text-align: center;
-  width: 20.8%;
+  width: 22%;
   background-color: white;
 }
 .images_1_of_4  img{
@@ -482,7 +483,7 @@ th, td {
 
 /* Modal Content */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #dddddd;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -558,5 +559,5 @@ th, td {
 
 #meal-heading {
     margin-left: 46%;
-    color: white;
+    color: black;
 }

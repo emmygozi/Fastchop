@@ -21,11 +21,11 @@ describe('DELETE /:ID', () => {
     urlId = 3;
   });
 
-  it('should return a failure status 401 is not a number', async () => {
+  it('should return a failure status 400 is not a number', async () => {
     try {
       urlId = 'd';
       const res = await exec();
-      expect(res.status).to.equal(401);
+      expect(res.status).to.equal(400);
     } catch (err) {
       throw err.message;
     }

@@ -6,18 +6,17 @@
     <title>Fast-Food-Fast</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/buttonstyles.css">
+    <link rel="stylesheet" type="text/css" href="css/homestyles.css">
+    <link rel="stylesheet" type="text/css" href="css/mobilehomestyleinput.css">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poor+Story" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/mobileview.css">
     <script src="js/mobileview.js"></script>
 
 
-    <style>
-        body {
-            font-family: 'Poor Story', cursive;
-        }
-    
-    </style>
 </head>
 
 <body>
@@ -37,7 +36,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="home.html" id="myhome">Home</a>
+                   <a href="home.html" id="myhome">Home</a> 
                 </li>
             </ul>
         </div>
@@ -45,7 +44,10 @@
         <div class="right">
             <ul>
                 <li>
-                    <a href="customer-order-history.html">Orders</a>
+                    <a href="customer-order-history.html">Orders</a> 
+                    <a href="#">
+                        <input type="text" placeholder="Search..." class="search1">
+                    </a>
                 </li>
 
             </ul>
@@ -53,9 +55,43 @@
 
     </div>
 
+    
 
-    <div class="mycontainer">
 
+
+  
+      <div class="flex-home">
+
+            <div class="firstborder" style=" background-color: #FEFFEC">
+                <div class="fawesome">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div style="font-size: 1.5em;">
+                    <b>Fastchop</b><br><br><br>
+                </div>
+                <div class="mylinks">
+                    <a href="home.html">Home</a>
+                </div>
+                <div class="mylinks">
+                    <a href="orders.html">Orders</a>
+                </div>
+                <div> <!-- We have to override a generic input style -->
+                    <input style="padding: 3px;
+                    margin-top: 4px;
+                    margin-right: 8px;
+                    border: none;
+                    font-size: 17px;
+                    background-color: #FEFFEC; border-bottom: 2px solid #4CAF50"  placeholder="Search..." type="text">
+                </div><br><br><br>
+
+                <div>
+                    Powered by <br>
+                    <p  id="powered">emmygozi&#169;2018</p>
+                </div>
+                </div>
+
+        <div class="secondborder">
+            
             <div class="section group">
                     <div class="grid_1_of_4 images_1_of_4">
                 <a href="customer-order-history.html"><img src="https://image.ibb.co/kw9WLU/pizza.jpg" alt=""></a>
@@ -168,6 +204,9 @@
 
 </div>
 
+
+
+    </div>
 
 </div>
 

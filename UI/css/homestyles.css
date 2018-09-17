@@ -1,0 +1,62 @@
+.flex-home {
+    display: flex;
+    flex-wrap: nowrap;
+    
+  }
+  
+  .fa-utensils {
+      font-size: 5em;
+      color: #4CAF50;
+  }
+  
+  .flex-home > .firstborder {
+      width: 19%;
+      margin-right: 2em;
+      margin-left: 6%;
+      padding: 10px;
+      text-align: center;
+  }
+  
+  .flex-home > .secondborder {
+      width: 80%;
+  }
+  
+  .mylinks {
+      margin-bottom: 1em;
+  }
+  .mylinks > a {
+      font-size: 1.1em;
+      color: black;
+      font-weight: bolder;
+  }
+  
+  hr{
+      background: #4CAF50;
+      border:1px solid #4CAF50;
+  }
+
+  ul >li >a {
+      display: none;
+  }
+
+  .left {
+    background-color: white;
+}
+
+.right {
+    background-color: white;
+}
+
+.search1 {
+    padding: 3px;
+    margin-top: 4px;
+    margin-right: 8px;
+    border: none;
+    font-size: 17px;
+    background-color: #FEFFEC;
+}
+
+#powered {
+    color: #4CAF50;
+}
+
