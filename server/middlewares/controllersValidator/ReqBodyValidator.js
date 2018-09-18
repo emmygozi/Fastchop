@@ -17,7 +17,7 @@ class ReqBodyValidator {
 
     if (!Validator.hasAminLength(name) || !Validator.hasAminLength(description)) {
       return res.status(400).json({
-        message: 'Fields length must not be less than three',
+        message: 'Fields length must not be less than three characters',
       });
     }
 
