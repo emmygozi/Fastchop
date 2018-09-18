@@ -6,6 +6,8 @@
     <title>Fast-Food-Fast</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/buttonstyles.css">
+    <link rel="stylesheet" type="text/css" href="css/homestyles.css">
+    <link rel="stylesheet" type="text/css" href="css/mobilehomestyleinput.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
@@ -13,7 +15,6 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/mobileview.css">
     <script src="js/mobileview.js"></script>
-
 
 </head>
 
@@ -34,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="home.html" id="myhome">Home</a>
+                    <a href="index.html" id="myhome">Home</a>
                 </li>
             </ul>
         </div>
@@ -54,7 +55,39 @@
     </div>
 
 
-    <div>
+    
+    <div class="flex-home">
+
+            <div class="firstborder" style=" background-color: #FEFFEC">
+                <div class="fawesome">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div style="font-size: 1.5em;">
+                    <b>Fastchop</b><br><br><br>
+                </div>
+                <div class="mylinks">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="mylinks">
+                    <a href="admin-dashboard.html">Orders</a>
+                </div>
+                <div> <!-- We have to override a generic input style -->
+                    <input style="padding: 3px;
+                    margin-top: 4px;
+                    margin-right: 8px;
+                    border: none;
+                    font-size: 17px;
+                    background-color: #FEFFEC; border-bottom: 2px solid #4CAF50"  placeholder="Search..." type="text">
+                </div><br><br><br>
+
+                <div>
+                    Powered by <br>
+                    <p  id="powered">emmygozi&#169;2018</p>
+                </div>
+                </div>
+
+
+    <div class="secondborder">
         <h1 id="meal-heading">All Orders</h1>
             <div class="card">
                     <div class="inside-card">
@@ -141,11 +174,9 @@
       btn.onclick = function() {
           modal.style.display = "block";
       }
-
       btn2.onclick = function() {
           modal.style.display = "block";
       }
-
       
       // When the user clicks on <span> (x), close the modal
       span.onclick = function() {
@@ -164,6 +195,7 @@
       
 
     </div>
+    </div>
 
     <div class="footer">
             emmygozi &#169; 2018
@@ -172,6 +204,5 @@
 
 <script>
 hamburger();
-
 </script>
 </html>

@@ -6,23 +6,17 @@
     <title>Fast-Food-Fast</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/buttonstyles.css">
+    <link rel="stylesheet" type="text/css" href="css/homestyles.css">
+    <link rel="stylesheet" type="text/css" href="css/mobilehomestyleinput.css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poor+Story" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poor+Story" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/mobileview.css">
     <script src="js/mobileview.js"></script>
 
 
-    <style>
-        img {
-            opacity: 0.5;
-            filter: alpha(opacity=50); /* For IE8 and earlier */
-        }
-
-    
-    </style>
 </head>
 
 <body>
@@ -42,19 +36,18 @@
                     </a>
                 </li>
                 <li>
-                    <a href="index.html" id="myhome">Home</a>
+                   <a href="i.html" id="myhome">Home</a> 
                 </li>
             </ul>
         </div>
 
         <div class="right">
-                 
             <ul>
                 <li>
-                    <a href="login.html">Login</a>
-                </li>&nbsp;&nbsp;&nbsp;
-                <li>
-                        <a href="signup.html">Signup</a>
+                    <a href="customer-order-history.html">Orders</a> 
+                    <a href="#">
+                        <input type="text" placeholder="Search..." class="search1">
+                    </a>
                 </li>
 
             </ul>
@@ -62,26 +55,167 @@
 
     </div>
 
+    
 
-   <div class="image-house">
 
-     <img src="https://image.ibb.co/cdrLFU/icecream.jpg" alt="">
 
-     <div id="overlay">
-            <div class="text" style="text-align: center">welcome to Fast-Food-Fast <br>
-            <small style="font-size: 0.5em;">we offer quality snack on the go</small> <br>
-            <a class="buttongreen" href="signup.html">Get Started</a>
-        </div>
-          </div>
-   </div>
+  
+      <div class="flex-home">
 
-    <div class="footer">
-            emmygozi &#169; 2018
+            <div class="firstborder" style=" background-color: #FEFFEC">
+                <div class="fawesome">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div style="font-size: 1.5em;">
+                    <b>Fastchop</b><br><br><br>
+                </div>
+                <div class="mylinks">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="mylinks">
+                    <a href="orders.html">Orders</a>
+                </div>
+                <div> <!-- We have to override a generic input style -->
+                    <input style="padding: 3px;
+                    margin-top: 4px;
+                    margin-right: 8px;
+                    border: none;
+                    font-size: 17px;
+                    background-color: #FEFFEC; border-bottom: 2px solid #4CAF50"  placeholder="Search..." type="text">
+                </div><br><br><br>
+
+                <div>
+                    Powered by <br>
+                    <p  id="powered">emmygozi&#169;2018</p>
+                </div>
+                </div>
+
+        <div class="secondborder">
+            
+            <div class="section group">
+                    <div class="grid_1_of_4 images_1_of_4">
+                <a href="customer-order-history.html"><img src="https://image.ibb.co/kw9WLU/pizza.jpg" alt=""></a>
+                <div class="mobileOptimized">
+                <h2>Extra large pizza</h2>
+                <p>
+                    <form action="customer-order-history.html">
+                        <input type="hidden" value="1">
+                        <button class="buttongreen" type="submit">Order</button>
+                    </form>
+                    <span class="price">₦1500.00</span>
+                </p>
+                </div>
+      </div>
+                     <div class="grid_1_of_4 images_1_of_4">
+                <a href="customer-order-history.html"><img src="https://image.ibb.co/h4S479/burger.jpg" alt=""></a>
+                <div class="mobileOptimized">
+                <h2>Burger and Soda</h2>
+                <p>
+                        <form action="customer-order-history.html">
+                            <input type="hidden" value="2">
+                            <button class="buttongreen" type="submit">Order</button>
+                        </form>
+                        <span class="price">₦1500.00</span>
+                    </p>
+                </div>
+      </div>
+                     <div class="grid_1_of_4 images_1_of_4">
+                <a href="customer-order-history.html"><img src="https://image.ibb.co/dNy2S9/chicken.jpg" alt=""></a>
+                <div class="mobileOptimized">
+                <h2>Fried Chicken</h2>
+                <p>
+                        <form action="customer-order-history.html">
+                            <input type="hidden" value="3">
+                            <button class="buttongreen" type="submit">Order</button>
+                        </form>
+                        <span class="price">₦1000.00</span>
+                    </p>
+                </div>
+      </div>
+                     <div class="grid_1_of_4 images_1_of_4">
+                <a href="customer-order-history.html"><img src="https://image.ibb.co/dDxw4p/samosa.jpg" alt=""></a>
+                <div class="mobileOptimized">
+                <h2>Samosa with Sauce</h2>
+                <p>
+                        <form action="customer-order-history.html">
+                            <input type="hidden" value="4">
+                            <button class="buttongreen" type="submit">Order</button>
+                        </form>
+                        <span class="price">₦1000.00</span>
+                    </p>
+                </div>
+      </div>
+   
+</div>
+
+<div class="section group">
+        <div class="grid_1_of_4 images_1_of_4">
+    <a href="customer-order-history.html"><img src="https://image.ibb.co/by8ax9/bread.jpg" alt=""></a>
+    <div class="mobileOptimized">
+    <h2>Toasted Bread </h2>
+    <p>
+            <form action="#">
+                <input type="hidden" value="5">
+                <button class="buttongreen" type="submit">Order</button>
+            </form>
+            <span class="price">₦1000.00</span>
+        </p>
     </div>
+</div>
+         <div class="grid_1_of_4 images_1_of_4">
+    <a href="customer-order-history.html"><img src="https://image.ibb.co/kP5PPp/doughnut.jpg" alt=""></a>
+    <div class="mobileOptimized">
+    <h2>Doughnut and Sauce </h2>
+    <p>
+            <form action="#">
+                <input type="hidden" value="6">
+                <button class="buttongreen" type="submit">Order</button>
+            </form>
+            <span class="price">₦1500.00</span>
+        </p>
+    </div>
+</div>
+         <div class="grid_1_of_4 images_1_of_4">
+    <a href="customer-order-history.html"><img src="https://preview.ibb.co/nHxAFU/steaks.jpg" alt=""></a>
+    <div class="mobileOptimized">
+    <h2>Steaks and Sauce</h2>
+    <p>
+            <form action="#">
+                <input type="hidden" value="7">
+                <button class="buttongreen" type="submit">Order</button>
+            </form>
+            <span class="price">₦1000.00</span>
+        </p>
+    </div>
+</div>
+         <div class="grid_1_of_4 images_1_of_4">
+    <a href="customer-order-history.html"><img src="https://image.ibb.co/cdrLFU/icecream.jpg" alt=""></a>
+    <div class="mobileOptimized">
+    <h2>Ice cream</h2>
+    <p>
+            <form action="#">
+                <input type="hidden" value="8">
+                <button class="buttongreen" type="submit">Order</button>
+            </form>
+            <span class="price">₦1000.00</span>
+        </p>
+    </div>
+</div>
+
+</div>
+
+
+
+    </div>
+
+</div>
+
+<div class="footer">
+        emmygozi &#169; 2018
+</div>
 </body>
 
 <script>
 hamburger();
-
 </script>
 </html>
