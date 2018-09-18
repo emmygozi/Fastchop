@@ -12,6 +12,7 @@ class ReqBodyValidator {
     if (!name || !description || !price || !imageurl) {
       return res.status(400).json({
         message: 'Bad request, no field should not be missing',
+        helpMessage: 'name: string, description: string, price: integer, imageurl: string'
       });
     }
 
@@ -46,6 +47,7 @@ class ReqBodyValidator {
     if (!userid || !mealid || !quantity || !status) {
       return res.status(400).json({
         message: 'Bad request, no field should not be missing',
+        helpMessage: 'userid: integer, mealid: integer, quantity: integer, status: integer'
       });
     }
 
