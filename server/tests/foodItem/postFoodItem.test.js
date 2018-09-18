@@ -33,6 +33,7 @@ describe('POST /', () => {
       const res = await exec();
       expect(res.status).to.equal(201);
       expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
