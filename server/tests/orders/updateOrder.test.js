@@ -8,6 +8,7 @@ const { expect } = chai;
 describe('PUT /', () => {
   let userid;
   let mealid;
+  let quantity;
   let status;
   let urlId;
 
@@ -16,15 +17,16 @@ describe('PUT /', () => {
       return await chai.request(app)
         .put(`/api/v1/orders/${urlId}`)
         .send({
-          userid, mealid, status
+          userid, mealid, quantity, status
         });
     } catch (err) { throw err.message; }
   };
 
   beforeEach(() => {
-    userid = 1;
-    mealid = 3;
-    status = 1;
+    userid = '1';
+    mealid = '3';
+    quantity = '30';
+    status = '1';
     urlId = 2;
   });
 
@@ -33,6 +35,7 @@ describe('PUT /', () => {
       const res = await exec();
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }

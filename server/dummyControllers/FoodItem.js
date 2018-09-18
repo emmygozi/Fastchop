@@ -1,5 +1,4 @@
 import foodItem from '../dummyModels/foodItem';
-import validateFoodItem from '../helpers/validateFoodItem';
 
 class FoodItem {
   static getAll(_req, res) {
@@ -7,9 +6,6 @@ class FoodItem {
   }
 
   static postFoodItem(req, res) {
-    const { error } = validateFoodItem(req.body);
-
-    if (error) return res.status(400).send(error.details[0].message);
     const {
       name, description, price, imageurl
     } = req.body;
@@ -36,9 +32,6 @@ class FoodItem {
   static updateFoodItem(req, res) {
     const updateItem = foodItem.find(food => food.id === parseInt(req.params.id, 10));
     if (!updateItem) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
-
-    const { error } = validateFoodItem(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
 
     updateItem.name = req.body.name;
     updateItem.description = req.body.description;

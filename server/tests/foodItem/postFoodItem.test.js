@@ -24,7 +24,7 @@ describe('POST /', () => {
   beforeEach(() => {
     name = 'myItem1';
     description = 'a description message here';
-    price = 700;
+    price = '700';
     imageurl = 'http://sometesturl';
   });
 
@@ -33,6 +33,7 @@ describe('POST /', () => {
       const res = await exec();
       expect(res.status).to.equal(201);
       expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
@@ -41,6 +42,28 @@ describe('POST /', () => {
   it('should return a failure status for wrong food item name length 400', async () => {
     try {
       name = 'a';
+
+      const res = await exec();
+      expect(res.status).to.equal(400);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a failure status for incomplete query 400', async () => {
+    try {
+      name = '';
+
+      const res = await exec();
+      expect(res.status).to.equal(400);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a failure status for not a number 400', async () => {
+    try {
+      price = 'addd';
 
       const res = await exec();
       expect(res.status).to.equal(400);

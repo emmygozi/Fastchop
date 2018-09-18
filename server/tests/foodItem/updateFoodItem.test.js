@@ -25,7 +25,7 @@ describe('PUT /', () => {
   beforeEach(() => {
     name = 'myItem1';
     description = 'a description message here';
-    price = 700;
+    price = '700';
     imageurl = 'http://sometesturl';
     urlId = 3;
   });
@@ -35,6 +35,7 @@ describe('PUT /', () => {
       const res = await exec();
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
