@@ -49,14 +49,6 @@ class ReqBodyValidator {
       });
     }
 
-
-    if (!Validator.isNumber(userid) || !Validator.isNumber(mealid)
-    || !Validator.isNumber(quantity) || !Validator.isNumber(status)) {
-      return res.status(400).json({
-        message: 'Fields must be a number',
-      });
-    }
-
     req.body = {
       userid: userid.trim(),
       mealid: mealid.trim(),
@@ -64,6 +56,23 @@ class ReqBodyValidator {
       status: status.trim()
     };
     return next();
+  }
+
+  static validateOrderBody(req, res, next) {
+    const {
+      userid,
+      mealid,
+      quantity,
+      status
+    } = req.body;
+
+    if (!Validator.isNumber(userid) || !Validator.isNumber(mealid)
+    || !Validator.isNumber(quantity) || !Validator.isNumber(status)) {
+      return res.status(400).json({
+        message: 'Fields must be a number',
+      });
+    }
+    next();
   }
 }
 

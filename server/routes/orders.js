@@ -9,10 +9,14 @@ const router = express.Router();
 
 router.get('/orders', Orders.getAll);
 router.get('/orders/:id', UserIdValidator.validator, Orders.getSpecifiedOrder);
-router.post('/orders', EmptyRequestValidator.validator, ReqBodyValidator.validateOrder, Orders.postOrder);
+router.post(
+  '/orders', EmptyRequestValidator.validator,
+  ReqBodyValidator.validateOrder, ReqBodyValidator.validateOrderBody, Orders.postOrder
+);
 router.put(
   '/orders/:id', UserIdValidator.validator,
-  EmptyRequestValidator.validator, ReqBodyValidator.validateOrder, Orders.updateOrder
+  EmptyRequestValidator.validator, ReqBodyValidator.validateOrder,
+  ReqBodyValidator.validateOrderBody, Orders.updateOrder
 );
 router.delete('/orders/:id', UserIdValidator.validator, Orders.removeOrder);
 
