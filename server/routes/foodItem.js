@@ -17,7 +17,7 @@ router.put(
   '/foodItem/:id', UserIdValidator.validator,
   EmptyRequestValidator.validator, ReqBodyValidator.validateFood, FoodItem.updateFoodItem
 );
-router.delete('/foodItem/:id', UserIdValidator.validator, FoodItem.removeFoodItem);
+router.delete('/fooditem/:id', UserIdValidator.validator, FoodItem.removeFoodItem);
 
 export default router;
 
