@@ -6,6 +6,8 @@
     <title>Fast-Food-Fast</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/buttonstyles.css">
+    <link rel="stylesheet" type="text/css" href="css/homestyles.css">
+    <link rel="stylesheet" type="text/css" href="css/mobilehomestyleinput.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
@@ -34,7 +36,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="home.html" id="myhome">Home</a>
+                    <a href="index.html" id="myhome">Home</a>
                 </li>
             </ul>
         </div>
@@ -45,6 +47,7 @@
                 <li>
                     <a href="orders.html">Orders </a>
                 </li>
+                
                 <li style=" vertical-align: top; color: white">&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;welcome admin <i class="fas fa-user-ninja"></i>
                     </li>
@@ -55,7 +58,39 @@
     </div>
 
 
-    <div>
+
+    
+    <div class="flex-home">
+
+            <div class="firstborder" style=" background-color: #FEFFEC">
+                <div class="fawesome">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div style="font-size: 1.5em;">
+                    <b>Fastchop</b><br><br><br>
+                </div>
+                <div class="mylinks">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="mylinks">
+                    <a href="orders.html">Orders</a>
+                </div>
+                <div> <!-- We have to override a generic input style -->
+                    <input style="padding: 3px;
+                    margin-top: 4px;
+                    margin-right: 8px;
+                    border: none;
+                    font-size: 17px;
+                    background-color: #FEFFEC; border-bottom: 2px solid #4CAF50"  placeholder="Search..." type="text">
+                </div><br><br><br>
+
+                <div>
+                    Powered by <br>
+                    <p  id="powered">emmygozi&#169;2018</p>
+                </div>
+                </div>
+
+    <div class="secondborder">
         <h1 id="meal-heading">All Meals</h1>
         <div style=" text-align: right" ><a id="myAdd"><i class="fas fa-plus-circle" style="color: #1fce6d; margin: 0em 3em 0em 0em;  font-size: 4em; text-shadow: 2px 4px 8px black;
             "></i></a> </div>
@@ -233,6 +268,7 @@
       
       
 
+    </div>
     </div>
 
     <div class="footer">
