@@ -25,7 +25,7 @@ describe('PUT /', () => {
   beforeEach(() => {
     name = 'myItem1';
     description = 'a description message here';
-    price = 700;
+    price = '700';
     imageurl = 'http://sometesturl';
     urlId = 3;
   });
