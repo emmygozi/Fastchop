@@ -20,7 +20,7 @@ class Orders {
     };
 
     myOrder.push(anOrder);
-    res.status(201).json({ message: 'Created new food item', myOrder });
+    res.status(201).json({ message: 'Created new food item', anOrder });
   }
 
   static updateOrder(req, res) {
@@ -28,7 +28,7 @@ class Orders {
     if (!updateOrder) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
 
     updateOrder.status = req.body.status;
-    res.status(200).json({ message: 'Update suceeded', myOrder });
+    res.status(200).json({ message: 'Update suceeded', updateOrder });
   }
 
   static removeOrder(req, res) {
@@ -36,7 +36,7 @@ class Orders {
     if (!toRemove) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
 
     myOrder.splice(toRemove, 1);
-    res.status(200).json({ message: 'Deleted food item', myOrder });
+    res.status(200).json({ message: 'Deleted food item', toRemove });
   }
 
   static getSpecifiedOrder(req, res) {
