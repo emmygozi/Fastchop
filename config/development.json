@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey": "secret",
+    "db": "postgres://invcukjd:7AuuyEV8imF79fxrY-9PiFi7IiMgy284@stampy.db.elephantsql.com:5432/invcukjd"
+}

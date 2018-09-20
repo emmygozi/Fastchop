@@ -24,6 +24,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
+    "config": "^2.0.1",
     "cross-env": "^5.1.5",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
@@ -31,7 +32,8 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "express": "^4.16.3",
     "joi": "^13.6.0",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",

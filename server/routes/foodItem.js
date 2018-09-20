@@ -7,15 +7,16 @@ import ReqBodyValidator from '../middlewares/controllersValidator/ReqBodyValidat
 
 const router = express.Router();
 
-router.get('/foodItem', FoodItem.getAll);
-router.get('/foodItem/:id', UserIdValidator.validator, FoodItem.getSpecifiedFoodItem);
+router.get('/fooditem', FoodItem.getAll);
 router.post(
-  '/foodItem', EmptyRequestValidator.validator,
-  ReqBodyValidator.validateFood, FoodItem.postFoodItem
+  '/fooditem', EmptyRequestValidator.validator,
+  ReqBodyValidator.validateMenu, FoodItem.postFoodItem
 );
+router.get('/foodItem/:id', UserIdValidator.validator, FoodItem.getSpecifiedFoodItem);
+
 router.put(
   '/foodItem/:id', UserIdValidator.validator,
-  EmptyRequestValidator.validator, ReqBodyValidator.validateFood, FoodItem.updateFoodItem
+  EmptyRequestValidator.validator, ReqBodyValidator.validateMenu, FoodItem.updateFoodItem
 );
 router.delete('/fooditem/:id', UserIdValidator.validator, FoodItem.removeFoodItem);
 

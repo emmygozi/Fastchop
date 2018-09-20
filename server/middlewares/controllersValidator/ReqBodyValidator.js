@@ -1,7 +1,7 @@
 import Validator from '../../helpers/Validator';
 
 class ReqBodyValidator {
-  static validateFood(req, res, next) {
+  static validateMenu(req, res, next) {
     const {
       name,
       description,
@@ -30,8 +30,9 @@ class ReqBodyValidator {
 
     req.body = {
       name: name.trim(),
+      imageurl: imageurl.trim(),
       description: description.trim(),
-      price: price.trim().replace(/['"]+/g, '')
+      price: price.trim()
     };
     return next();
   }

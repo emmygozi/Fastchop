@@ -75,7 +75,7 @@ describe('POST /', () => {
   it('should return a failure status for empty request', async () => {
     try {
       chai.request(app)
-        .post('/api/v1/foodItem')
+        .post('/api/v1/orders')
         .send({
         })
         .end((err, res) => {
