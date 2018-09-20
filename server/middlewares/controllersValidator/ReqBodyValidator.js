@@ -31,7 +31,7 @@ class ReqBodyValidator {
     req.body = {
       name: name.trim(),
       description: description.trim(),
-      price: price.trim()
+      price: price.trim().replace(/['"]+/g, '')
     };
     return next();
   }

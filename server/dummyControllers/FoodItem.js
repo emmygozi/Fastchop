@@ -26,7 +26,7 @@ class FoodItem {
       return res.status(409).json({ message: `An item with '${name}' is already in food items` });
     }
     foodItem.push(aFoodItem);
-    res.status(201).json({ message: 'Created new food item', foodItem });
+    res.status(201).json({ message: 'Created new food item', aFoodItem });
   }
 
   static updateFoodItem(req, res) {
@@ -38,7 +38,7 @@ class FoodItem {
     updateItem.price = req.body.price;
     updateItem.imageurl = req.body.imageurl;
 
-    res.status(200).json({ message: 'Update suceeded', foodItem });
+    res.status(200).json({ message: 'Update suceeded', updateItem });
   }
 
   static removeFoodItem(req, res) {
@@ -46,7 +46,7 @@ class FoodItem {
     if (!removeItem) return res.status(404).json({ message: 'The food item with the given ID was not found!' });
 
     foodItem.splice(removeItem, 1);
-    res.status(200).json({ message: 'Deleted food item', foodItem });
+    res.status(200).json({ message: 'Deleted food item', removeItem });
   }
 
   static getSpecifiedFoodItem(req, res) {
