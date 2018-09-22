@@ -1,6 +1,7 @@
 class Validator {
   static hasAminLength(value) {
-    return value.length >= 3;
+    const newValue = value.trim();
+    return newValue.length >= 3;
   }
 
   static isNumber(number) {

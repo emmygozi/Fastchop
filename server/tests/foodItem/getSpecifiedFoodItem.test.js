@@ -12,7 +12,7 @@ describe('GET /:ID', () => {
   const exec = async () => {
     try {
       return await chai.request(app)
-        .get(`/api/v1/foodItem/${urlId}`);
+        .get(`/api/v1/fooditem/${urlId}`);
     } catch (err) { throw err.message; }
   };
 
