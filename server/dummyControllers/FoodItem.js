@@ -1,23 +1,10 @@
-import { Pool } from 'pg';
-import dotenv from 'dotenv';
 import foodItem from '../dummyModels/foodItem';
 
-dotenv.config();
-
-const mydata = process.env.DATABASE_NAME;
-
-const pool = new Pool({
-  connectionString: mydata
-});
-
 class FoodItem {
-  static async getAll(req, res) {
-    const client = await pool.connect();
-    const { rows } = await client.query('SELECT * FROM menu');
-    client.release();
-    const menus = rows;
-    res.status(200).json({ message: 'Retrieved all menus', menus });
+  static getAll(_req, res) {
+    res.status(200).json({ message: 'Retrieved all food items', foodItem });
   }
+
   static postFoodItem(req, res) {
     const {
       name, description, price, imageurl
