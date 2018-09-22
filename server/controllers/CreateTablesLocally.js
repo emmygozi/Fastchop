@@ -21,7 +21,7 @@ class CreateTables {
 
   static async getNewTable(req, res) {
     const client = await pool.connect();
-    const { rows } = await client.query('SELECT * FROM users');
+    const { rows } = await client.query('SELECT * FROM orders');
     client.release();
     const orders = rows;
     res.status(200).json({ message: 'Retrieved empty table orders', orders });

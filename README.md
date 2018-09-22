@@ -85,56 +85,175 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 		<th>HTTP VERB</th>
 		<th>ENDPOINT</th>
 		<th>FUNCTIONALITY</th>
+		<th>EXPECTED RESPONSE</th>
 	</tr>
 	<tr>
 		<td>GET /</td>
 		<td>/api/v1/orders</td> 
 		<td>Fetch all orders</td>
+		<td>{
+    "message": "Retrieved all orders",
+    "myOrder": [
+        {
+            "id": 1,
+            "userid": 3,
+            "mealid": 6,
+            "quantity": 3,
+            "status": 1
+        },
+        {
+            "id": 2,
+            "userid": 4,
+            "mealid": 7,
+            "quantity": 1,
+            "status": 0
+        },
+        {
+            "id": 3,
+            "userid": 5,
+            "mealid": 8,
+            "quantity": 4,
+            "status": 2
+        }
+    ]
+}</td>
 	</tr>
 	<tr>
 		<td>GET /:id</td>
 		<td>/api/v1/orders/:id</td> 
 		<td>Fetch a specified order</td>
+		<td>{
+            "id": 1,
+            "userid": 3,
+            "mealid": 6,
+            "quantity": 3,
+            "status": 1
+        }</td>
 	</tr>
 	<tr>
 		<td>POST /</td>
 		<td>/api/v1/orders</td> 
 		<td>Make an order</td>
+		<td>
+		{
+            "userid": 3,
+            "mealid": 6,
+            "quantity": 3,
+            "status": 1
+        }
+		</td>
 	</tr>
 	<tr>
 		<td>PUT /:id</td>
 		<td>/api/v1/orders/:id</td> 
 		<td>Modify an order</td>
+		<td>
+		{
+            "userid": 3,
+            "mealid": 6,
+            "quantity": 3,
+            "status": 1
+        }
+		</td>
 	</tr>
 	<tr>
 		<td>DELETE /:id</td>
 		<td>/api/v1/orders/:id</td> 
 		<td>Delete an order</td>
+		<td>{
+            "id": 1,
+            "userid": 3,
+            "mealid": 6,
+            "quantity": 3,
+            "status": 1
+        }
+		</td>
 	</tr>
 	<tr>
 		<td>GET /</td>
 		<td>/api/v1/fooditem</td> 
 		<td>Fetch all food item</td>
+		<td>{
+    "message": "Retrieved all food items",
+    "foodItem": [
+        {
+            "id": 1,
+            "name": "Extra large pizza",
+            "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
+            "price": 1500,
+            "imageurl": "http://imagesavedhere1"
+        },
+        {
+            "id": 2,
+            "name": "Burger and soda",
+            "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
+            "price": 1500,
+            "imageurl": "http://imagesavedhere2"
+        },
+        {
+            "id": 3,
+            "name": "Fried Chicken",
+            "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
+            "price": 1000,
+            "imageurl": "http://imagesavedhere3"
+        }
+    ]
+}
+		</td>
 	</tr>
 	<tr>
 		<td>GET /:id</td>
 		<td>/api/v1/fooditem/:id</td> 
 		<td>Fetch a specified food item</td>
+		<td>
+		{
+            "id": 3,
+            "name": "Fried Chicken",
+            "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
+            "price": 1000,
+            "imageurl": "http://imagesavedhere3"
+        }
+		</td>
 	</tr>
 	<tr>
 		<td>POST /</td>
 		<td>/api/v1/fooditem</td> 
 		<td>Make an food item</td>
+		<td>{
+            "id": 7,
+            "name": "Fried Chicken",
+            "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
+            "price": 1000,
+            "imageurl": "http://imagesavedhere3"
+        }</td>
 	</tr>
 	<tr>
 		<td>PUT /:id</td>
 		<td>/api/v1/fooditem/:id</td> 
 		<td>Modify an food item</td>
+		<td>
+		{
+            "id": 3,
+            "name": "Fried Chicken",
+            "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
+            "price": 1000,
+            "imageurl": "http://imagesavedhere3"
+        }
+		</td>
 	</tr>
 	<tr>
 		<td>DELETE /:id</td>
 		<td>/api/v1/fooditem/:id</td> 
 		<td>Delete an food item</td>
+		<td>
+		{
+            "id": 3,
+            "name": "Fried Chicken",
+            "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
+            "price": 1000,
+            "imageurl": "http://imagesavedhere3"
+        }
+		</td>
 	</tr>
 </table>
 
