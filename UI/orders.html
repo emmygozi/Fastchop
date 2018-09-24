@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="index.html" id="myhome">Home</a>
+                    <a href="home.html" id="myhome">Home</a>
                 </li>
             </ul>
         </div>
@@ -66,7 +66,7 @@
                     <b>Fastchop</b><br><br><br>
                 </div>
                 <div class="mylinks">
-                    <a href="index.html">Home</a>
+                    <a href="home.html">Home</a>
                 </div>
                 <div class="mylinks">
                     <a href="admin-dashboard.html">Orders</a>
@@ -151,7 +151,7 @@
           <p class="closedTwo" style="margin-top: -0.7em;">&times;</p>
           <form action="">
             <div style="margin-left: 2em;">
-              <h3>Do you want to accept this order?</h3>
+              <h3>Are you sure you want to decline this order?</h3>
               <button type="submit" class="buttongreen">Yes</button>
             </div>
           </form>
@@ -166,14 +166,31 @@
       // Get the button that opens the modal
       let btn = document.getElementById("myBtnTwo");
       let btn2 = document.getElementById("myBtnTwo3");
+
+      let myDeleteTwo = document.getElementById("myDeleteTwo");
     
       // Get the <span> element that closes the modal
       let span = document.getElementsByClassName("closedTwo")[0];
       
       // When the user clicks the button, open the modal 
+      myDeleteTwo.onclick = function() {
+            modal.style.display = "block";
+        }
+        let countClicks = 0;
       btn.onclick = function() {
-          modal.style.display = "block";
+          countClicks++;
+        document.getElementById("myDeleteTwo").style.display="none";
+        document.getElementsByClassName('center-flex-child')[1].style.display = "none";
+        const markAsComplete = document.
+        getElementsByClassName('center-flex-child')[0];
+        markAsComplete.style.width = '100%';
+        btn.innerHTML="Mark as complete";
+
+        if(countClicks == 2){
+            btn.href = '#';
+        }
       }
+
       btn2.onclick = function() {
           modal.style.display = "block";
       }
@@ -189,6 +206,7 @@
               modal.style.display = "none";
           }
       }
+
       </script>
       
       

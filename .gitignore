@@ -2,3 +2,5 @@ node_modules
 coverage
 .vscode
 .nyc_output
+.env
+server
