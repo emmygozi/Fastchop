@@ -8,6 +8,14 @@ class Validator {
     const numberToString = number.toString();
     return numberToString.match(/^\d+$/);
   }
+
+  static isEmail(mail) {
+    return (mail.match(/\S+@\S+\.\S+/));
+  }
+
+  static isWhiteSpace(input) {
+    return !input.match(/^\s*$/);
+  }
 }
 
 export default Validator;

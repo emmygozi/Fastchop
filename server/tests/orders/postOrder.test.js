@@ -50,12 +50,28 @@ describe('POST /', () => {
     }
   });
 
+
+  it('should return a failure status for inserting a whitespace character 409', async () => {
+    try {
+      userid = '     ';
+
+      const res = await exec();
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
   it('should return a failure status for incomplete query 400', async () => {
     try {
       mealid = '';
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
@@ -67,6 +83,8 @@ describe('POST /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
@@ -80,6 +98,8 @@ describe('POST /', () => {
         })
         .end((err, res) => {
           expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('message');
         });
     } catch (err) {
       throw err.message;

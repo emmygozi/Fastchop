@@ -2,17 +2,21 @@ import { pool, createUsersTable, createMenuTable, createOrdersTable } from './co
 
 class CreateTables {
   static async userAndMenuTable() {
+    const client = await pool.connect();
     await pool.query(createUsersTable, () => {
       console.log('User Table Created!!');
     });
 
     await pool.query(createMenuTable, () => {
+      client.release();
       console.log('Menu Table Created!!');
     });
   }
 
   static async ordersTable() {
+    const client = await pool.connect();
     await pool.query(createOrdersTable, () => {
+      client.release();
       console.log('Orders Table Created!!');
     });
   }

@@ -10,13 +10,6 @@ class ReqBodyValidator {
     } = req.body;
 
 
-    req.body = {
-      name: name.trim(),
-      imageurl: imageurl.trim(),
-      description: description.trim(),
-      price: price.trim()
-    };
-
     if (!name || !description || !price || !imageurl) {
       return res.status(400).json({
         state: 'Failed',
@@ -25,7 +18,19 @@ class ReqBodyValidator {
       });
     }
 
-    if (!Validator.hasAminLength(name) || !Validator.hasAminLength(description)) {
+    if (!Validator.isWhiteSpace(name) ||
+    !Validator.isWhiteSpace(description) || !Validator.isWhiteSpace(price)
+    || !Validator.isWhiteSpace(imageurl)) {
+      return res.status(400).json({
+        state: 'Failed',
+        message: 'One or more fields contained only whitespace',
+        helpMessage: 'name: string, description: string, price: integer, imageurl: string'
+      });
+    }
+
+
+    if (!Validator.hasAminLength(name) ||
+    !Validator.hasAminLength(description) || !Validator.hasAminLength(imageurl)) {
       return res.status(400).json({
         state: 'Failed',
         message: 'Fields length must not be less than three characters',
@@ -39,6 +44,13 @@ class ReqBodyValidator {
       });
     }
 
+    req.body = {
+      name,
+      price,
+      description,
+      imageurl
+    };
+
     return next();
   }
 
@@ -50,12 +62,6 @@ class ReqBodyValidator {
       status
     } = req.body;
 
-    req.body = {
-      userid: userid.trim(),
-      mealid: mealid.trim(),
-      quantity: quantity.trim(),
-      status: status.trim()
-    };
 
     if (!userid || !mealid || !quantity || !status) {
       return res.status(400).json({
@@ -75,6 +81,17 @@ class ReqBodyValidator {
       quantity,
       status
     } = req.body;
+
+    if (!Validator.isWhiteSpace(userid) ||
+    !Validator.isWhiteSpace(mealid) || !Validator.isWhiteSpace(quantity)
+    || !Validator.isWhiteSpace(status)) {
+      return res.status(400).json({
+        state: 'Failed',
+        message: 'One or more fields contained only whitespace',
+        helpMessage: 'name: string, email: string, password: string'
+      });
+    }
+
 
     if (!Validator.isNumber(userid) || !Validator.isNumber(mealid)
     || !Validator.isNumber(quantity) || !Validator.isNumber(status)) {
