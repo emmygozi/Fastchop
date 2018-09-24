@@ -45,6 +45,8 @@ describe('POST /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
@@ -57,6 +59,10 @@ describe('POST /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+      const errorMessage = 'One or more fields contained only whitespace';
+      expect(res.body).to.have.property('message', errorMessage);
     } catch (err) {
       throw err.message;
     }
@@ -68,6 +74,8 @@ describe('POST /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
@@ -79,6 +87,8 @@ describe('POST /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
@@ -92,6 +102,8 @@ describe('POST /', () => {
         })
         .end((err, res) => {
           expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('message');
         });
     } catch (err) {
       throw err.message;
@@ -103,6 +115,8 @@ describe('POST /', () => {
       // duplicate of status 200
       const res = await exec();
       expect(res.status).to.equal(409);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }

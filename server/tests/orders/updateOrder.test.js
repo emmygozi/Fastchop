@@ -49,6 +49,8 @@ describe('PUT /', () => {
         })
         .end((err, res) => {
           expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('message');
         });
     } catch (err) {
       throw err.message;
@@ -61,6 +63,8 @@ describe('PUT /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
@@ -72,6 +76,8 @@ describe('PUT /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
@@ -83,6 +89,8 @@ describe('PUT /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(404);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }

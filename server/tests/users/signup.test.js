@@ -45,6 +45,8 @@ describe('POST /', () => {
       expect(res.status).to.equal(201);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('message');
+      const sucessMessage = 'You have sucessfully signed up';
+      expect(res.body).to.have.property('message', sucessMessage);
     } catch (err) {
       throw err.message;
     }
@@ -56,6 +58,8 @@ describe('POST /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
@@ -67,6 +71,10 @@ describe('POST /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(409);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+      const errorMessage = 'A user with same email is already registered';
+      expect(res.body).to.have.property('message', errorMessage);
     } catch (err) {
       throw err.message;
     }
@@ -79,6 +87,10 @@ describe('POST /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+      const errorMessage = 'One or more fields contained only whitespace';
+      expect(res.body).to.have.property('message', errorMessage);
     } catch (err) {
       throw err.message;
     }
@@ -90,6 +102,10 @@ describe('POST /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+      const errorMessage = 'Bad request, no field should not be missing';
+      expect(res.body).to.have.property('message', errorMessage);
     } catch (err) {
       throw err.message;
     }
@@ -101,6 +117,10 @@ describe('POST /', () => {
 
       const res = await exec();
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+      const errorMessage = 'Email format must be similar to mail@something.com';
+      expect(res.body).to.have.property('message', errorMessage);
     } catch (err) {
       throw err.message;
     }
@@ -114,6 +134,10 @@ describe('POST /', () => {
         })
         .end((err, res) => {
           expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('message');
+          const errorMessage = 'Empty request';
+          expect(res.body).to.have.property('message', errorMessage);
         });
     } catch (err) {
       throw err.message;
