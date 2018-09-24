@@ -10,7 +10,6 @@ const apiPath = '/api/v1';
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(apiPath, routes.createTablesLocally);
 app.use(apiPath, routes.foodItem);
 app.use(apiPath, routes.myOrder);
 app.use(error);

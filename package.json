@@ -13,6 +13,7 @@
     "build": "cross-env NODE_ENV=production babel ./server/ -d ./server/dist",
     "heroku-postbuild": "npm run build",
     "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./server/app.js",
+    "createtables": "cross-env NODE_ENV=development babel-node ./server/helpers/dbScript/CreateTablesLocally.js",
     "lint": "eslint \"server/**/*.js\" app.js --fix",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "cross-env NODE_ENV=test nyc mocha ./server/tests/**/'*.test.js' --recursive --timeout 100000 --exit"
@@ -31,7 +32,6 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "express": "^4.16.3",
-    "joi": "^13.6.0",
     "morgan": "^1.9.0",
     "pg": "^7.4.3"
   },

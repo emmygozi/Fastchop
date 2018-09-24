@@ -1,7 +1,7 @@
-import { pool, createUsersTable, createMenuTable, createOrdersTable } from '../helpers/dbScript/connectLocalDb';
+import { pool, createUsersTable, createMenuTable, createOrdersTable } from './connectLocalDb';
 
 class CreateTables {
-  static async userAndMenuTable(req, res, next) {
+  static async userAndMenuTable() {
     await pool.query(createUsersTable, () => {
       console.log('User Table Created!!');
     });
@@ -9,23 +9,23 @@ class CreateTables {
     await pool.query(createMenuTable, () => {
       console.log('Menu Table Created!!');
     });
-    next();
   }
 
-  static async ordersTable(req, res, next) {
+  static async ordersTable() {
     await pool.query(createOrdersTable, () => {
       console.log('Orders Table Created!!');
     });
-    next();
   }
 
-  static async getNewTable(req, res) {
+  static async getNewTable() {
     const client = await pool.connect();
     const { rows } = await client.query('SELECT * FROM orders');
     client.release();
     const orders = rows;
-    res.status(200).json({ message: 'Retrieved empty table orders', orders });
+    console.log({ message: 'Retrieved empty table orders', orders });
   }
 }
 
-export default CreateTables;
+CreateTables.userAndMenuTable();
+CreateTables.ordersTable();
+CreateTables.getNewTable();
