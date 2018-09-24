@@ -7,29 +7,40 @@ const { expect } = chai;
 
 describe('POST /', () => {
   let name;
-  let description;
-  let price;
-  let imageurl;
+  let email;
+  let password;
+
+  function uniqueEmail() {
+    let text = '';
+    const possible = 'ABCDEabcdeuvwyz0123456789';
+
+    for (let i = 0; i < 5; i += 1) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    return text;
+  }
 
   const exec = async () => {
     try {
       return await chai.request(app)
-        .post('/api/v1/foodItem')
+        .post('/api/v1/auth/signup')
         .send({
-          name, description, price, imageurl
+          name, email, password
         });
     } catch (err) { throw err.message; }
   };
 
   beforeEach(() => {
-    name = 'myItem1';
-    description = 'a description message here';
-    price = '700';
-    imageurl = 'http://sometesturl';
+    name = 'testname';
+    email = 'testmail@yahoo.com';
+    password = '12345';
   });
 
   it('should return a success status 201', async () => {
     try {
+      email = `${uniqueEmail()}@yahoo.com`;
+
       const res = await exec();
       expect(res.status).to.equal(201);
       expect(res.body).to.be.an('object');
@@ -39,7 +50,7 @@ describe('POST /', () => {
     }
   });
 
-  it('should return a failure status for wrong food item name length 400', async () => {
+  it('should return a failure status for inserting a string less than 3 characters 400', async () => {
     try {
       name = 'a';
 
@@ -50,8 +61,19 @@ describe('POST /', () => {
     }
   });
 
+  it('should return a failure status for inserting a duplicate string 409', async () => {
+    try {
+      await exec();
 
-  it('should return a failure status for whitespace character', async () => {
+      const res = await exec();
+      expect(res.status).to.equal(409);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
+  it('should return a failure status for inserting a whitespace characters 400', async () => {
     try {
       name = '      ';
 
@@ -73,9 +95,9 @@ describe('POST /', () => {
     }
   });
 
-  it('should return a failure status for not a number 400', async () => {
+  it('should return a failure status for not an email 400', async () => {
     try {
-      price = 'addd';
+      email = 'addd';
 
       const res = await exec();
       expect(res.status).to.equal(400);
@@ -87,22 +109,12 @@ describe('POST /', () => {
   it('should return a failure status for empty request', async () => {
     try {
       chai.request(app)
-        .post('/api/v1/foodItem')
+        .post('/api/v1/auth/signup')
         .send({
         })
         .end((err, res) => {
           expect(res.status).to.equal(400);
         });
-    } catch (err) {
-      throw err.message;
-    }
-  });
-
-  it('should return a failure status for duplicate food item name 409', async () => {
-    try {
-      // duplicate of status 200
-      const res = await exec();
-      expect(res.status).to.equal(409);
     } catch (err) {
       throw err.message;
     }

@@ -50,6 +50,18 @@ describe('POST /', () => {
     }
   });
 
+
+  it('should return a failure status for inserting a whitespace character 409', async () => {
+    try {
+      userid = '     ';
+
+      const res = await exec();
+      expect(res.status).to.equal(400);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
   it('should return a failure status for incomplete query 400', async () => {
     try {
       mealid = '';
