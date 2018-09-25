@@ -1,5 +1,4 @@
 import express from 'express';
-// import FoodItem from '../dummyControllers/FoodItem';
 import Menu from '../controllers/Menu';
 import EmptyRequestValidator from '../middlewares/EmptyRequestValidator';
 import UserIdValidator from '../middlewares/UserIdValidator';
