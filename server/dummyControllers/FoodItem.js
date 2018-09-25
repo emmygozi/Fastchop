@@ -1,10 +1,6 @@
 import foodItem from '../dummyModels/foodItem';
 
 class FoodItem {
-  static getAll(_req, res) {
-    res.status(200).json({ message: 'Retrieved all food items', foodItem });
-  }
-
   static postFoodItem(req, res) {
     const {
       name, description, price, imageurl

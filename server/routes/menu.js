@@ -1,5 +1,6 @@
 import express from 'express';
 import FoodItem from '../dummyControllers/FoodItem';
+import Menu from '../controllers/Menu';
 import EmptyRequestValidator from '../middlewares/EmptyRequestValidator';
 import UserIdValidator from '../middlewares/UserIdValidator';
 import ReqBodyValidator from '../middlewares/controllersValidator/ReqBodyValidator';
@@ -7,7 +8,7 @@ import ReqBodyValidator from '../middlewares/controllersValidator/ReqBodyValidat
 
 const router = express.Router();
 
-router.get('/fooditem', FoodItem.getAll);
+router.get('/menu', Menu.getAll);
 router.post(
   '/fooditem', EmptyRequestValidator.validator,
   ReqBodyValidator.validateMenu, FoodItem.postFoodItem

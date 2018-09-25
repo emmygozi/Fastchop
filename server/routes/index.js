@@ -1,10 +1,10 @@
 import users from './users';
-import foodItem from './foodItem';
+import menu from './menu';
 import myOrder from './orders';
 
 const allRoutes = {
   users,
-  foodItem,
+  menu,
   myOrder
 };
 
