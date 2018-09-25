@@ -39,6 +39,23 @@ class Menu {
 
     return res.status(201).json({ state: 'Sucessful', message: 'Created new menu', newlyCreatedMenu });
   }
+
+  static async getSpecifiedMenu(req, res) {
+    const getId = req.params.id;
+
+    const client = await pool.connect();
+    const { rows } = await pool.query(`SELECT * FROM menu WHERE id = '${getId}'`);
+    client.release();
+
+    if (rows.length === 0) {
+      return res.status(404)
+        .json({ state: 'Failed', message: 'The menu with the given ID was not found!' });
+    }
+
+    const retrievedMenu = rows[0];
+
+    return res.status(200).json({ state: 'Succesful', message: 'Retrieved specified menu', retrievedMenu });
+  }
 }
 
 export default Menu;
