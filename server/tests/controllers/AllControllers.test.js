@@ -727,23 +727,4 @@ describe('PUT API/V1/MENU/:ID', () => {
       throw err.message;
     }
   });
-
-
-  it('should return a failure status for no permission 401', async () => {
-    try {
-      chai.request(app)
-        .put('/api/v1/menu/53')
-        .set('x-auth-token', generateAuthToken('56', 'bvuc9@yahoo.com', 'customer'))
-        .send({
-          name, description, price, imageurl
-        })
-        .end((err, res) => {
-          expect(res.status).to.equal(401);
-          expect(res.body).to.be.an('object');
-          expect(res.body).to.have.property('message');
-        });
-    } catch (err) {
-      throw err.message;
-    }
-  });
 });
