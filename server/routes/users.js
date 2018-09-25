@@ -11,5 +11,10 @@ router.post(
   UserRequestValidators.validateSignup, Users.signup
 );
 
+router.post(
+  '/auth/login', EmptyRequestValidator.validator,
+  UserRequestValidators.validateLogin, Users.login
+);
+
 export default router;
 
