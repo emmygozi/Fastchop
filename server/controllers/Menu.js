@@ -11,14 +11,6 @@ class Menu {
   }
 
   static async postMenu(req, res) {
-    // add if verified jwt is not admin return unauthorized 401
-    console.log(req.aDecodedUser);
-    const hasAdminPermission = req.aDecodedUser;
-
-    if (hasAdminPermission.role !== 'admin') {
-      return res.status(401)
-        .json({ state: 'Failed', message: 'You do not have admin permission to perform this function' });
-    }
     const {
       name, imageurl, description, price
     } = req.body;
