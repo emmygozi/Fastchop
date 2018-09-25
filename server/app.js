@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(apiPath, routes.users);
 app.use(apiPath, routes.menu);
-app.use(apiPath, routes.myOrder);
 app.use(error);
 
 const port = process.env.PORT || 8000;
