@@ -9,44 +9,30 @@ describe('POST /', () => {
   let name;
   let email;
   let password;
-  let extrafield;
 
-  function uniqueEmail() {
-    let text = '';
-    const possible = 'ABCDEabcdeuvwyz0123456789';
-
-    for (let i = 0; i < 5; i += 1) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-
-    return text;
-  }
 
   const exec = async () => {
     try {
       return await chai.request(app)
-        .post('/api/v1/auth/signup')
+        .post('/api/v1/auth/login')
         .send({
-          name, email, password
+          email, password
         });
     } catch (err) { throw err.message; }
   };
 
   beforeEach(() => {
-    name = 'testname';
-    email = 'testmail@yahoo.com';
+    email = 'mymail3@something.com';
     password = '12345';
   });
 
-  it('should return a success status 201', async () => {
+  it('should return a success status 200', async () => {
     try {
-      email = `${uniqueEmail()}@yahoo.com`;
-
       const res = await exec();
-      expect(res.status).to.equal(201);
+      expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('message');
-      const sucessMessage = 'You have sucessfully signed up';
+      const sucessMessage = 'Logged on to site';
       expect(res.body).to.have.property('message', sucessMessage);
     } catch (err) {
       throw err.message;
@@ -55,26 +41,41 @@ describe('POST /', () => {
 
   it('should return a failure status for inserting a string less than 3 characters 400', async () => {
     try {
-      name = 'a';
+      password = 'a';
 
       const res = await exec();
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('message');
+      const errorMessage = 'Fields length must not be less than three characters';
+      expect(res.body).to.have.property('message', errorMessage);
     } catch (err) {
       throw err.message;
     }
   });
 
-  it('should return a failure status for inserting a duplicate string 409', async () => {
+  it('should return a failure status for an invalid email or password string 400', async () => {
     try {
-      await exec();
-
+      email = 'akakakkkakkakaka@ppappxhhs.com';
       const res = await exec();
-      expect(res.status).to.equal(409);
+      expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('message');
-      const errorMessage = 'A user with same email is already registered';
+      const errorMessage = 'Invalid email or password';
+      expect(res.body).to.have.property('message', errorMessage);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a failure status for an invalid email or password string 400', async () => {
+    try {
+      password = 'akakakkkakkakaka@ppappxhhshdjjdp39en39939dddjjd8*com';
+      const res = await exec();
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+      const errorMessage = 'Invalid email or password';
       expect(res.body).to.have.property('message', errorMessage);
     } catch (err) {
       throw err.message;
@@ -84,7 +85,7 @@ describe('POST /', () => {
 
   it('should return a failure status for inserting a whitespace characters 400', async () => {
     try {
-      name = '      ';
+      email = '      ';
 
       const res = await exec();
       expect(res.status).to.equal(400);
@@ -99,7 +100,7 @@ describe('POST /', () => {
 
   it('should return a failure status for incomplete query 400', async () => {
     try {
-      name = '';
+      email = '';
 
       const res = await exec();
       expect(res.status).to.equal(400);
@@ -130,7 +131,7 @@ describe('POST /', () => {
   it('should return a failure status for empty request', async () => {
     try {
       chai.request(app)
-        .post('/api/v1/auth/signup')
+        .post('/api/v1/auth/login')
         .send({
         })
         .end((err, res) => {
@@ -146,16 +147,14 @@ describe('POST /', () => {
   });
 
   it('should return a failure fields are more than required', async () => {
-    extrafield = '12345';
-
     try {
+      name = 'name';
       chai.request(app)
-        .post('/api/v1/auth/signup')
+        .post('/api/v1/auth/login')
         .send({
           name,
           email,
           password,
-          extrafield
         })
         .end((err, res) => {
           expect(res.status).to.equal(400);

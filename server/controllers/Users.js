@@ -51,6 +51,45 @@ class User {
       });
     // assign pick to a const
   }
+
+  static async login(req, res) {
+    const {
+      email, password
+    } = req.body;
+
+    const query = {
+      text: 'SELECT id, email, password, role FROM users WHERE email=$1',
+      values: [`${email}`],
+      rowMode: 'array',
+    };
+
+
+    const { rows } = await pool.query(query);
+
+    if (rows.length < 1) {
+      return res.status(400).json({ state: 'Failed', message: 'Invalid email or password' });
+    }
+
+    const foundPassword = rows[0][2];
+
+    const validPassword = await bcrypt.compare(password, foundPassword);
+    if (!validPassword) return res.status(400).json({ state: 'Failed', message: 'Invalid email or password' });
+
+    const userId = rows[0][0];
+    const userMail = rows[0][1];
+    const userRole = rows[0][3];
+
+    const token = generateAuthToken(
+      userId, userMail,
+      userRole
+    );
+
+    res.header('x-auth-token', token).status(200)
+      .json({
+        state: 'Succesful',
+        message: 'Logged on to site',
+      });
+  }
 }
 
 export default User;
