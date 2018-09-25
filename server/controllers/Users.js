@@ -75,9 +75,13 @@ class User {
     const validPassword = await bcrypt.compare(password, foundPassword);
     if (!validPassword) return res.status(400).json({ state: 'Failed', message: 'Invalid email or password' });
 
+    const userId = rows[0][0];
+    const userMail = rows[0][1];
+    const userRole = rows[0][3];
+
     const token = generateAuthToken(
-      rows[0][0], rows[0][1],
-      rows[0][3]
+      userId, userMail,
+      userRole
     );
 
     res.header('x-auth-token', token).status(200)
