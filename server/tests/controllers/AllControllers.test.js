@@ -6,7 +6,7 @@ import generateAuthToken from '../../helpers/generateAuthToken';
 chai.use(chaiHttp);
 const { expect } = chai;
 
-describe('AUTH /', () => {
+describe('AUTHORIZE USER TOKEN /', () => {
   const name = 'somename';
   const description = 'a description message here';
   const price = '700';
@@ -374,7 +374,7 @@ describe('POST API/V1/AUTH/SIGNUP/', () => {
   });
 });
 
-describe('GET /', () => {
+describe('GET ALL MENU /', () => {
   it('should return a success status 200', async () => {
     try {
       const res = await chai.request(app)
@@ -390,7 +390,7 @@ describe('GET /', () => {
   });
 });
 
-describe('GET /:ID', () => {
+describe('GET MENU /:ID', () => {
   it('should return a success status 200', async () => {
     try {
       const res = await chai.request(app)
