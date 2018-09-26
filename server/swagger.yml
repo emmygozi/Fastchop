@@ -438,7 +438,7 @@ paths:
                     quantity: 4,
                     dateadded: : 2018-08-01 10:07:18 +0000
         401:
-          description: order could not be placed
+          description: orders could not be placed
           examples: 
             application/json:
               status: Failed
