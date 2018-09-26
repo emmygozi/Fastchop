@@ -19,6 +19,7 @@ router.put(
   '/menu/:id', Authorization.auth, UserIdValidator.validator,
   EmptyRequestValidator.validator, ReqBodyValidator.validateMenu, Menu.updateSpecifiedMenu
 );
+router.delete('/menu/:id', Authorization.auth, UserIdValidator.validator, Menu.removeAMenu);
 
 export default router;
 

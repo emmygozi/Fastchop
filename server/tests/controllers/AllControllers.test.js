@@ -3,6 +3,7 @@ import chaiHttp from 'chai-http';
 import app from '../../app';
 import generateAuthToken from '../../helpers/generateAuthToken';
 
+
 chai.use(chaiHttp);
 const { expect } = chai;
 
@@ -61,7 +62,7 @@ describe('POST API/V1/AUTH/LOGIN /', () => {
   };
 
   beforeEach(() => {
-    email = 'mymail3@something.com';
+    email = 'admin2@fastchop.com';
     password = '12345';
   });
 
@@ -239,7 +240,7 @@ describe('POST API/V1/AUTH/SIGNUP/', () => {
   beforeEach(() => {
     name = 'testname';
     email = 'testmail@yahoo.com';
-    password = '12345';
+    password = '1234567';
   });
 
   it('should return a success status 201', async () => {
@@ -441,7 +442,7 @@ describe('POST API/V1/MENU/', () => {
   let price;
   let imageurl;
 
-  const [uniqueId, userEmail, userRole] = ['52', 'admin@fastchop.com', 'admin'];
+  const [uniqueId, userEmail, userRole] = ['3', 'admin2@fastchop.com', 'admin'];
 
   function uniqueMenuName() {
     let text = '';
@@ -588,13 +589,48 @@ describe('POST API/V1/MENU/', () => {
   });
 });
 
+describe('DELETE MENU /:ID', () => {
+  const [uniqueId, userEmail, userRole] = ['3', 'admin3@fastchop.com', 'admin'];
+  it('should return a failure status 404', async () => {
+    try {
+      const res = await chai.request(app)
+        .delete('/api/v1/menu/1004076')
+        .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole));
+      expect(res.status).to.equal(404);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+      const failureMessage = 'Given ID was not found';
+      expect(res.body).to.have.property('message', failureMessage);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
+  it('should return a failure status 400', async () => {
+    try {
+      const res = await chai.request(app)
+        .delete('/api/v1/menu/-1')
+        .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole));
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+      const failureMessage = 'Given ID is not valid';
+      expect(res.body).to.have.property('message', failureMessage);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+});
+
+
 describe('PUT API/V1/MENU/:ID', () => {
   let name;
   let description;
   let price;
   let imageurl;
 
-  const [uniqueId, userEmail, userRole] = ['52', 'admin@fastchop.com', 'admin'];
+  const [uniqueId, userEmail, userRole] = ['3', 'admin2@fastchop.com', 'admin'];
 
   function uniqueMenuName() {
     let text = '';
@@ -611,7 +647,7 @@ describe('PUT API/V1/MENU/:ID', () => {
   const exec = async () => {
     try {
       return await chai.request(app)
-        .put('/api/v1/menu/50')
+        .put('/api/v1/menu/1')
         .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole))
         .send({
           name, description, price, imageurl
@@ -683,7 +719,7 @@ describe('PUT API/V1/MENU/:ID', () => {
   it('should return a failure not found request 404', async () => {
     try {
       chai.request(app)
-        .put('/api/v1/menu/4')
+        .put('/api/v1/menu/1')
         .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole))
         .send({
           name, description, price, imageurl
@@ -714,7 +750,7 @@ describe('PUT API/V1/MENU/:ID', () => {
   it('should return a failure status for empty request', async () => {
     try {
       chai.request(app)
-        .put('/api/v1/menu/51')
+        .put('/api/v1/menu/1')
         .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole))
         .send({
         })
@@ -728,3 +764,4 @@ describe('PUT API/V1/MENU/:ID', () => {
     }
   });
 });
+

@@ -79,6 +79,24 @@ class Menu {
 
     return res.status(200).json({ message: 'Updated specified menu', updatedMenu });
   }
+
+  static async removeAMenu(req, res) {
+    const deleteId = req.params.id;
+
+    const client = await pool.connect();
+    const { rows } = await pool.query(`DELETE FROM menu
+     WHERE id = '${deleteId}' RETURNING *`);
+
+    client.release();
+
+    if (rows.length === 0) {
+      return res.status(404)
+        .json({ state: 'Failed', message: 'Given ID was not found' });
+    }
+    const deletedMenu = rows[0];
+    return res.status(200)
+      .json({ state: 'Sucessful', message: 'Menu is deleted!', deletedMenu });
+  }
 }
 
 export default Menu;
