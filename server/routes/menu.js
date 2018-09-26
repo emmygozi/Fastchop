@@ -17,9 +17,10 @@ router.post(
 );
 router.put(
   '/menu/:id', Authorization.auth, UserIdValidator.validator,
-  EmptyRequestValidator.validator, ReqBodyValidator.validateMenu, Menu.updateSpecifiedMenu
+  EmptyRequestValidator.validator,
+  ReqBodyValidator.validateMenu, HasAdminPermission.toMakeChanges, Menu.updateSpecifiedMenu
 );
-router.delete('/menu/:id', Authorization.auth, UserIdValidator.validator, Menu.removeAMenu);
+router.delete('/menu/:id', Authorization.auth, UserIdValidator.validator, HasAdminPermission.toMakeChanges, Menu.removeAMenu);
 
 export default router;
 
