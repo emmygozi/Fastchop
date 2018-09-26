@@ -1,0 +1,445 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Fast-food-fast
+  description: Fast-food-fast Documentation
+  # My Contact Info
+  contact:
+    email: ahaiweemmanuel@gmail.com
+basePath: /api/v1
+
+securityDefinitions:
+  x-auth-token:
+    name: x-auth-token
+    in: header
+
+# tags are used for organizing operations
+tags:
+- name: x-auth-token
+  description: storing encrypted user details
+- name: user
+  description: signup and login
+- name: entries
+  description: Operations for entries
+
+paths:
+  /auth/login:
+    post:
+      tags:
+        - x-auth-token
+      summary: login a users
+      description: Log in a user to the application
+      produces:
+      - application/json
+      parameters:
+      - name: email
+        in: formData
+        description: user email
+        type: email
+        required: true
+      - name: password
+        in: formData
+        description: user password
+        type: password
+        required: true
+      responses:
+        200: 
+          description: User is logged in sucessfully
+          examples:
+            application/json:
+              status: successful
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ5LCJpYXQiOjE1MzMxMzkxOTcsImV4cCI6MTUzMzIyNTU5N30.OKx5ezcJEp7JU3IrNTnmC5uNxJpoDBbTFWH2SHlX13Q
+              user:
+                email: fetch10@mail.com
+        400:
+          description: Invalid Input
+          examples:
+            application/json:
+              message: Invalid email or password
+
+  /auth/signup:
+    post:
+      tags:
+      - x-auth-token
+      summary: User signup
+      description: Signup a new user into the app
+      produces:
+      - application/json
+      parameters:
+      - name: name
+        in: formData
+        description: name of user
+        type: text
+        required: true
+      - name: email
+        in: formData
+        description: email of user
+        type: email
+        required: true
+      - name: password
+        in: formData
+        description: password of user
+        type: password
+        required: true
+
+      responses:
+        201:
+          description: User is successfully signed up
+          examples:
+            application/json:
+              status: successful
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ5LCJpYXQiOjE1MzMxMzkxOTcsImV4cCI6MTUzMzIyNTU5N30.OKx5ezcJEp7JU3IrNTnmC5uNxJpoDBbTFWH2SHlX13Q
+              user:
+                email: fetch10@mail.com
+        409:
+          description: User already registered
+          examples:
+            application/json:
+              message: User already registered
+
+
+  /menu:
+    get:
+      tags:
+      - menu
+      summary: Get all menus
+      description: Shows all menus to customers
+      security: 
+      - x-auth-token
+      produces:
+      - application/json
+      responses:
+        200:
+          description: A list of all menus
+          examples:
+            application/json:
+              status: successfull
+              menus:
+                  - {
+                    state: Succesful,
+                    message: Retrieved all menus,
+                    menus: [
+                            {
+                    id: 1,
+                    name: Extra large pizza,
+                    description: Get your meals on the go in the most efficient manner. Our snacks are very tasty,
+                    price: 1500,
+                    imageurl: http://imagesavedhere1
+                  },
+                  {
+                    id: 2,
+                    name: Burger and soda,
+                    description: Get your meals on the go in the most efficient manner. Our snacks are very tasty,
+                    price: 1500,
+                    imageurl: http://imagesavedhere2
+                  },
+                  {
+                    id: 3,
+                    name: Fried Chicken,
+                    description: Get your meals on the go in the most efficient manner. Our snacks are very tasty,
+                    price: 1000,
+                    imageurl: http://imagesavedhere3
+                  }
+                ]
+                }
+    post:
+      tags:
+      - menu
+      summary: Add an menu
+      description: Add a menu for customers to place orders
+      security:
+      - - x-auth-token
+      produces:
+      - application/json
+      parameters:
+      - in: formData
+        name: name
+        type: string
+        description: Name of menu
+        required: true
+      - in: formData
+        name: description
+        type: string
+        message: menu description
+        required: true
+      - in: formData
+        name: imageurl
+        type: string
+        message: image address of menu picture
+        required: true
+      - in: formData
+        name: price
+        type: integer
+        message: menu price
+        required: true
+      - in: formData
+      responses:
+        201:
+          description: menu saved successfully
+          examples:
+            application/json:
+              status: success
+              entry:
+                    id: 2,
+                    name: Burger and soda,
+                    description: Get your meals on the go in the most efficient manner. Our snacks are very tasty,
+                    price: 1500,
+                    imageurl: http://imagesavedhere2
+                  
+        400: 
+          description: Invalid input
+          examples:
+            application/json:
+              error: error
+             
+
+  /menu/{id}:
+    put:
+      tags:
+      - menu
+      summary: update a specific menu
+      security:
+      - x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: formData
+        name: name
+        type: string
+        description: Name of menu
+        required: true
+      - in: formData
+        name: description
+        type: string
+        message: menu description
+        required: true
+      - in: formData
+        name: imageurl
+        type: string
+        message: image address of menu picture
+        required: true
+      - in: formData
+        name: price
+        type: integer
+        message: menu price
+        required: true
+      - in: formData
+      responses:
+        200:
+          description: Updated menu successfully
+          examples:
+            application/json:
+            status: successfull
+            message: Menu updated successfully updated
+            entry:
+                id: 2
+                  title: Updated2 now test user1 title
+                  category: Life
+                  message: This2 now qwerty is our updated entry message that we are using for this diap
+                  user_id: 1
+                  date_added: 2018-08-01 10:07:18 +0000
+        404: 
+          description: Menu not found
+          examples:
+            application/json:
+              status: failed
+              message: Given ID does not exist
+    delete:
+      tags:
+      - menu
+      summary: Delete an menu
+      security:
+      x-auth-token: token
+      produces: 
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: id of the menu to delete
+        type: integer
+      responses:
+        200:
+          description: menu deleted
+          examples:
+            application/json:
+              status: successfull
+              message: menu is deleted!
+        404:
+          description: menu could not be found
+          examples: 
+            application/json:
+              status: Failed
+              message: Given ID does not exist
+    get:
+      tags:
+      - menu
+      summary: Get an menu
+      description: Gets a single menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: id of the menu
+        type: integer
+      responses:
+        200:
+          description: View an menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one menu!
+              entry:
+                id: 2,
+                    name: Burger and soda,
+                    description: Get your meals on the go in the most efficient manner. Our snacks are very tasty,
+                    price: 1500,
+                    imageurl: http://imagesavedhere2
+
+        404:
+          description: Menu could not be found
+          examples: 
+            application/json:
+              status: Failed
+              message: menu does not exist
+
+
+
+
+
+
+
+  /orders:
+    get:
+      tags:
+      - orders
+      summary: Get all orders
+      description: Get customers order
+      security: 
+      - x-auth-token
+      produces:
+      - application/json
+      responses:
+        200:
+          description: A list of all orders
+          examples:
+            application/json:
+              status: successfull
+              menus:
+                  - state: 'Succesful', 
+                  message: 'Retrieved all orders',
+                  menus: [
+                    name: Burger and soda,
+                    dateadded: : 2018-08-01 10:07:18 +0000
+                  ]
+    post:
+      tags:
+      - orders
+      summary: Add an order
+      description: Place an order
+      security:
+      - - x-auth-token
+      produces:
+      - application/json
+      parameters:
+      - in: formData
+        name: mealid
+        type: integer
+        description: id of menu
+        required: true
+      - in: formData
+        name: quantity
+        type: integer
+        message: quantity ordered
+        required: true
+      - in: formData
+      responses:
+        201:
+          description: order saved successfully
+          examples:
+            application/json:
+              status: success
+              order:
+                  state: 'Sucessful', 
+                  message: 'Created new menu',
+                  newlyCreatedMenu: [
+                    menuid: 1,
+                    userid: 2,
+                    quantity: 4,
+                    dateadded: : 2018-08-01 10:07:18 +0000
+                  ]
+        400: 
+          description: Invalid input
+          examples:
+            application/json:
+              error: error
+             
+
+  /order/:
+    put:
+      tags:
+      - order
+      summary: update a specific order
+      security:
+      - x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: formData
+        name: status
+        type: enum ('approved', 'declined')
+      responses:
+        200:
+          description: Updated menu successfully
+          examples:
+            application/json:
+            status: successfull
+            message: Menu updated successfully updated
+            entry:
+                menuid: 1,
+                    userid: 2,
+                    quantity: 4,
+                    dateadded: : 2018-08-01 10:07:18 +0000
+        404: 
+          description: Order not found
+          examples:
+            application/json:
+              status: failed
+              message: Incorrect entry
+    get:
+      tags:
+      - order
+      summary: Get a order
+      description: Gets a single order
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View an order
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one order!
+              order:
+                menuid: 1,
+                    userid: 2,
+                    quantity: 4,
+                    dateadded: : 2018-08-01 10:07:18 +0000
+        401:
+          description: order could not be placed
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot place this order because menuid referenced has not been created
