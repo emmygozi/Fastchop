@@ -53,6 +53,50 @@ class ReqBodyValidator {
 
     return next();
   }
+
+
+  static validateOrder(req, res, next) {
+    const {
+      menuid,
+      quantity
+    } = req.body;
+
+
+    if (!(menuid) || !(quantity)) {
+      return res.status(400).json({
+        state: 'Failed',
+        message: 'Bad request, no field should not be missing',
+        helpMessage: 'userid: integer, quantity: integer'
+      });
+    }
+
+    return next();
+  }
+
+  static validateOrderBody(req, res, next) {
+    const {
+      menuid,
+      quantity
+    } = req.body;
+
+    if (!Validator.isWhiteSpace(menuid) || !Validator.isWhiteSpace(quantity)) {
+      return res.status(400).json({
+        state: 'Failed',
+        message: 'One or more fields contained only whitespace',
+        helpMessage: 'userid: integer, quantity: integer'
+      });
+    }
+
+
+    if (!Validator.isNumber(menuid)
+    || !Validator.isNumber(quantity)) {
+      res.status(400).json({
+        state: 'Failed',
+        message: 'Fields must be a number',
+      });
+    }
+    next();
+  }
 }
 
 export default ReqBodyValidator;
