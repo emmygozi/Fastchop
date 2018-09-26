@@ -15,6 +15,10 @@ router.post(
   '/menu', Authorization.auth, EmptyRequestValidator.validator,
   ReqBodyValidator.validateMenu, HasAdminPermission.toMakeChanges, Menu.postMenu
 );
+router.put(
+  '/menu/:id', Authorization.auth, UserIdValidator.validator,
+  EmptyRequestValidator.validator, ReqBodyValidator.validateMenu, Menu.updateSpecifiedMenu
+);
 
 export default router;
 

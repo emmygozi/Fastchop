@@ -56,6 +56,29 @@ class Menu {
 
     return res.status(200).json({ state: 'Succesful', message: 'Retrieved specified menu', retrievedMenu });
   }
+
+  static async updateSpecifiedMenu(req, res) {
+    const myUpdateId = req.params.id;
+    const {
+      name, imageurl, description, price
+    } = req.body;
+
+    const client = await pool.connect();
+    const { rows } = await pool.query(`UPDATE menu SET name = '${name}', imageurl = '${imageurl}',
+    description = '${description}', price = '${price}'
+    WHERE id = ${myUpdateId} RETURNING *`);
+
+    client.release();
+
+    if (rows.length === 0) {
+      return res.status(404)
+        .json({ message: 'The menu with the given ID was not found!' });
+    }
+
+    const updatedMenu = rows[0];
+
+    return res.status(200).json({ message: 'Updated specified menu', updatedMenu });
+  }
 }
 
 export default Menu;
