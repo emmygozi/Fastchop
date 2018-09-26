@@ -17,7 +17,9 @@ const mydata = process.env.DATABASE_NAME;
 const pool = (process.env.NODE_ENV === 'development') ?
   new Pool(databaseConfig) :
   new Pool({
-    connectionString: mydata
+    connectionString: mydata,
+    max: 5,
+    number: 0
   });
 
 const createUsersTable = `DROP TYPE IF EXISTS myrole;
