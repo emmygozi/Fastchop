@@ -54,7 +54,7 @@ describe('GET ALL ORDERS /', () => {
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('message');
-      const sucessMessage = 'Retrieved all menus';
+      const sucessMessage = 'Retrieved all orders';
       expect(res.body).to.have.property('message', sucessMessage);
     } catch (err) {
       throw err.message;
