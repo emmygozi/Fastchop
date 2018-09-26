@@ -591,6 +591,44 @@ describe('POST API/V1/MENU/', () => {
 
 describe('DELETE MENU /:ID', () => {
   const [uniqueId, userEmail, userRole] = ['3', 'admin3@fastchop.com', 'admin'];
+
+  const name = 'somename';
+  const description = 'a description message here';
+  const price = '700';
+  const imageurl = 'http://sometesturl';
+
+
+  it('Acess denied. Invalid token', async () => {
+    try {
+      const res = await chai.request(app)
+        .delete('/api/v1/menu/60')
+        .set('x-auth-token', 'xxxxxxxxxxxxxxxx')
+        .send({
+          name, description, price, imageurl
+        });
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('Acess denied. No token provided', async () => {
+    try {
+      const res = await chai.request(app)
+        .delete('/api/v1/menu/60')
+        .set('x-auth-token', '')
+        .send({
+          name, description, price, imageurl
+        });
+      expect(res.status).to.equal(401);
+      expect(res.body).to.be.an('object');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
   it('should return a failure status 404', async () => {
     try {
       const res = await chai.request(app)
@@ -715,11 +753,41 @@ describe('PUT API/V1/MENU/:ID', () => {
     }
   });
 
+  it('Acess denied. Invalid token', async () => {
+    try {
+      const res = await chai.request(app)
+        .put('/api/v1/menu/1')
+        .set('x-auth-token', 'xxxxxxxxxxxxxxxx')
+        .send({
+          name, description, price, imageurl
+        });
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('Acess denied. No token provided', async () => {
+    try {
+      const res = await chai.request(app)
+        .put('/api/v1/menu/1')
+        .set('x-auth-token', '')
+        .send({
+          name, description, price, imageurl
+        });
+      expect(res.status).to.equal(401);
+      expect(res.body).to.be.an('object');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
 
   it('should return a failure not found request 404', async () => {
     try {
       chai.request(app)
-        .put('/api/v1/menu/1')
+        .put('/api/v1/menu/5677')
         .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole))
         .send({
           name, description, price, imageurl
