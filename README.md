@@ -9,7 +9,7 @@ Fastchop is a food delivery service app for a restaurant.
 Template hosted at https://emmygozi.github.io/Fastchop/UI/
 
 ## API hosted on
-API Hosted on https://mydiary-entry.herokuapp.com/api/v1/
+API Hosted on https://fastchop.herokuapp.com/api/v1/
 
 
 ## Table of Contents
@@ -72,7 +72,9 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 * Sign In
 * Create  fast-food items
 * Modify  fast-food items
-* Delete Diary  fast-food items
+* Delete  fast-food items
+* Accept orders
+* Reject orders
 
 
 ### Users
