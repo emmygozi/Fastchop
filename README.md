@@ -72,7 +72,9 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 * Sign In
 * Create  fast-food items
 * Modify  fast-food items
-* Delete Diary  fast-food items
+* Delete  fast-food items
+* Accept orders
+* Reject orders
 
 
 ### Users
