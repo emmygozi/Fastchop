@@ -10,5 +10,18 @@ class HasAdminPermission {
     }
     return next();
   }
+
+  static canUpdateOrder(req, res, next) {
+    const {
+      status
+    } = req.body;
+    const validEnumUpdate = ['approved', 'declined'];
+
+    if (validEnumUpdate.indexOf(status) === -1) {
+      return res.status(400)
+        .json({ state: 'Failed', message: 'You cannot update order status with an invalid entry' });
+    }
+    return next();
+  }
 }
 export default HasAdminPermission;

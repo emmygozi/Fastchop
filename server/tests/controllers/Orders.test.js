@@ -20,10 +20,7 @@ describe('GET ALL ORDERS /', () => {
     try {
       const res = await chai.request(app)
         .get('/api/v1/users/10/orders/')
-        .set('x-auth-token', 'xxxxxxxxxxxxxxxx')
-        .send({
-          name, description, price, imageurl
-        });
+        .set('x-auth-token', 'xxxxxxxxxxxxxxxx');
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
     } catch (err) {
@@ -35,10 +32,7 @@ describe('GET ALL ORDERS /', () => {
     try {
       const res = await chai.request(app)
         .get('/api/v1/users/10/orders/')
-        .set('x-auth-token', '')
-        .send({
-          name, description, price, imageurl
-        });
+        .set('x-auth-token', '');
       expect(res.status).to.equal(401);
       expect(res.body).to.be.an('object');
     } catch (err) {
@@ -56,6 +50,32 @@ describe('GET ALL ORDERS /', () => {
       expect(res.body).to.have.property('message');
       const sucessMessage = 'No orders yet for this user';
       expect(res.body).to.have.property('message', sucessMessage);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a sucess status 200', async () => {
+    try {
+      const res = await chai.request(app)
+        .get('/api/v1/users/3/orders/')
+        .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole));
+      expect(res.status).to.equal(200);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a sucess status 200', async () => {
+    try {
+      const res = await chai.request(app)
+        .get('/api/v1/users/1/orders/')
+        .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole));
+      expect(res.status).to.equal(200);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
     } catch (err) {
       throw err.message;
     }
@@ -105,6 +125,50 @@ describe('GET ALL ORDERS /', () => {
       throw err.message;
     }
   });
+
+  it('should return a failure 400', async () => {
+    try {
+      const res = await chai.request(app)
+        .get('/api/v1/orders/9')
+        .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole));
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+      const sucessMessage = 'You cannot get an unexisting order';
+      expect(res.body).to.have.property('message', sucessMessage);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a unexisting order 400', async () => {
+    try {
+      const res = await chai.request(app)
+        .get('/api/v1/orders/9875')
+        .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole));
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+      const failureMessage = 'You cannot get an unexisting order';
+      expect(res.body).to.have.property('message', failureMessage);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
+  it('should return a invalid order 400', async () => {
+    try {
+      const res = await chai.request(app)
+        .get('/api/v1/orders/987ko')
+        .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole));
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('message');
+    } catch (err) {
+      throw err.message;
+    }
+  });
 });
 
 describe('POST API/V1/ORDERS/', () => {
@@ -130,7 +194,7 @@ describe('POST API/V1/ORDERS/', () => {
     quantity = '70';
   });
 
-  it('should return a success status 200', async () => {
+  it('should return a success status 400', async () => {
     try {
       const res = await exec();
       expect(res.status).to.equal(400);
@@ -210,6 +274,60 @@ describe('POST API/V1/ORDERS/', () => {
           status
         });
       expect(res.status).to.equal(404);
+      expect(res.body).to.be.an('object');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
+  it('should return a status 400', async () => {
+    try {
+      const status = 'approved';
+      const res = await chai.request(app)
+        .put('/api/v1/orders/9')
+        .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole))
+        .send({
+          status
+        });
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('Acess denied. Invalid token', async () => {
+    try {
+      const res = await chai.request(app)
+        .get('/api/v1/orders/9')
+        .set('x-auth-token', 'xxxxxxxxxxxxxxxx');
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
+  it('Success getting orders', async () => {
+    try {
+      const res = await chai.request(app)
+        .get('/api/v1/orders/3')
+        .set('x-auth-token', generateAuthToken('77', 'userEmail@mail.com', 'customer'));
+      expect(res.status).to.equal(200);
+      expect(res.body).to.be.an('object');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('Acess denied. No token provided', async () => {
+    try {
+      const res = await chai.request(app)
+        .get('/api/v1/orders/9')
+        .set('x-auth-token', '');
+      expect(res.status).to.equal(401);
       expect(res.body).to.be.an('object');
     } catch (err) {
       throw err.message;
