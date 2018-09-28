@@ -7,13 +7,15 @@ import { pool } from '../helpers/dbScript/connectLocalDb';
 class User {
   static async signup(req, res) {
     const {
-      name, email, password
+      name, email, password, address, phone
     } = req.body;
 
     const anEntry = {
       name,
       email,
-      password
+      password,
+      address,
+      phone
     };
 
     const query = {
@@ -31,8 +33,8 @@ class User {
     const mypassword2 = await bcrypt.hash(anEntry.password, salt);
 
 
-    const newUser = await pool.query(`INSERT INTO users ( name, email, password)
-      VALUES ('${name}','${email}', '${mypassword2}') RETURNING id, email, role`);
+    const newUser = await pool.query(`INSERT INTO users ( name, email, password, address, phone)
+      VALUES ('${name}','${email}', '${mypassword2}', '${address}', '${phone}') RETURNING id, email, role`);
 
     client.release();
 
@@ -54,7 +56,7 @@ class User {
 
   static async login(req, res) {
     const {
-      email, password
+      email, password,
     } = req.body;
 
     const query = {

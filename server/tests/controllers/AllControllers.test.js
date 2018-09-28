@@ -214,6 +214,8 @@ describe('POST API/V1/AUTH/SIGNUP/', () => {
   let name;
   let email;
   let password;
+  let address;
+  let phone;
   let extrafield;
 
   function uniqueEmail() {
@@ -232,7 +234,7 @@ describe('POST API/V1/AUTH/SIGNUP/', () => {
       return await chai.request(app)
         .post('/api/v1/auth/signup')
         .send({
-          name, email, password
+          name, email, password, address, phone
         });
     } catch (err) { throw err.message; }
   };
@@ -241,6 +243,8 @@ describe('POST API/V1/AUTH/SIGNUP/', () => {
     name = 'testname';
     email = 'testmail@yahoo.com';
     password = '1234567';
+    address = 'a rndom adresss on the street jdjjd';
+    phone = '10292837465';
   });
 
   it('should return a success status 201', async () => {
@@ -360,6 +364,8 @@ describe('POST API/V1/AUTH/SIGNUP/', () => {
           name,
           email,
           password,
+          address,
+          phone,
           extrafield
         })
         .end((err, res) => {

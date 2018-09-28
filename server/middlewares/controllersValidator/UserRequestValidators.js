@@ -6,9 +6,11 @@ class UserRequestValidator {
       name,
       email,
       password,
+      address,
+      phone
     } = req.body;
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !address || !phone) {
       return res.status(400).json({
         state: 'Failed',
         message: 'Bad request, no field should not be missing',
@@ -17,7 +19,7 @@ class UserRequestValidator {
     }
 
 
-    if (Object.keys(req.body).length > 3) {
+    if (Object.keys(req.body).length > 5) {
       return res.status(400).json({
         state: 'Failed',
         message: 'Fields are more than required'
@@ -26,7 +28,8 @@ class UserRequestValidator {
 
 
     if (!Validator.isWhiteSpace(name) ||
-    !Validator.isWhiteSpace(email) || !Validator.isWhiteSpace(password)) {
+    !Validator.isWhiteSpace(email) || !Validator.isWhiteSpace(password)
+    || !Validator.isWhiteSpace(address) || !Validator.isWhiteSpace(phone)) {
       return res.status(400).json({
         state: 'Failed',
         message: 'One or more fields contained only whitespace',
@@ -41,7 +44,8 @@ class UserRequestValidator {
     };
 
     if (!Validator.hasAminLength(name) ||
-    !Validator.hasAminLength(email) || !Validator.hasAminLength(password)) {
+    !Validator.hasAminLength(email) || !Validator.hasAminLength(password)
+    || !Validator.hasAminLength(address) || !Validator.hasAminLength(phone)) {
       return res.status(400).json({
         state: 'Failed',
         message: 'Fields length must not be less than three characters',
