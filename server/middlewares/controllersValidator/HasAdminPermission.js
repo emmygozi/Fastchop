@@ -11,5 +11,4 @@ class HasAdminPermission {
     return next();
   }
 }
-
 export default HasAdminPermission;

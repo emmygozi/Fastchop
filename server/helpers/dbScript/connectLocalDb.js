@@ -28,6 +28,8 @@ CREATE TABLE IF NOT EXISTS users (
     id SERIAL,
     name character varying(70),
     email character varying(70),
+    address character varying(70),
+    phone character varying(70),
     role myrole default 'customer',
     dateadded timestamp without time zone NOT NULL DEFAULT now(),
     password character varying(200),

@@ -9,6 +9,15 @@ class ReqBodyValidator {
       imageurl
     } = req.body;
 
+    if (typeof (name) === 'boolean' || typeof (description) === 'boolean'
+    || typeof (price) === 'boolean' || typeof (imageurl) === 'boolean') {
+      return res.status(400).json({
+        state: 'Failed',
+        message: 'Bad request, cannot post a boolean type',
+        helpMessage: 'userid: integer, quantity: integer'
+      });
+    }
+
 
     if (!name || !description || !price || !imageurl) {
       return res.status(400).json({
@@ -60,6 +69,14 @@ class ReqBodyValidator {
       menuid,
       quantity
     } = req.body;
+
+    if (typeof (menuid) === 'boolean' || typeof (quantity) === 'boolean') {
+      return res.status(400).json({
+        state: 'Failed',
+        message: 'Bad request, cannot post a boolean type',
+        helpMessage: 'userid: integer, quantity: integer'
+      });
+    }
 
 
     if (!(menuid) || !(quantity)) {

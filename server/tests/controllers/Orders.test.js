@@ -19,7 +19,7 @@ describe('GET ALL ORDERS /', () => {
   it('Acess denied. Invalid token', async () => {
     try {
       const res = await chai.request(app)
-        .get('/api/v1/orders/me')
+        .get('/api/v1/users/10/orders/')
         .set('x-auth-token', 'xxxxxxxxxxxxxxxx')
         .send({
           name, description, price, imageurl
@@ -34,7 +34,7 @@ describe('GET ALL ORDERS /', () => {
   it('Acess denied. No token provided', async () => {
     try {
       const res = await chai.request(app)
-        .get('/api/v1/orders/me')
+        .get('/api/v1/users/10/orders/')
         .set('x-auth-token', '')
         .send({
           name, description, price, imageurl
@@ -46,15 +46,15 @@ describe('GET ALL ORDERS /', () => {
     }
   });
 
-  it('should return a success status 200', async () => {
+  it('should return a failure status 400', async () => {
     try {
       const res = await chai.request(app)
-        .get('/api/v1/orders/me')
+        .get('/api/v1/users/10/orders/')
         .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole));
-      expect(res.status).to.equal(200);
+      expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('message');
-      const sucessMessage = 'Retrieved all orders';
+      const sucessMessage = 'No orders yet for this user';
       expect(res.body).to.have.property('message', sucessMessage);
     } catch (err) {
       throw err.message;
@@ -91,7 +91,7 @@ describe('GET ALL ORDERS /', () => {
     }
   });
 
-  it('should return a sucess 400', async () => {
+  it('should return a sucess 200', async () => {
     try {
       const res = await chai.request(app)
         .get('/api/v1/orders')
@@ -130,7 +130,7 @@ describe('POST API/V1/ORDERS/', () => {
     quantity = '70';
   });
 
-  it('should return a success status 400', async () => {
+  it('should return a success status 200', async () => {
     try {
       const res = await exec();
       expect(res.status).to.equal(400);
@@ -193,7 +193,7 @@ describe('POST API/V1/ORDERS/', () => {
         .send({
           status
         });
-      expect(res.status).to.equal(400);
+      expect(res.status).to.equal(404);
       expect(res.body).to.be.an('object');
     } catch (err) {
       throw err.message;
@@ -209,7 +209,7 @@ describe('POST API/V1/ORDERS/', () => {
         .send({
           status
         });
-      expect(res.status).to.equal(401);
+      expect(res.status).to.equal(404);
       expect(res.body).to.be.an('object');
     } catch (err) {
       throw err.message;

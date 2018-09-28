@@ -27,6 +27,7 @@ class Menu {
     const duplicate = await pool.query(noDuplicateQuery);
 
     if (duplicate.rows[0] !== undefined) {
+      client.release();
       return res.status(409).json({ state: 'Failed', message: `An item with '${name}' is already in menu` });
     }
 
