@@ -173,7 +173,6 @@ class Orders {
     const isValid = await pool.query(validUpdate);
 
     if (isValid.rows[0] === undefined) {
-      client.release();
       return res.status(400).json({
         state: 'Failed',
         message: 'You cannot update an unexisting order'
@@ -182,7 +181,6 @@ class Orders {
 
     const { rows } = await pool.query(`UPDATE orders SET status = '${status}'
     WHERE id = ${id} RETURNING *`);
-
     client.release();
 
     const updatedMenu = rows[0];
