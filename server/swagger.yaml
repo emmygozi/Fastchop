@@ -14,13 +14,6 @@ securityDefinitions:
     in: header
 
 # tags are used for organizing operations
-tags:
-- name: x-auth-token
-  description: storing encrypted user details
-- name: user
-  description: signup and login
-- name: entries
-  description: Operations for entries
 
 paths:
   /auth/login:
@@ -155,9 +148,199 @@ paths:
                     userid: 2,
                     quantity: 4,
                     dateadded: : 2018-08-01 10:07:18 +0000
+        400:
+          description: orders could not be gotten
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot get this order because it does not exist
+    post:
+      tags:
+      - order
+      summary: Post a order
+      description: Posts a single order
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        201:
+          description: View an order
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one order!
+              order:
+                  userid: 2,
+                    quantity: 4,
         401:
           description: orders could not be placed
           examples: 
             application/json:
               status: Failed
               message: You cannot place this order because menuid referenced has not been created
+    get one user:
+      tags:
+      - order
+      summary: Get a user order
+      description: Gets a  user single order
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View an order
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one order!
+              order:
+                id: 1,
+                  dateadded: 12-13-14,
+                    quantity: 4,
+                    user:
+        400:
+          description: orders could not be gotten
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot place this order because menuid referenced has not been created
+    get:
+      tags:
+      - menu
+      summary: Get a menu
+      description: Posts a single menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View an order
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting a menu
+              menu:
+                  id: 2,
+                    price: 400,
+                    quantity: 30,
+                    description: a good food
+        400:
+          description: could not get menu
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot get menu because it has not been created
+    put:
+      tags:
+      - menu
+      summary: Updates a menu
+      description: Updates a single menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View an menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess updating a menu!
+              menu:
+                  userid: 2,
+                    quantity: 4,
+        400:
+          description: menu could not be updated
+          examples: 
+            application/json:
+              status: Failed
+              message: Incorrect entry
+    delete:
+      tags:
+      - menu
+      summary: Deletes a order
+      description: Deletes a single order
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: Delete a menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting a menu
+              order:
+                  userid: 2,
+                    quantity: 4,
+        400:
+          description: menu could not be found
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot delete this menu because id referenced has not been created
+    get one:
+      tags:
+      - menu
+      summary: Get single menu
+      description: Gets a specified menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View a specified menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one menu!
+              order:
+                  userid: 2,
+                    quantity: 4,
+        400:
+          description: menu could not be gotten
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot get this order because menuid referenced has not been created
