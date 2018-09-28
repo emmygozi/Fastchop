@@ -91,48 +91,118 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 		<th>FUNCTIONALITY</th>
 		<th>EXPECTED RESPONSE</th>
 	</tr>
+    <tr>
+		<td>POST /</td>
+		<td>/api/v1/auth/signup</td> 
+		<td>signup to application request</td>
+		<td>
+		{
+            "name": "your name",
+            "email": "yourmail@something.com",
+            "password": "yourpassword",
+            "address": "your address here",
+            "phone": "1029283746"
+        }
+		</td>
+	</tr>
+    <tr>
+		<td>POST /</td>
+		<td>/api/v1/auth/login</td> 
+		<td>login to application request</td>
+		<td>
+		{
+            "email": "yourmail@something.com",
+            "password": "yourpassword"
+        }
+		</td>
+	</tr>
 	<tr>
 		<td>GET /</td>
 		<td>/api/v1/orders</td> 
 		<td>Fetch all orders</td>
 		<td>{
+    "state": "Succesful",
     "message": "Retrieved all orders",
-    "myOrder": [
+    "rows": [
         {
-            "id": 1,
-            "userid": 3,
-            "mealid": 6,
-            "quantity": 3,
-            "status": 1
+            "id": 11,
+            "dateadded": "2018-09-28T11:22:50.139Z",
+            "name": "Chicken and Chipddddysyyyss",
+            "description": "Chow bellyful",
+            "price": 1500,
+            "quantity": 13
         },
         {
-            "id": 2,
-            "userid": 4,
-            "mealid": 7,
-            "quantity": 1,
-            "status": 0
+            "id": 10,
+            "dateadded": "2018-09-27T11:18:21.470Z",
+            "name": "Chicken and Chipddddysyyyss",
+            "description": "Chow bellyful",
+            "price": 1500,
+            "quantity": 13
         },
         {
-            "id": 3,
-            "userid": 5,
-            "mealid": 8,
-            "quantity": 4,
-            "status": 2
+            "id": 9,
+            "dateadded": "2018-09-26T18:10:45.686Z",
+            "name": "Chicken and Chips",
+            "description": "Chow bellyful",
+            "price": 1500,
+            "quantity": 39
+        },
+        {
+            "id": 8,
+            "dateadded": "2018-09-26T18:09:49.076Z",
+            "name": "Chicken and Chips",
+            "description": "Chow bellyful",
+            "price": 1500,
+            "quantity": 39
+        },
+        {
+            "id": 7,
+            "dateadded": "2018-09-26T18:08:44.089Z",
+            "name": "Chicken and Chips",
+            "description": "Chow bellyful",
+            "price": 1500,
+            "quantity": 39
         }
     ]
 }</td>
 	</tr>
 	<tr>
 		<td>GET /:id</td>
+		<td>/api/v1/users/:id/orders</td> 
+		<td>Fetch a specified order</td>
+		<td>
+        {
+            "state": "Succesful",
+            "message": "Retrieved your order",
+            user: 
+                     {
+            "id": 7,
+            "dateadded": "2018-09-26T18:08:44.089Z",
+            "name": "Chicken and Chips",
+            "description": "Chow bellyful",
+            "price": 1500,
+            "quantity": 39
+            }
+        }
+        </td>
+	</tr>
+    <tr>
+		<td>GET /:id</td>
 		<td>/api/v1/orders/:id</td> 
 		<td>Fetch a specified order</td>
-		<td>{
-            "id": 1,
-            "userid": 3,
-            "mealid": 6,
-            "quantity": 3,
-            "status": 1
-        }</td>
+		<td> "state": "Succesful",
+    "message": "Retrieved an order",
+    "rows": [
+        {
+            "id": 11,
+            "dateadded": "2018-09-28T11:22:50.139Z",
+            "name": "Chicken and Chipddddysyyyss",
+            "description": "Chow bellyful",
+            "price": 1500,
+            "quantity": 13
+        },
+   </td>
 	</tr>
 	<tr>
 		<td>POST /</td>
@@ -140,10 +210,8 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 		<td>Make an order</td>
 		<td>
 		{
-            "userid": 3,
             "mealid": 6,
             "quantity": 3,
-            "status": 1
         }
 		</td>
 	</tr>
@@ -153,33 +221,17 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 		<td>Modify an order</td>
 		<td>
 		{
-            "userid": 3,
-            "mealid": 6,
-            "quantity": 3,
-            "status": 1
-        }
-		</td>
-	</tr>
-	<tr>
-		<td>DELETE /:id</td>
-		<td>/api/v1/orders/:id</td> 
-		<td>Delete an order</td>
-		<td>{
-            "id": 1,
-            "userid": 3,
-            "mealid": 6,
-            "quantity": 3,
-            "status": 1
+            "status": "processing"
         }
 		</td>
 	</tr>
 	<tr>
 		<td>GET /</td>
-		<td>/api/v1/fooditem</td> 
+		<td>/api/v1/menu</td> 
 		<td>Fetch all food item</td>
 		<td>{
     "message": "Retrieved all food items",
-    "foodItem": [
+    "menu": [
         {
             "id": 1,
             "name": "Extra large pizza",
@@ -207,10 +259,12 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 	</tr>
 	<tr>
 		<td>GET /:id</td>
-		<td>/api/v1/fooditem/:id</td> 
+		<td>/api/v1/menu/:id</td> 
 		<td>Fetch a specified food item</td>
 		<td>
 		{
+            "state": "successfull",
+            "message": "Retrieved your menu",
             "id": 3,
             "name": "Fried Chicken",
             "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
@@ -221,9 +275,11 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 	</tr>
 	<tr>
 		<td>POST /</td>
-		<td>/api/v1/fooditem</td> 
+		<td>/api/v1/menu</td> 
 		<td>Make an food item</td>
 		<td>{
+            "state": "successfull",
+            "message": "Retrieved all food items",
             "id": 7,
             "name": "Fried Chicken",
             "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
@@ -233,10 +289,12 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 	</tr>
 	<tr>
 		<td>PUT /:id</td>
-		<td>/api/v1/fooditem/:id</td> 
+		<td>/api/v1/menu/:id</td> 
 		<td>Modify an food item</td>
 		<td>
 		{
+            "state": "successfull",
+            "message": "update menu"
             "id": 3,
             "name": "Fried Chicken",
             "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
@@ -247,10 +305,12 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 	</tr>
 	<tr>
 		<td>DELETE /:id</td>
-		<td>/api/v1/fooditem/:id</td> 
+		<td>/api/v1/menu/:id</td> 
 		<td>Delete an food item</td>
 		<td>
 		{
+            "state": "successfull",
+            "message": "deleted menu",
             "id": 3,
             "name": "Fried Chicken",
             "description": "Get your meals on the go in the most efficient manner. Our snacks are very tasty",
