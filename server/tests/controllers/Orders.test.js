@@ -194,7 +194,7 @@ describe('POST API/V1/ORDERS/', () => {
     quantity = '70';
   });
 
-  it('should return a success status 200', async () => {
+  it('should return a success status 400', async () => {
     try {
       const res = await exec();
       expect(res.status).to.equal(400);
@@ -280,12 +280,42 @@ describe('POST API/V1/ORDERS/', () => {
     }
   });
 
+
+  it('should return a status 400', async () => {
+    try {
+      const status = 'approved';
+      const res = await chai.request(app)
+        .put('/api/v1/orders/9')
+        .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole))
+        .send({
+          status
+        });
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
   it('Acess denied. Invalid token', async () => {
     try {
       const res = await chai.request(app)
         .get('/api/v1/orders/9')
         .set('x-auth-token', 'xxxxxxxxxxxxxxxx');
       expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
+  it('Success getting orders', async () => {
+    try {
+      const res = await chai.request(app)
+        .get('/api/v1/orders/3')
+        .set('x-auth-token', generateAuthToken('77', 'userEmail@mail.com', 'customer'));
+      expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
     } catch (err) {
       throw err.message;

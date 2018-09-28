@@ -18,7 +18,8 @@ router.post(
 );
 router.put(
   '/orders/:id', Authorization.auth, UserIdValidator.validator,
-  HasAdminPermission.toMakeChanges, EmptyRequestValidator.validator,
+  HasAdminPermission.toMakeChanges, HasAdminPermission.canUpdateOrder,
+  EmptyRequestValidator.validator,
   Orders.AcceptOrDeclineOrder
 );
 

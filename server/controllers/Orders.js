@@ -16,7 +16,7 @@ class Orders {
       await pool
         .query(`SELECT name, email, address, phone from users WHERE id = ${userId}`);
     client.release();
-    console.log(myUserDetails.rows[0]);
+
     const user = myUserDetails.rows[0];
 
     if (rows.length === 0) {
@@ -26,7 +26,7 @@ class Orders {
     const {
       id, dateadded, name, description, price, quantity
     } = rows[0];
-    console.log(id);
+
     const menu = {
       name, description, price, quantity
     };
@@ -50,7 +50,7 @@ class Orders {
       FROM orders INNER JOIN menu ON orders.menuid=menu.id ORDER BY orders.id desc`);
     client.release();
 
-    console.log(rows);
+
     res.status(200).json({
       state: 'Succesful',
       message: 'Retrieved all orders',
@@ -98,7 +98,6 @@ class Orders {
 
     const userId = req.aDecodedUser.id;
 
-    console.log(userId);
     // https://node-postgres.com/features/queries  Check for Row mode
     // It is necessary to add "rowMode: 'array" to query like this to be able to search
     // table with a string value in node pg
