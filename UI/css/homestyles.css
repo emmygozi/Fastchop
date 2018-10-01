@@ -1,7 +1,10 @@
 .flex-home {
     display: flex;
     flex-wrap: nowrap;
+<<<<<<< HEAD
     
+=======
+>>>>>>> a878360981909ca224fb49fb2e734ee9f4eb3fbb
   }
   
   .fa-utensils {
@@ -63,4 +66,5 @@
 #overlay {
     width: 50%;
     margin-left: 38%;
+    height: 50%;
 }

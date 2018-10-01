@@ -165,6 +165,7 @@ a {
 	overflow: hidden;
 	margin-left: -1%;
 	margin-top: -0.6%;
+	display: none;
 	}
 
 .left{
@@ -242,7 +243,7 @@ div.right >p >a{
       margin: 2% 5% 2% 10%;
 	  width: 80%;
 	  border-radius: 5px;
-	  font-family: 'Courier New', Courier, monospace;
+	  font-family: 'Poor Story', cursive;
   }
 
   .card > a{
@@ -250,7 +251,7 @@ div.right >p >a{
   }
 
   .card > a h2 {
-	font-family: 'Dancing Script';
+	font-family: 'Poor Story', cursive;
 	margin-top: -3em;
 }
   
@@ -427,8 +428,8 @@ th, td {
 
 .images_1_of_4  h2 {
 	color: #CC3636;
-	font-family: 'Monda', sans-serif;
-	font-size:0.9em;
+	font-family: 'Poor Story', cursive;
+	font-size:1.2em;
 	font-weight : normal;
 }
 .images_1_of_4  p {
@@ -525,7 +526,7 @@ th, td {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
 }
 
 /* The Close Button */

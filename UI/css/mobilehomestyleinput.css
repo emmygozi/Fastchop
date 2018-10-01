@@ -1,8 +1,8 @@
 @media screen and (max-width : 800px){
 
-input[type=text] {
-    padding: 0px;
-    width: 50%;
-}
-
-}
+    input[type=text] {
+        padding: 0px;
+        width: 50%;
+    }
+    
+    }
