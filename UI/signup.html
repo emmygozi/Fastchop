@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poor+Story" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/mobileview.css">
-    <script src="js/mobileview.js"></script>
+ <!--   <script src="js/mobileview.js"></script> -->
 
 
 </head>
@@ -87,9 +87,10 @@
 
         <div class="home">
 
-            <form name="signupForm" id="signupForm" action="admin-dashboard.html">
+            <form name="signupForm" id="signupForm">
                 <div class="formcontainer">
                     <h2 style="margin-top: -4.5em;" id="getUser">Register</h2>
+                    <div id="notifyUser"></div>
                     <label for="myname">
                         <b>First Name</b>
                     </label>
@@ -104,11 +105,14 @@
                         <b>Password</b>
                     </label>
                     <input type="password" placeholder="Enter Password" name="passSignup" id="pas1" required>
-                    <div id="matchP"></div>
-                    <label for="pwrd-repeat">
-                        <b>Confirm Password</b>
+                    <label for="address">
+                        <b>Address</b>
                     </label>
-                    <input type="password" placeholder="Confirm Password" name="pwrd-repeat" id="pas2" required>
+                    <input type="text" placeholder="Address" name="address"  required>
+                    <label for="phone">
+                        <b>Phone</b>
+                    </label>
+                    <input type="text" placeholder="Phone" name="phone"  required>
 
                     <button type="submit" id="submitid" class="myregisterbtn">Register</button>
                 </div>
@@ -127,6 +131,7 @@
 </body>
 
 <script>
-hamburger();
+// hamburger();
 </script>
+<script src="client/signup.js"></script>
 </html>

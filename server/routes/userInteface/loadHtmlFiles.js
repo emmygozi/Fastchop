@@ -19,26 +19,23 @@ router.get('/login', (req, res) => {
   res.sendFile('/login.html', { root });
 });
 
-router.get('/allentries', (req, res) => {
-  res.sendFile('/allentries.html', { root });
+router.get('/admin-dashboard', (req, res) => {
+  res.sendFile('/admin-dashboard.html', { root });
 });
 
-router.get('/editentries', (req, res) => {
-  res.sendFile('/editentries.html', { root });
-});
-
-
-router.get('/lastentry', (req, res) => {
-  res.sendFile('/lastentry.html', { root });
+router.get('/customer-order-history', (req, res) => {
+  res.sendFile('/customer-order-history.html', { root });
 });
 
 
-router.get('/myindex', (req, res) => {
-  res.sendFile('/myindex.html', { root });
+router.get('/home', (req, res) => {
+  res.sendFile('/home.html', { root });
 });
 
-router.get('/makeentry', (req, res) => {
-  res.sendFile('/makeentry.html', { root });
+
+router.get('/orders', (req, res) => {
+  res.sendFile('/orders.html', { root });
 });
+
 
 export default router;

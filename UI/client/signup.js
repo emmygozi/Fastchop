@@ -8,28 +8,42 @@ const signup = (e) => {
   const password = getFormName.passSignup.value;
   const name = getFormName.mynameSignup.value;
   const email = getFormName.emailSignup.value;
+  const address = getFormName.address.value;
+  const phone = getFormName.phone.value;
+  const showNotification = document.getElementById('notifyUser');
 
-  alert(name )
+
+  alert(password )
   let headers = new Headers();
-  fetch(`/auth/signup`, {
+  fetch('./auth/signup', {
       method: "POST",
       headers: {
-              
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json'
       },
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ name, email, password, address, phone }),
 
   })
-    .then(response => response.json())
+    .then(response => response)
     .then((result) => {
+        console.log(result);
         console.log(result.headers.get('x-auth-token'));
-      if (result.status === 'successful') {
-        localStorage.token = result.headers.get('x-auth-token');
-        console.log(localStorage.token);
-        setTimeout(() => {
-          window.location.replace('index');
-        }, 5000);
+      if (result.status !== 201) {
+        showNotification.style.display = 'block';
+        showNotification.style.background = 'red';
+        showNotification.innerHTML = 'Please input correct values for all fields';
+        setInterval(() => {
+          showNotification.style.display = 'none';
+        }, 2000);
       } else {
-        console.log('Wrong entry please retry');
+        localStorage.token = result.headers.get('x-auth-token');
+         console.log(localStorage.token + 'YAAAAY');
+         showNotification.style.background = '#32c5d2';
+         showNotification.style.display = 'block';
+         showNotification.innerHTML = 'Account creation successful';
+        setTimeout(() => {
+          window.location.replace('home');
+        }, 5000);
       }
     })
     .catch(err => console.log(err));

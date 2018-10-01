@@ -50,11 +50,12 @@ class Orders {
       FROM orders INNER JOIN menu ON orders.menuid=menu.id ORDER BY orders.id desc`);
     client.release();
 
+    const allOrders = rows;
 
     res.status(200).json({
       state: 'Succesful',
       message: 'Retrieved all orders',
-      rows
+      allOrders
     });
   }
 
@@ -149,7 +150,7 @@ class Orders {
     };
     res.status(201).json({
       state: 'Succesful',
-      message: 'Created new menu',
+      message: 'Created new Order',
       id,
       dateadded,
       createdOrder
@@ -182,9 +183,9 @@ class Orders {
     WHERE id = ${id} RETURNING *`);
     client.release();
 
-    const updatedMenu = rows[0];
+    const updatedOrder = rows[0];
 
-    return res.status(200).json({ message: 'Updated specified order', updatedMenu });
+    return res.status(200).json({ message: 'Updated specified order', updatedOrder });
   }
 }
 

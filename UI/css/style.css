@@ -52,6 +52,7 @@ color: white;
 	margin: 10px 10px 10px 10px;
 	opacity: 0.95;
 	filter: alpha(opacity=95);
+	overflow-y: hidden; 
 }
 
 .content {
@@ -67,9 +68,17 @@ color: white;
 /* Add padding to containers */
 
 .formcontainer {
-	margin-top: 3em;
+	margin-top: 0em;
 	padding: 16px;
 	background-color: #40d583;
+}
+
+#notifyUser {
+	width: 28em;
+	display: none;
+	height: 1.5em;
+	text-align: center;
+	color: white;
 }
 
 .formentrycontainer {
