@@ -293,6 +293,9 @@ input[type=text], input[type=email], textarea, input[type=password] {
 
 }
 
+#centerThisText {
+	margin-left: 0em;
+}
 
 
 }
