@@ -284,7 +284,7 @@ paths:
               message: Incorrect entry
     delete:
       tags:
-      - menu
+      - order
       summary: Deletes a order
       description: Deletes a single order
       security:
@@ -313,6 +313,7 @@ paths:
             application/json:
               status: Failed
               message: You cannot delete this menu because id referenced has not been created
+              
     get one:
       tags:
       - menu
