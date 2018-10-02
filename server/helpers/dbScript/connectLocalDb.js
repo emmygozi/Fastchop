@@ -48,14 +48,14 @@ const createMenuTable = `CREATE TABLE IF NOT EXISTS menu (
     UNIQUE (id)
 );`;
 
-const createOrdersTable = `DROP TYPE IF EXISTS mystatus;
-CREATE TYPE mystatus AS ENUM ('pending','approved', 'declined');
+const createOrdersTable = `DROP TYPE IF EXISTS catererstatus;
+CREATE TYPE catererstatus AS ENUM ('New','Processing', 'Cancelled', 'Complete');
  CREATE TABLE IF NOT EXISTS orders (
     id SERIAL,
     quantity INTEGER NOT NULL,
     userid INTEGER NOT NULL,
     menuid INTEGER NOT NULL,
-    status mystatus default 'pending',
+    status catererstatus default 'New',
     dateadded timestamp without time zone NOT NULL DEFAULT now(),
     FOREIGN KEY (userid) REFERENCES users (id),
     FOREIGN KEY (menuid) REFERENCES menu (id),

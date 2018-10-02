@@ -250,7 +250,7 @@ describe('POST API/V1/ORDERS/', () => {
 
   it('Acess denied. Invalid token', async () => {
     try {
-      const status = 'approved';
+      const status = 'Processing';
       const res = await chai.request(app)
         .put('/api/v1/orders')
         .set('x-auth-token', 'xxxxxxxxxxxxxxxx')
@@ -283,7 +283,7 @@ describe('POST API/V1/ORDERS/', () => {
 
   it('should return a status 400', async () => {
     try {
-      const status = 'approved';
+      const status = 'Processing';
       const res = await chai.request(app)
         .put('/api/v1/orders/9')
         .set('x-auth-token', generateAuthToken(uniqueId, userEmail, userRole))
@@ -314,7 +314,7 @@ describe('POST API/V1/ORDERS/', () => {
     try {
       const res = await chai.request(app)
         .get('/api/v1/orders/3')
-        .set('x-auth-token', generateAuthToken('77', 'userEmail@mail.com', 'customer'));
+        .set('x-auth-token', generateAuthToken('3', 'admin2@fastchop.com', 'admin'));
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
     } catch (err) {

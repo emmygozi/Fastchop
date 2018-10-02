@@ -15,7 +15,7 @@ class HasAdminPermission {
     const {
       status
     } = req.body;
-    const validEnumUpdate = ['approved', 'declined'];
+    const validEnumUpdate = ['New', 'Processing', 'Cancelled', 'Complete'];
 
     if (validEnumUpdate.indexOf(status) === -1) {
       return res.status(400)
