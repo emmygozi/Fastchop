@@ -104,7 +104,7 @@ class Orders {
     // table with a string value in node pg
     const noDuplicateQuery = {
       text: 'SELECT * from orders where status = $1 and userid = $2',
-      values: ['pending', `${userId}`],
+      values: ['New', `${userId}`],
       rowMode: 'array',
     };
     const client = await pool.connect();

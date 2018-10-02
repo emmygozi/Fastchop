@@ -7,6 +7,7 @@ import yamljs from 'yamljs';
 import routes from './routes/index';
 import error from './middlewares/expressErrorMiddleware';
 import apiNotFound from './middlewares/expressNotFoundMiddleware';
+import ui from './routes/userInteface/index';
 
 const app = express();
 const documentation = yamljs.load(`${process.cwd()}/server/swagger.yaml`);
@@ -18,12 +19,12 @@ const apiPath = '/api/v1';
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/', ui.css);
+app.use('/', ui.html);
+app.use('/', ui.js);
 app.use(apiPath, routes.users);
 app.use(apiPath, routes.menu);
 app.use(apiPath, routes.orders);
-app.use(apiPath, routes.css);
-app.use(apiPath, routes.html);
-app.use(apiPath, routes.js);
 app.use(apiNotFound);
 app.use(error);
 
