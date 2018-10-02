@@ -284,7 +284,7 @@ paths:
               message: Incorrect entry
     delete:
       tags:
-      - menu
+      - order
       summary: Deletes a order
       description: Deletes a single order
       security:
@@ -313,6 +313,7 @@ paths:
             application/json:
               status: Failed
               message: You cannot delete this menu because id referenced has not been created
+
     get one:
       tags:
       - menu
@@ -335,12 +336,202 @@ paths:
             application/json:
               status: successfull
               message: Sucess getting one menu!
-              order:
-                  userid: 2,
-                    quantity: 4,
+                  name: food name,
+                    description: A description of price,
+                    price: 1000,
         400:
           description: menu could not be gotten
           examples: 
             application/json:
               status: Failed
               message: You cannot get this order because menuid referenced has not been created
+
+    get all:
+      tags:
+      - menu
+      summary: Get all menu
+      description: Gets all menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View all menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting menu!
+                  name: food name,
+                    description: A description of price,
+                    price: 1000,
+        400:
+          description: menu could not be gotten
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot get this menu because you don't have any menu yet
+    get one:
+      tags:
+      - menu
+      summary: Post menu
+      description: Posts a specified menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: Post a specified menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess posting a menu!
+              menu:
+                  name: food name,
+                    description: A description of price,
+                    price: 1000,
+        400:
+          description: Invalid entry
+          examples: 
+            application/json:
+              status: Failed
+              message: You have entered an invalid entry
+    get all:
+      tags:
+      - menu
+      summary: Get all menu
+      description: Gets all menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View all menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting menu!
+                  name: food name,
+                    description: A description of price,
+                    price: 1000,
+        400:
+          description: menu could not be gotten
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot get this menu because you don't have any menu yet
+    update:
+      tags:
+      - menu
+      summary: Update menu
+      description: Update a specified menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: Update a specified menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess updating a menu!
+              menu:
+                  name: food name,
+                    description: A description of price,
+                    price: 1000,
+        400:
+          description: Invalid entry
+          examples: 
+            application/json:
+              status: Failed
+              message: You have entered an invalid entry
+    get all:
+      tags:
+      - menu
+      summary: Get all menu
+      description: Gets all menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View all menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting menu!
+                  name: food name,
+                    description: A description of price,
+                    price: 1000,
+        400:
+          description: menu could not be gotten
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot get this menu because you don't have any menu yet
+    delete:
+      tags:
+      - menu
+      summary: Delete menu
+      description: Deletes a specified menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: Post a specified menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess deleting a menu!
+              menu:
+                  name: food name,
+                    description: A description of price,
+                    price: 1000,
+        400:
+          description: Invalid entry
+          examples: 
+            application/json:
+              status: Failed
+              message: You have entered an invalid entry
