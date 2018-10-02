@@ -567,6 +567,25 @@ th, td {
     text-align: center;
 }
 
+table {
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#centerThisText {
+	margin-left: -10em;
+}
+
 #meal-heading {
     margin-left: 46%;
     color: black;
