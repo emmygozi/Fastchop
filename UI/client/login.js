@@ -22,8 +22,6 @@ const login = (e) => {
   })
   .then(response => response.json())
   .then((result) => {
-      console.log(result);
-      console.log(result.token);
     if (result.state !== 'Succesful') {
       showNotification.style.display = 'block';
       showNotification.style.background = 'red';
@@ -33,13 +31,11 @@ const login = (e) => {
       }, 2000);
     } else {
       localStorage.token = result.token;
-       console.log(localStorage.token + 'YAAAAY');
        showNotification.style.background = '#32c5d2';
        showNotification.style.display = 'block';
        showNotification.innerHTML = 'Login successful';
       setTimeout(() => {
         window.location.replace('home');
-        console.log('waiting');
       }, 5000);
     }
   })
