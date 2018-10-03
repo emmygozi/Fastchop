@@ -7,13 +7,3 @@ coverage
 server/config/default.json
 server/config/development.json
 .env
-.babelrc
-.codeclimate.yml
-.coveralls.yml
-.env.sample
-.eslintignore
-.travis.yml
-.hound.eslintrc
-yarn.lock
-.eslintrc
-.nycrc
