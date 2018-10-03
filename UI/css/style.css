@@ -72,6 +72,9 @@ color: white;
 	padding: 16px;
 	background-color: #40d583;
 }
+#addMenu {
+	padding-left: 4em;
+}
 
 #notifyUser {
 	width: 28em;
@@ -81,8 +84,48 @@ color: white;
 	color: white;
 }
 
+#notifyAdminDelete {
+	width: 50em;
+	display: none;
+	height: 1.5em;
+	text-align: center;
+	color: white;
+}
+
 #notifyUserLogin {
 	width: 28em;
+	display: none;
+	height: 1.5em;
+	text-align: center;
+	color: white;
+}
+
+#notifyAdminForMenu {
+	width: 38em;
+	display: none;
+	height: 1.5em;
+	text-align: center;
+	color: white;
+}
+
+#notifyAdmin {
+	width: 38em;
+	display: none;
+	height: 1.5em;
+	text-align: center;
+	color: white;
+}
+
+#notifyUpdate {
+	width: 50em;
+	display: none;
+	height: 1.5em;
+	text-align: center;
+	color: white;
+}
+
+#notifyAdminForMenu2 {
+	width: 38em;
 	display: none;
 	height: 1.5em;
 	text-align: center;
@@ -120,6 +163,15 @@ input[type=password] {
 	border-radius: 5%;
 }
 
+#editmenu {
+	width: 40em;
+	margin-left: 9em;
+	margin-top: 3em;
+}
+
+#updateForm {
+	margin-left: 5em;
+}
 
 /* Overwrite default styles of hr */
 

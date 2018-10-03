@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS users (
 const createMenuTable = `CREATE TABLE IF NOT EXISTS menu (
     id SERIAL,
     name character varying(70),
-    imageurl character varying(70),
+    imageurl character varying(700),
     description text,
     price INTEGER NOT NULL,
     dateadded timestamp without time zone NOT NULL DEFAULT now(),
@@ -58,7 +58,7 @@ CREATE TYPE catererstatus AS ENUM ('New','Processing', 'Cancelled', 'Complete');
     status catererstatus default 'New',
     dateadded timestamp without time zone NOT NULL DEFAULT now(),
     FOREIGN KEY (userid) REFERENCES users (id),
-    FOREIGN KEY (menuid) REFERENCES menu (id),
+    FOREIGN KEY (menuid) REFERENCES menu (id) ON DELETE CASCADE ON UPDATE NO ACTION,
     PRIMARY KEY (id)
 );`;
 

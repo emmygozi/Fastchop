@@ -104,8 +104,10 @@
 
     <div class="secondborder">
         <h1 id="meal-heading">All Meals</h1>
+        <div id="notifyAdmin"></div>
         <div style=" text-align: right" ><a id="myAdd"><i class="fas fa-plus-circle" style="color: #1fce6d; margin: 0em 3em 0em 0em;  font-size: 4em; text-shadow: 2px 4px 8px black;
             "></i></a> </div>
+            <div id="alladminmenu"></div>
             <div class="card">
                     <div class="inside-card">
                       <h4 ><b>Samosa and sauce</b></h4> 
@@ -114,7 +116,7 @@
                       <div class="flex-container shift-flex-container">
                             <div class="center-flex-child">
                                     <!-- Trigger/Open The Modal -->
-                                    <a id="myBtn">Edit <i class="far fa-edit"></i></a>
+                                    <a id="myBtn" class="myBtn">Edit <i class="far fa-edit"></i></a>
                             </div>
     
                             <div class="center-flex-child">
@@ -179,40 +181,24 @@
             </div>
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <p class="closed" style="margin-top: -0.7em;">&times;</p>
-          <form action="">
-            <div style="margin-left: 2em;">
-              <label for="foodname">Fast Food Name</label>
-              <input type="text" name="name"><br>
-              <label for="fooddescription">Description</label>
-              <input type="text" name="description"><br>
-              <label for="pic">Upload Picture<picture></picture></label>
-              <input type="file" name="imageurl" accept="image/*"><br><br>
-              <button type="submit" class="buttongreen">save</button>
-            </div>
-          </form>
-        </div>
-      
-      </div>
 
       <!-- The Modal -->
 <div id="addModal" class="modal">
 
         <!-- Modal content -->
         <div class="modal-content">
+            <div id="notifyAdminForMenu"></div>
           <p class="closed" style="margin-top: -0.7em;">&times;</p>
-          <form action="">
+          <form id="addMenu" name="addMenu">
             <div style="margin-left: 2em;">
-              <label for="foodname">Fast Food Name</label>
-              <input type="text" name="name"><br>
-              <label for="fooddescription">Description</label><br>
+              <label for="food">Fast Food Name &nbsp;</label>
+              <input type="text" name="food"><br>
+              <label for="description">Description &nbsp; &nbsp;&nbsp;&nbsp;</label>
               <input type="text" name="description"><br>
-              <label for="pic">Upload Picture<picture></picture></label>
-              <input type="file" name="imageurl" accept="image/*"><br><br>
+              <label for="imageurl">Upload Image Url</label>
+              <input type="text" name="imageurl" ><br><br>
+              <label for="price">Price &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label>
+              <input type="text" name="price" ><br><br>
               <button type="submit" class="buttongreen">save</button>
             </div>
           </form>
@@ -231,22 +217,26 @@
       let btn3 = document.getElementById("myBtn3");
       let btn4 = document.getElementById("myBtn4");
       let addBtn = document.getElementById("myAdd");
+
       
       // Get the <span> element that closes the modal
       
       let span = document.getElementsByClassName("closed")[0];
       let span2 = document.getElementsByClassName("closed")[1];
       
+
       
       // When the user clicks the button, open the modal 
+
+
       btn.onclick = function() {
-          modal.style.display = "block";
+         // modal.style.display = "block";
       }
       btn2.onclick = function() {
-          modal.style.display = "block";
+         // modal.style.display = "block";
       }
       btn3.onclick = function() {
-          modal.style.display = "block";
+          //modal.style.display = "block";
       }
       btn4.onclick = function() {
           modal.style.display = "block";
@@ -254,20 +244,16 @@
       addBtn.onclick = function() {
           modalForAdd.style.display = "block";
       }
-      
+
       // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-          modal.style.display = "none";
-      }
-      // When the user clicks on <span> (x), close the modal
-            span2.onclick = function() {
+            span.onclick = function() {
           modalForAdd.style.display = "none";
       }
       
       // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
-          if (event.target == modal) {
-              modal.style.display = "none";
+          if (event.target == modalForAdd) {
+            modalForAdd.style.display = "none";
           }
       }
       </script>
@@ -286,4 +272,7 @@
 <script>
 hamburger();
 </script>
+<script src="client/savemenu.js"></script>
+<script src="client/editmenu.js"></script>
+<script src="client/getmenuadmin.js"></script>
 </html>
