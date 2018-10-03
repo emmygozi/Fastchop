@@ -10,7 +10,7 @@
     "**/*.test.js",
     "**/__tests__/**",
     "**/node_modules/**",
-    "**/server/routes/userInterface/**",
+    "**/server/routes/userInteface/**",
     "**/server/helpers/dbScript/**",
     "./UI"
   ],

@@ -14,6 +14,6 @@ exclude_paths:
 - ".nyc_output/"
 - "node_modules/"
 - "coverage/"
-- "server/routes/userInteface/"
+
 
 

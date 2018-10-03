@@ -5,9 +5,9 @@ import swaggerExpress from 'swagger-ui-express';
 import cors from 'cors';
 import yamljs from 'yamljs';
 import routes from './routes/index';
-import ui from './routes/userInterface/index';
 import error from './middlewares/expressErrorMiddleware';
 import apiNotFound from './middlewares/expressNotFoundMiddleware';
+import ui from './routes/userInteface/index';
 
 const app = express();
 const documentation = yamljs.load(`${process.cwd()}/server/swagger.yaml`);
