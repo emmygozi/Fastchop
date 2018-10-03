@@ -81,6 +81,14 @@ color: white;
 	color: white;
 }
 
+#notifyUserLogin {
+	width: 28em;
+	display: none;
+	height: 1.5em;
+	text-align: center;
+	color: white;
+}
+
 .formentrycontainer {
 	margin-top: 3em;
 	padding: 16px;

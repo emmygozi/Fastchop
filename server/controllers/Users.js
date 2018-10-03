@@ -49,7 +49,8 @@ class User {
       .json({
         state: 'Succesful',
         user: _.pick(anEntry, ['name', 'email']),
-        message: 'You have sucessfully signed up'
+        message: 'You have sucessfully signed up',
+        token
       });
     // assign pick to a const
   }
@@ -90,6 +91,7 @@ class User {
       .json({
         state: 'Succesful',
         message: 'Logged on to site',
+        token
       });
   }
 }

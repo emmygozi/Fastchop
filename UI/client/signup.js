@@ -13,7 +13,6 @@ const signup = (e) => {
   const showNotification = document.getElementById('notifyUser');
 
 
-  alert(password )
   let headers = new Headers();
   fetch('./auth/signup', {
       method: "POST",
@@ -24,20 +23,17 @@ const signup = (e) => {
       body: JSON.stringify({ name, email, password, address, phone }),
 
   })
-    .then(response => response)
+    .then(response => response.json())
     .then((result) => {
-        console.log(result);
-        console.log(result.headers.get('x-auth-token'));
-      if (result.status !== 201) {
+      if (result.state !== 'Succesful') {
         showNotification.style.display = 'block';
         showNotification.style.background = 'red';
-        showNotification.innerHTML = 'Please input correct values for all fields';
+        showNotification.innerHTML = result.message;
         setInterval(() => {
           showNotification.style.display = 'none';
         }, 2000);
       } else {
-        localStorage.token = result.headers.get('x-auth-token');
-         console.log(localStorage.token + 'YAAAAY');
+        localStorage.token = result.token;
          showNotification.style.background = '#32c5d2';
          showNotification.style.display = 'block';
          showNotification.innerHTML = 'Account creation successful';

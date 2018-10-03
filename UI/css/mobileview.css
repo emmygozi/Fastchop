@@ -290,7 +290,10 @@ input[type=text], input[type=email], textarea, input[type=password] {
 
 #notifyUser {
 	width: 16em;
+}
 
+#notifyUserLogin {
+	width: 16em;
 }
 
 #centerThisText {
