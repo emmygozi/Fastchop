@@ -1,4 +1,8 @@
-
+/**  Get one new
+    * @param {string} id
+    * @return {string} error message
+    * @public
+   */
 function getOneMeal(e) {
     e.preventDefault();
     const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+3)
@@ -28,6 +32,11 @@ function getOneMeal(e) {
   
   window.onload = getOneMeal;
 
+  /**  Delete a new  food
+    * @param {string} id
+    * @return {string} error message
+    * @public
+   */
 
 function deleteMenu(e) {
   e.preventDefault();

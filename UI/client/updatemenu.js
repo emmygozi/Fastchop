@@ -1,3 +1,13 @@
+
+/**  PUT new  food
+    * @param {string} name
+    * @param {string} description
+    * @param {string} imageurl
+    * @param {string} price
+    * @return {string} error message
+    * @public
+   */
+
 const baseUrl = '../api/v1';
 
 function getOneMeal(e) {

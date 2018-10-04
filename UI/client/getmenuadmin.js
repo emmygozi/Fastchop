@@ -1,3 +1,11 @@
+/**  Get new  food
+    * @param {string} name
+    * @param {string} description
+    * @param {string} imageurl
+    * @param {string} price
+    * @return {string} error message
+    * @public
+   */
 
 const getMenuAdmin = (e) => {
   e.preventDefault();

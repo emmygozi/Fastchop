@@ -1,3 +1,10 @@
+/**  Post new  food
+    * @param {string} name
+    * @param {string} email
+    * @param {string} password
+    * @return {string} error message
+    * @public
+   */
 
 const basePath = 'api/v1';
 const signupForm = document.getElementById('signupForm');

@@ -1,3 +1,11 @@
+/**  Post new  food
+    * @param {string} name
+    * @param {string} description
+    * @param {string} imageurl
+    * @param {string} price
+    * @return {string} error message
+    * @public
+   */
 
 const loginForm = document.getElementById('addMenu');
 

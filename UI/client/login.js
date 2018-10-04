@@ -1,3 +1,11 @@
+/**  Post user login
+    * @param {string} name
+    * @param {string} description
+    * @param {string} imageurl
+    * @param {string} price
+    * @return {string} error message
+    * @public
+   */
 
 const basePath = 'api/v1';
 const loginForm = document.getElementById('myLoginForm');
