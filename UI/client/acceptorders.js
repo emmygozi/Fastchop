@@ -20,8 +20,8 @@ function getOneOrder(e) {
           const processName = document.getElementById('processName');
           const statusName = document.getElementById('processStatus');
   
-            processName.value = data.retrievedMenu.name;
-            statusName.value = data.retrievedMenu.description;
+            processName.value = data.anOrder.name;
+            statusName.value = data.anOrder.description;
         })
         .catch(err => console.error(err));
   }
@@ -40,6 +40,9 @@ const orderEdited = (e) => {
   const getFormName = document.forms.processForm;
   const status = getFormName.processValue.value;
 
+  console.log(status);
+  const showNotification = document.getElementById('processNameNotification');
+
 
   let headers = new Headers();
   fetch(`../orders/${id}`, {
@@ -56,17 +59,17 @@ const orderEdited = (e) => {
   .then((result) => {
     if (result.state !== 'Succesful') {
       showNotification.style.display = 'block';
-      showNotification.style.background = 'red';
+      showNotification.style.background = 'rgb(51, 104, 150)';
       showNotification.innerHTML = result.message;
       setInterval(() => {
         showNotification.style.display = 'none';
       }, 2000);
     } else {
-       showNotification.style.background = '#32c5d2';
+       showNotification.style.background = 'rgb(51, 104, 150)';
        showNotification.style.display = 'block';
        showNotification.innerHTML = 'Saved menu sucessfully';
       setTimeout(() => {
-        location.reload();
+        location.href = 'all-orders';
       }, 5000);
     }
   })

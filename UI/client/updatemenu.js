@@ -6,7 +6,6 @@ function getOneMeal(e) {
 
   const id = lastpart.split("/").pop();
 
-  console.log(id);
   fetch(`../menu/${id}`, {
     method: 'GET',
     headers: {
