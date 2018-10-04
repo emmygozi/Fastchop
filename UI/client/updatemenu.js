@@ -2,7 +2,7 @@ const baseUrl = '../api/v1';
 
 function getOneMeal(e) {
   e.preventDefault();
-  const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+3)
+  const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+4)
 
   const id = lastpart.split("/").pop();
 
@@ -34,7 +34,7 @@ window.onload = getOneMeal;
 
 const updateEntry = (e) => {
   e.preventDefault();
-  const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+3)
+  const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+4)
 
   const id = lastpart.split("/").pop();
 

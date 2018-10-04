@@ -17,8 +17,8 @@ function getOneOrder(e) {
       .then(res => res.json())
         .then((data) => {
             console.log(data);
-          const processName = document.getElementById('processName');
-          const statusName = document.getElementById('processStatus');
+          const processName = document.getElementById('declineName');
+          const statusName = document.getElementById('declineStatus');
   
             processName.value = data.anOrder.name;
             statusName.value = data.anOrder.description;
@@ -29,7 +29,7 @@ function getOneOrder(e) {
   window.onload = getOneOrder;
 
 
-const editForm = document.getElementById('processForm');
+const editForm = document.getElementById('declineForm');
 
 const orderEdited = (e) => {
     const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+4)
@@ -37,11 +37,13 @@ const orderEdited = (e) => {
     const id = lastpart.split("/").pop();
 
   e.preventDefault(e);
-  const getFormName = document.forms.processForm;
-  const status = getFormName.processValue.value;
+  const getFormName = document.forms.declineForm;
+  let status = getFormName.declineValue.value;
+
+  status = 'Cancelled';
 
   console.log(status);
-  const showNotification = document.getElementById('processNameNotification');
+  const showNotification = document.getElementById('declineNameNotification');
 
 
   let headers = new Headers();
@@ -67,7 +69,7 @@ const orderEdited = (e) => {
     } else {
        showNotification.style.background = 'rgb(51, 104, 150)';
        showNotification.style.display = 'block';
-       showNotification.innerHTML = 'Saved menu sucessfully';
+       showNotification.innerHTML = result.message;
       setTimeout(() => {
         location.href = 'all-orders';
       }, 5000);

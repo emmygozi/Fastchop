@@ -53,5 +53,13 @@ router.get('/processing/:id', (req, res) => {
   res.sendFile('processing-order.html', { root });
 });
 
+router.get('/decline/:id', (req, res) => {
+  res.sendFile('decline-order.html', { root });
+});
+
+router.get('/complete/:id', (req, res) => {
+  res.sendFile('complete-order.html', { root });
+});
+
 
 export default router;

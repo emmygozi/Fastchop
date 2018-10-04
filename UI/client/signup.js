@@ -34,6 +34,7 @@ const signup = (e) => {
         }, 2000);
       } else {
         localStorage.token = result.token;
+        localStorage.id = result.id;
          showNotification.style.background = '#32c5d2';
          showNotification.style.display = 'block';
          showNotification.innerHTML = 'Account creation successful';

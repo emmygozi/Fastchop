@@ -93,7 +93,7 @@
                         </div>
         
                 <div class="secondborder">
-                        <div id="processNameNotification"></div>
+                        <div id="declineNameNotification"></div>
                         <h2 id="centerThisText">Order Quantity</h2>
                         <div id="notifyProcessing" style="text-align:center;"></div>
 
@@ -104,13 +104,13 @@
 
                           </tr>
                           <tr>
-                            <td><input type="text" id="processName"></td>
-                            <td><input type="text" id="processStatus"></td>
-                            <form id="processForm" name="processForm">
+                            <td><input type="text" id="declineName"></td>
+                            <td><input type="text" id="declineStatus"></td>
+                            <form id="declineForm" name="declineForm">
                           </tr>
                         </table>
-                        <input type="hidden" id="processValue" name="processValue" value="Processing">
-                            <button type="submit" class="buttongreen" >Accept Order</button>
+                        <input type="hidden" id="declineValue" name="declineValue">
+                            <button type="submit" class="buttongreen" >Decline Order</button>
                                 </form>
 
    <div>
@@ -134,5 +134,5 @@
 <script>
 hamburger();
 </script>
-<script src="../client/acceptorders.js"></script>
+<script src="../client/declineorders.js"></script>
 </html>

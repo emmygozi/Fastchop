@@ -62,7 +62,7 @@
 
     <div class="flex-home">
 
-            <div class="firstborder" style=" background-color: #FEFFEC">
+            <div class="firstborder" style=" background-color: #FEFFEC; height: 93vh;">
                 <div class="fawesome">
                     <i class="fas fa-utensils"></i>
                 </div>
@@ -72,14 +72,15 @@
                 <div class="mylinks">
                     <a href="home">View Meals</a>
                 </div>
-                <div> <!-- We have to override a generic input style -->
+                <!-- <div>  We have to override a generic input style 
                     <input style="padding: 3px;
                     margin-top: 4px;
                     margin-right: 8px;
                     border: none;
                     font-size: 17px;
                     background-color: #FEFFEC; border-bottom: 2px solid #4CAF50"  placeholder="Search..." type="text">
-                </div><br><br><br>
+                </div> --> 
+                <br><br><br>
 
                 <div>
                     Powered by <br>
@@ -89,45 +90,11 @@
 
 
     <div class="secondborder">
-        <h1 id="meal-heading">All Orders</h1>
-            <div class="card">
-                    <div class="inside-card">
-                      <h4 ><b>Christiano Ronaldo</b></h4> 
-                      <em>12 October 2018</em>
-                      <p>Fried Chicken</>
-                        <div class="flex-container shift-flex-container">
-                                <div class="center-flex-child" onclick="myFunction()">
-                                        View order
-                                </div>
-                              </div>
-                              <div id="mysnackbar">Christiano Ronaldo ordered fried chicken on 12, October 2018</div>
-                    </div>
-            </div>
-
-            <div class="card">
-                    <div class="inside-card">
-                      <h4 ><b>Lionel Messi</b></h4> 
-                      <em>12 October 2018</em>
-                      <p>Burger and soda</p> 
-                    </div>
-            </div>
-
-            <div class="card">
-                    <div class="inside-card">
-                      <h4 ><b>Neymar Junior</b></h4> 
-                      <em>12 October 2018</em>
-                      <p>Doughnut and sauce</p> 
-                    </div>
-            </div>
-
-            <div class="card">
-                    <div class="inside-card">
-                      <h4 ><b>Luka Modric</h4>
-                         <em>12 October 2018</em>
-                      <p>Extra large pizza</p> 
-                    </div>
-            </div>
-
+        <h1 id="customersName" style="text-align:center"></h1>
+        <div id="notifyACustomer"></div>
+        <div id="myCustomerOrders">
+            
+        </div>
 
     </div>
     </div>
@@ -146,4 +113,5 @@
 <script>
 hamburger();
 </script>
+<script src="client/getcutomerorders.js"></script>
 </html>

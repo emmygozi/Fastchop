@@ -30,15 +30,17 @@ const getOrdersAdmin = (e) => {
         if (res.status === 200) {
             console.log(data);
           data.allOrders.forEach((aOrder) => {
-              console.log(aOrder);
+              const addDate = new Date(aOrder.dateadded);
+              
 
               if (aOrder.status === 'Processing'){
                 order += `
                 <div class="card">
                         <div class="inside-card">
                           <h4 ><b>${aOrder.name}</b></h4> 
-                          <em>${aOrder.dateadded}</em>
-                          <p>Order status:${aOrder.status}</>
+                          <p>made an order at:</p>
+                          <em>${addDate}</em>
+                          <p>Order status:   &nbsp;&nbsp;&nbsp;&nbsp; Processing</>
                           <div class="flex-container shift-flex-container">
                                 <div class="center-flex-child">
                                         <!-- Trigger/Open The Modal -->
@@ -54,14 +56,55 @@ const getOrdersAdmin = (e) => {
     
                 `
 
-              }else{
+              } 
+              if (aOrder.status === 'Complete'){
+                order += `
+                <div class="card">
+                        <div class="inside-card">
+                          <h4 ><b>${aOrder.name}</b></h4> 
+                          <p>made an order at:</p>
+                          <em>${addDate}</em>
+                          <p>Order status:   &nbsp;&nbsp;&nbsp;&nbsp; Complete</>
+                          <div class="flex-container shift-flex-container">
+                                <div class="center-flex-child">
+                                        This is a completed order
+                                </div>
+        
+                          </div>
+                        </div>
+                </div>
+    
+    
+                `
+              }
+              if (aOrder.status === 'Cancelled'){
+                order += `
+                <div class="card">
+                        <div class="inside-card">
+                          <h4 ><b>${aOrder.name}</b></h4> 
+                          <p>made an order at:</p>
+                          <em>${addDate}</em>
+                          <p>Order status:   &nbsp;&nbsp;&nbsp;&nbsp; Cancelled</>
+                          <div class="flex-container shift-flex-container">
+                                <div class="center-flex-child">
+                                        This is a Cancelled Order
+                                </div>
+        
+                          </div>
+                        </div>
+                </div>
+    
+    
+                `
 
-            order += `
+              }else{
+          order += `
             <div class="card">
                     <div class="inside-card">
                       <h4 ><b>${aOrder.name}</b></h4> 
-                      <em>${aOrder.dateadded}</em>
-                      <p>Order status:${aOrder.status}</>
+                      <p>made an order at:</p>
+                      <em>${addDate}</em>
+                      <p>Order status: &nbsp;&nbsp;&nbsp;&nbsp; New</>
                       <div class="flex-container shift-flex-container">
                             <div class="center-flex-child">
                                     <!-- Trigger/Open The Modal -->

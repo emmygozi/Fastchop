@@ -1,7 +1,7 @@
 
 function getOneMeal(e) {
     e.preventDefault();
-    const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+3)
+    const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+4)
   
     const id = lastpart.split("/").pop();
 
@@ -31,7 +31,7 @@ function getOneMeal(e) {
 
 function deleteMenu(e) {
   e.preventDefault();
-  const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+3)
+  const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+4)
 
   const id = lastpart.split("/").pop();
 

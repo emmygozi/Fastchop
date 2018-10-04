@@ -45,11 +45,14 @@ class User {
       userDetails.role
     );
 
+    const { id } = userDetails;
+
     return res.status(201).header('x-auth-token', token)
       .json({
         state: 'Succesful',
         user: _.pick(anEntry, ['name', 'email']),
         message: 'You have sucessfully signed up',
+        id,
         token
       });
     // assign pick to a const
@@ -87,10 +90,13 @@ class User {
       userRole
     );
 
+    const id = userId;
+
     res.header('x-auth-token', token).status(200)
       .json({
         state: 'Succesful',
         message: 'Logged on to site',
+        id,
         token
       });
   }

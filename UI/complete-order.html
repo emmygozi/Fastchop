@@ -93,7 +93,7 @@
                         </div>
         
                 <div class="secondborder">
-                        <div id="processNameNotification"></div>
+                        <div id="completeNameNotification"></div>
                         <h2 id="centerThisText">Order Quantity</h2>
                         <div id="notifyProcessing" style="text-align:center;"></div>
 
@@ -104,13 +104,13 @@
 
                           </tr>
                           <tr>
-                            <td><input type="text" id="processName"></td>
-                            <td><input type="text" id="processStatus"></td>
-                            <form id="processForm" name="processForm">
+                            <td><input type="text" id="completeName"></td>
+                            <td><input type="text" id="completeStatus"></td>
+                            <form id="completeForm" name="completeForm">
                           </tr>
                         </table>
-                        <input type="hidden" id="processValue" name="processValue" value="Processing">
-                            <button type="submit" class="buttongreen" >Accept Order</button>
+                        <input type="hidden" id="completeValue" name="completeValue">
+                            <button type="submit" class="buttongreen" >Mark Order as Complete</button>
                                 </form>
 
    <div>
@@ -134,5 +134,5 @@
 <script>
 hamburger();
 </script>
-<script src="../client/acceptorders.js"></script>
+<script src="../client/completeorders.js"></script>
 </html>

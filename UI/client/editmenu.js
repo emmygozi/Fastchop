@@ -35,7 +35,7 @@ const menuEdited = (e) => {
     } else {
        showNotification.style.background = '#32c5d2';
        showNotification.style.display = 'block';
-       showNotification.innerHTML = 'Saved menu sucessfully';
+       showNotification.innerHTML = 'Saved edited sucessfully';
       setTimeout(() => {
         location.reload();
       }, 5000);

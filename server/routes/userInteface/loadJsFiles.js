@@ -51,4 +51,16 @@ router.get('/client/acceptorders.js', (req, res) => {
   res.sendFile('/client/acceptorders.js', { root });
 });
 
+router.get('/client/declineorders.js', (req, res) => {
+  res.sendFile('/client/declineorders.js', { root });
+});
+
+router.get('/client/completeorders.js', (req, res) => {
+  res.sendFile('/client/completeorders.js', { root });
+});
+
+router.get('/client/getcutomerorders.js', (req, res) => {
+  res.sendFile('/client/getcutomerorders.js', { root });
+});
+
 export default router;

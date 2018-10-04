@@ -16,8 +16,10 @@ class HasAdminPermission {
       status
     } = req.body;
     const validEnumUpdate = ['New', 'Processing', 'Cancelled', 'Complete'];
+    console.log(status);
 
     if (validEnumUpdate.indexOf(status) === -1) {
+      console.log(validEnumUpdate.indexOf(status));
       return res.status(400)
         .json({ state: 'Failed', message: 'You cannot update order status with an invalid entry' });
     }

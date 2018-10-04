@@ -23,19 +23,13 @@ class Orders {
       return res.status(400)
         .json({ state: 'Failed', message: 'No orders yet for this user' });
     }
-    const {
-      id, dateadded, name, description, price, quantity
-    } = rows[0];
 
-    const menu = {
-      name, description, price, quantity
-    };
+    const yourOrder = rows;
+
     res.status(200).json({
       state: 'Succesful',
       message: 'Retrieved all your orders',
-      id,
-      dateadded,
-      menu,
+      yourOrder,
       user
     });
   }
@@ -48,7 +42,7 @@ class Orders {
       .query(`select orders.id, orders.dateadded,
       menu.name, orders.quantity, users.name, orders.status 
       from orders inner join menu on orders.menuid = menu.id left join users
-      on orders.userid = users.id order by id desc `);
+      on orders.userid = users.id order by id desc limit 8`);
     client.release();
 
 
