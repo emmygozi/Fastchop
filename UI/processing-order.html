@@ -97,23 +97,22 @@
                 <div class="secondborder">
 
                         <h2 id="centerThisText">Order Quantity</h2>
-                        <div id="notifyOrder" style="text-align:center;"></div>
+                        <div id="notifyProcessing" style="text-align:center;"></div>
 
                         <table>
                           <tr>
-                            <th>Menu</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
+                            <th>Customer name</th>
+                            <th>Order status</th>
+
                           </tr>
                           <tr>
-                            <td><input type="text" id="menuName"></td>
-                            <td><input type="text" id="priceId"></td>
-                            <form id="orderForm" name="orderForm">
-                            <td><input type="number" id="quantityValue" name="quantityValue"></td>
+                            <td><input type="text" id="processName"></td>
+                            <td><input type="text" id="processStatus"></td>
+                            <form id="processForm" name="processForm">
                           </tr>
                         </table>
-                        <input type="hidden" id="menuId" name="menuId">
-                            <button type="submit" class="buttongreen" >Order</button>
+                        <input type="hidden" id="processValue" name="processValue" value="Processing">
+                            <button type="submit" class="buttongreen" >Accept Order</button>
                                 </form>
 
    <div>
@@ -137,5 +136,5 @@
 <script>
 hamburger();
 </script>
-<script src="../client/makeorder.js"></script>
+<script src="../client/acceptorders.js"></script>
 </html>

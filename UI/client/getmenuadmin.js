@@ -63,8 +63,6 @@ const getMenuAdmin = (e) => {
       .catch(err => console.error(err)));
 };
 
-let btnClass1 = document.getElementsByClassName("myBtn");
-
 
 
 window.onload = getMenuAdmin;

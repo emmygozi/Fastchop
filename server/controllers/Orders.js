@@ -45,10 +45,12 @@ class Orders {
 
     const { rows } =
     await pool
-      .query(`SELECT orders.id, orders.dateadded, menu.name, menu.description, menu.price, 
-      orders.quantity
-      FROM orders INNER JOIN menu ON orders.menuid=menu.id ORDER BY orders.id desc`);
+      .query(`select orders.id, orders.dateadded,
+      menu.name, orders.quantity, users.name, orders.status 
+      from orders inner join menu on orders.menuid = menu.id left join users
+      on orders.userid = users.id order by id desc `);
     client.release();
+
 
     const allOrders = rows;
 
@@ -99,21 +101,7 @@ class Orders {
 
     const userId = req.aDecodedUser.id;
 
-    // https://node-postgres.com/features/queries  Check for Row mode
-    // It is necessary to add "rowMode: 'array" to query like this to be able to search
-    // table with a string value in node pg
-    const noDuplicateQuery = {
-      text: 'SELECT * from orders where status = $1 and userid = $2',
-      values: ['New', `${userId}`],
-      rowMode: 'array',
-    };
     const client = await pool.connect();
-    const duplicate = await pool.query(noDuplicateQuery);
-
-    if (duplicate.rows[0] !== undefined) {
-      client.release();
-      return res.status(409).json({ state: 'Failed', message: 'You still have a pending order' });
-    }
 
     const validOrder = {
       text: 'SELECT * from menu where id = $1',

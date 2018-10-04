@@ -1,4 +1,4 @@
-const baseUrl = '../api/v1';
+
 
 function getOneMeal(e) {
   e.preventDefault();
@@ -17,15 +17,15 @@ function getOneMeal(e) {
   })
     .then(res => res.json())
       .then((data) => {
-        const name2 = document.getElementById('food2');
-        const description2 = document.getElementById('description2');
-        const imageurl2 = document.getElementById('imageurl2');
-        const price2 = document.getElementById('price2');
+        const name = document.getElementById('menuName');
+        const priceId = document.getElementById('priceId');
+        const menuId = document.getElementById('menuId');
 
-          name2.value = data.retrievedMenu.name;
-          description2.value = data.retrievedMenu.description;
-          imageurl2.value = data.retrievedMenu.imageurl;
-          price2.value = data.retrievedMenu.price;
+
+
+          name.value = data.retrievedMenu.name;
+          menuId.value = data.retrievedMenu.id;
+          priceId.value = data.retrievedMenu.price;
       })
       .catch(err => console.error(err));
 }
@@ -33,25 +33,29 @@ function getOneMeal(e) {
 window.onload = getOneMeal;
 
 
-const updateEntry = (e) => {
+const postOrder = (e) => {
   e.preventDefault();
+
   const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+3)
 
   const id = lastpart.split("/").pop();
 
-  const form = document.forms.editmenu;
-  const name = form.food2.value;
-  const imageurl = form.imageurl2.value;
-  const description = form.description2.value;
-  const price = form.price2.value;
-
-  const notify = document.getElementById('notifyUpdate');
+  const menuid = id.split("?").pop();
+  console.log(menuid)
   
-  fetch(`../menu/${id}`, {
-    method: 'PUT',
+
+ const form = document.forms.orderForm;
+ const quantity = form.quantityValue.value;
+ console.log(quantity)
+
+  
+
+  const notify = document.getElementById('notifyOrder');
+  
+  fetch('../orders', {
+    method: 'POST',
     body: JSON.stringify({
-      name, imageurl, description,
-      price
+      menuid, quantity
     }),
     headers: {
       Accept: 'application/json, text/plain, */*',
@@ -62,6 +66,7 @@ const updateEntry = (e) => {
     .then(res => res.json())
       .then((data) => {
 
+        console.log(data);
         if (data.message !== 'Updated specified menu') {
           notify.style.display = 'block';
           notify.style.background = 'rgb(51, 104, 150)';
@@ -81,4 +86,4 @@ const updateEntry = (e) => {
       .catch(err => console.error(err));
 };
 
-document.getElementById('editmenu').addEventListener('submit', updateEntry);
+document.getElementById('orderForm').addEventListener('submit', postOrder);

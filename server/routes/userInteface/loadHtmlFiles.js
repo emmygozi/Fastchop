@@ -33,7 +33,7 @@ router.get('/home', (req, res) => {
 });
 
 
-router.get('/orders', (req, res) => {
+router.get('/all-orders', (req, res) => {
   res.sendFile('/orders.html', { root });
 });
 
@@ -43,6 +43,14 @@ router.get('/update-menu/:id', (req, res) => {
 
 router.get('/delete-menu/:id', (req, res) => {
   res.sendFile('delete-menu.html', { root });
+});
+
+router.get('/add-quantity/:id', (req, res) => {
+  res.sendFile('add-quantity.html', { root });
+});
+
+router.get('/processing/:id', (req, res) => {
+  res.sendFile('processing-order.html', { root });
 });
 
 

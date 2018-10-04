@@ -35,4 +35,20 @@ router.get('/client/deletemenu.js', (req, res) => {
   res.sendFile('/client/deletemenu.js', { root });
 });
 
+router.get('/client/homepage.js', (req, res) => {
+  res.sendFile('/client/homepage.js', { root });
+});
+
+router.get('/client/makeorder.js', (req, res) => {
+  res.sendFile('/client/makeorder.js', { root });
+});
+
+router.get('/client/getorders.js', (req, res) => {
+  res.sendFile('/client/getorders.js', { root });
+});
+
+router.get('/client/acceptorders.js', (req, res) => {
+  res.sendFile('/client/acceptorders.js', { root });
+});
+
 export default router;

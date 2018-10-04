@@ -292,6 +292,10 @@ input[type=text], input[type=email], textarea, input[type=password] {
 	width: 16em;
 }
 
+#notifyOrder {
+  width: 20em;
+}
+
 #notifyUserLogin {
 	width: 16em;
 }

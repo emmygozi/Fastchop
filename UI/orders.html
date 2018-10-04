@@ -89,59 +89,11 @@
 
     <div class="secondborder">
         <h1 id="meal-heading">All Orders</h1>
-            <div class="card">
-                    <div class="inside-card">
-                      <h4 ><b>Christiano Ronaldo</b></h4> 
-                      <em>12 October 2018</em>
-                      <p>Fried Chicken</>
-                      <div class="flex-container shift-flex-container">
-                            <div class="center-flex-child">
-                                    <!-- Trigger/Open The Modal -->
-                                    <a id="myBtnTwo">Accept order <i class="fas fa-check"></i></a>
-                            </div>
-    
-                            <div class="center-flex-child">
-                               <a id="myDeleteTwo"> Decline order <i class="fas fa-trash"></i></a>
-                            </div>
-                      </div>
-                    </div>
-            </div>
+        <div id="ordersHomePlace">
 
-            <div class="card">
-                    <div class="inside-card">
-                      <h4 ><b>Lionel Messi</b></h4> 
-                      <em>12 October 2018</em>
-                      <p>Burger and soda</p> 
-                      <div class="completed-order">Completed order</div>
-                    </div>
-            </div>
-
-            <div class="card">
-                    <div class="inside-card">
-                      <h4 ><b>Neymar Junior</b></h4> 
-                      <em>12 October 2018</em>
-                      <p>Doughnut and sauce</p> 
-                      <div class="flex-container shift-flex-container">
-                        <div class="center-flex-child">
-                                <!-- Trigger/Open The Modal -->
-                                <a id="myBtnTwo3">Accept order <i class="fas fa-check"></i></a>
-                        </div>
-
-                        <div class="center-flex-child">
-                           <a id="myDeleteTwo4"> Decline order <i class="fas fa-trash"></i></a>
-                        </div>
-                      </div>
-                    </div>
-            </div>
-
-            <div class="card">
-                    <div class="inside-card">
-                      <h4 ><b>Luka Modric</h4>
-                         <em>12 October 2018</em>
-                      <p>Extra large pizza</p> 
-                      <div class="completed-order">Completed order</div>
-                    </div>
-            </div>
+        </div>
+            
+            
 
 <!-- The Modal -->
 <div id="myModalTwo" class="modalTwo">
@@ -167,7 +119,7 @@
       let btn = document.getElementById("myBtnTwo");
       let btn2 = document.getElementById("myBtnTwo3");
 
-      let myDeleteTwo = document.getElementById("myDeleteTwo");
+      /* let myDeleteTwo = document.getElementById("myDeleteTwo");
     
       // Get the <span> element that closes the modal
       let span = document.getElementsByClassName("closedTwo")[0];
@@ -206,7 +158,7 @@
               modal.style.display = "none";
           }
       }
-
+ */
       </script>
       
       
@@ -223,4 +175,5 @@
 <script>
 hamburger();
 </script>
+<script src="client/getorders.js"></script>
 </html>

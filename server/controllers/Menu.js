@@ -4,7 +4,7 @@ class Menu {
   static async getAll(req, res) {
     const client = await pool.connect();
 
-    const { rows } = await pool.query('SELECT * FROM menu ORDER BY id DESC LIMIT 5');
+    const { rows } = await pool.query('SELECT * FROM menu ORDER BY id DESC LIMIT 8');
     client.release();
     const menus = rows;
     res.status(200).json({ state: 'Succesful', message: 'Retrieved all menus', menus });
