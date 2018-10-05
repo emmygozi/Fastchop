@@ -3,6 +3,11 @@ const getMenuAdmin = (e) => {
   e.preventDefault();
 
   const notify = document.getElementById('notifyHome');
+  const signupNot = document.getElementById('SignupCustomer');
+  const loginNot = document.getElementById('loginCustomer');
+  const loggedNow = document.getElementById('loggedCustomer');
+  const adminLogged = document.getElementById('adminCustomer1');
+  const adminLogged2 = document.getElementById('adminCustomer2');
 
 
   fetch('./menu', {
@@ -25,6 +30,20 @@ const getMenuAdmin = (e) => {
           }, 2000);
         }
         if (res.status === 200) {
+          if (!localStorage.token) {
+            signupNot.innerHTML = '<a href="signup">Signup</a>';
+            loginNot.innerHTML = '<a href="login">Login</a>';
+          }
+          if (localStorage.token) {
+            signupNot.innerHTML = '';
+            loginNot.innerHTML = '';
+            if (localStorage.role === 'admin'){
+              adminLogged.innerHTML = '<a href="admin-dashboard">Manage Menus</a>';
+              adminLogged2.innerHTML = '<a href="all-orders">Manage Orders</a>';
+            }else{
+            loggedNow.innerHTML = '<a href="customer-order-history">View my Orders</a>';
+          }
+          }
           data.menus.forEach((aMenu) => {
               console.log(aMenu.name);
             menus += `

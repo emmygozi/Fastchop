@@ -3,6 +3,7 @@ const getMenuAdmin = (e) => {
   e.preventDefault();
 
   const notify = document.getElementById('notifyAdmin');
+  const addManageOrders = document.getElementById('addManageOrders');
 
 
   fetch('./menu', {
@@ -25,6 +26,10 @@ const getMenuAdmin = (e) => {
           }, 2000);
         }
         if (res.status === 200) {
+          if (localStorage.role === 'admin'){
+            addManageOrders.innerHTML = '<a href="all-orders">Manage Orders</a>';
+
+          }
           data.menus.forEach((aMenu) => {
             let convertedDate = new Date(aMenu.dateadded);
             menus += `

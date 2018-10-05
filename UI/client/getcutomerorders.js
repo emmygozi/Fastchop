@@ -20,11 +20,11 @@ const getACustomerOrders = (e) => {
             console.log(data);
           let menus = document.getElementById('myCustomerOrders').innerHTML;
           if (res.status === 401 || res.status === 400) {
-            notify.style.background = 'rgb(106, 197, 106)';
+            notify.style.background = 'red';
             notify.style.display = 'block';
-            notify.innerHTML = 'Error loading page';
+            notify.innerHTML = 'You do not have any order yet';
             setTimeout(() => {
-              //window.location.replace('login');
+            window.location.replace('home');
             }, 2000);
           }
           if (res.status === 200) {
