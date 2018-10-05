@@ -2,7 +2,7 @@
 
 function getOneMeal(e) {
   e.preventDefault();
-  const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+3)
+  const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+4)
 
   const id = lastpart.split("/").pop();
 
@@ -36,7 +36,7 @@ window.onload = getOneMeal;
 const postOrder = (e) => {
   e.preventDefault();
 
-  const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+3)
+  const lastpart = location.href.substring(0, location.href.lastIndexOf("/")+4)
 
   const id = lastpart.split("/").pop();
 
@@ -69,13 +69,13 @@ const postOrder = (e) => {
         console.log(data);
         if (data.message !== 'Updated specified menu') {
           notify.style.display = 'block';
-          notify.style.background = 'rgb(51, 104, 150)';
+          notify.style.background = 'hotpink';
           notify.innerHTML = data.message;
           setInterval(() => {
             notify.style.display = 'none';
           }, 2000);
         } else {
-          notify.style.background = 'rgb(51, 104, 150)';
+          notify.style.background = 'purple';
           notify.style.display = 'block';
           notify.innerHTML = 'Entry updated successfully';
           setTimeout(() => {

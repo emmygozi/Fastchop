@@ -63,13 +63,13 @@ const updateEntry = (e) => {
 
         if (data.message !== 'Updated specified menu') {
           notify.style.display = 'block';
-          notify.style.background = 'rgb(51, 104, 150)';
+          notify.style.background = 'hotpink';
           notify.innerHTML = data.message;
           setInterval(() => {
             notify.style.display = 'none';
           }, 2000);
         } else {
-          notify.style.background = 'rgb(51, 104, 150)';
+          notify.style.background = 'purple';
           notify.style.display = 'block';
           notify.innerHTML = 'Entry updated successfully';
           setTimeout(() => {

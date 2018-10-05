@@ -20,7 +20,7 @@ const getACustomerOrders = (e) => {
             console.log(data);
           let menus = document.getElementById('myCustomerOrders').innerHTML;
           if (res.status === 401 || res.status === 400) {
-            notify.style.background = 'red';
+            notify.style.background = 'hotpink';
             notify.style.display = 'block';
             notify.innerHTML = 'You do not have any order yet';
             setTimeout(() => {

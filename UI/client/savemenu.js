@@ -27,7 +27,7 @@ const menuAdded = (e) => {
   .then((result) => {
     if (result.state !== 'Succesful') {
       showNotification.style.display = 'block';
-      showNotification.style.background = 'purple';
+      showNotification.style.background = 'hotpink';
       showNotification.innerHTML = result.message;
       setInterval(() => {
         showNotification.style.display = 'none';

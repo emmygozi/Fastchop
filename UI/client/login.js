@@ -24,7 +24,7 @@ const login = (e) => {
   .then((result) => {
     if (result.state !== 'Succesful') {
       showNotification.style.display = 'block';
-      showNotification.style.background = 'red';
+      showNotification.style.background = 'hotpink';
       showNotification.innerHTML = result.message;
       setInterval(() => {
         showNotification.style.display = 'none';
@@ -33,7 +33,7 @@ const login = (e) => {
       localStorage.token = result.token;
       localStorage.id = result.id;
       localStorage.role = result.role;
-       showNotification.style.background = '#32c5d2';
+       showNotification.style.background = 'purple';
        showNotification.style.display = 'block';
        showNotification.innerHTML = 'Login successful';
       setTimeout(() => {

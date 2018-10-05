@@ -27,13 +27,13 @@ const menuEdited = (e) => {
   .then((result) => {
     if (result.state !== 'Succesful') {
       showNotification.style.display = 'block';
-      showNotification.style.background = 'red';
+      showNotification.style.background = 'hotpink';
       showNotification.innerHTML = result.message;
       setInterval(() => {
         showNotification.style.display = 'none';
       }, 2000);
     } else {
-       showNotification.style.background = '#32c5d2';
+       showNotification.style.background = 'purple';
        showNotification.style.display = 'block';
        showNotification.innerHTML = 'Saved edited sucessfully';
       setTimeout(() => {

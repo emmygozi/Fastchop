@@ -3,6 +3,8 @@ const notify = document.getElementById('notifyHome');
 
 function logoutNow() {
   localStorage.clear();
+  notify.style.textAlign = 'center';
+  notify.style.backgroundColor = 'hotpink';
   notify.style.fontWeight = 'bolder';
   notify.innerHTML = 'Logged out!';
   setTimeout(() => {
@@ -34,7 +36,7 @@ const getMenuAdmin = (e) => {
       .then((data) => {
         let menus = document.getElementById('sectionGroup').innerHTML;
         if (res.status === 401 || res.status === 400) {
-          notify.style.background = 'rgb(106, 197, 106)';
+          notify.style.background = 'hotpink';
           notify.style.display = 'block';
           notify.innerHTML = 'Error loading page';
           setTimeout(() => {

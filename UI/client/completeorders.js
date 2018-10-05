@@ -61,13 +61,13 @@ const orderEdited = (e) => {
   .then((result) => {
     if (result.state !== 'Succesful') {
       showNotification.style.display = 'block';
-      showNotification.style.background = 'rgb(51, 104, 150)';
+      showNotification.style.background = 'hotpink';
       showNotification.innerHTML = result.message;
       setInterval(() => {
         showNotification.style.display = 'none';
       }, 2000);
     } else {
-       showNotification.style.background = 'rgb(51, 104, 150)';
+       showNotification.style.background = 'purple';
        showNotification.style.display = 'block';
        showNotification.innerHTML = result.message;
       setTimeout(() => {

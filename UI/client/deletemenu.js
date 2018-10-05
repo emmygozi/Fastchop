@@ -48,7 +48,7 @@ function deleteMenu(e) {
         const notify = document.getElementById('notifyAdminDelete');
 
         if (res.status === 401 || res.status === 400) {
-          notify.style.background = 'red';
+          notify.style.background = 'hotpink';
           notify.style.display = 'block';
           notify.innerHTML = data.message;
           setTimeout(() => {
@@ -56,7 +56,7 @@ function deleteMenu(e) {
           }, 2000);
         }
         if (res.status === 200) {
-          notify.style.background = 'rgb(106, 197, 106)';
+          notify.style.background = 'purple';
           notify.style.display = 'block';
           notify.innerHTML = 'Entry deleted successfully';
           setTimeout(() => {
