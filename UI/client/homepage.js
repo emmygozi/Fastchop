@@ -1,13 +1,25 @@
 
+const notify = document.getElementById('notifyHome');
+
+function logoutNow() {
+  localStorage.clear();
+  notify.style.fontWeight = 'bolder';
+  notify.innerHTML = 'Logged out!';
+  setTimeout(() => {
+    window.location.replace('index');
+  }, 2000);
+}
+
 const getMenuAdmin = (e) => {
   e.preventDefault();
 
-  const notify = document.getElementById('notifyHome');
+
   const signupNot = document.getElementById('SignupCustomer');
   const loginNot = document.getElementById('loginCustomer');
   const loggedNow = document.getElementById('loggedCustomer');
   const adminLogged = document.getElementById('adminCustomer1');
   const adminLogged2 = document.getElementById('adminCustomer2');
+  const adminOut = document.getElementById('adminOut');
 
 
   fetch('./menu', {
@@ -40,8 +52,10 @@ const getMenuAdmin = (e) => {
             if (localStorage.role === 'admin'){
               adminLogged.innerHTML = '<a href="admin-dashboard">Manage Menus</a>';
               adminLogged2.innerHTML = '<a href="all-orders">Manage Orders</a>';
+              adminOut.innerHTML = '<button class="buttonblue" onclick="logoutNow();">Logout</button>';
             }else{
             loggedNow.innerHTML = '<a href="customer-order-history">View my Orders</a>';
+            adminOut.innerHTML = '<button class="buttonblue" onclick="logoutNow();">Logout</button>';
           }
           }
           data.menus.forEach((aMenu) => {
@@ -68,6 +82,7 @@ const getMenuAdmin = (e) => {
           notify.innerHTML = 'You do not have a menu yet';
         }
         document.getElementById('sectionGroup').innerHTML = menus;
+
       })
       .catch(err => console.error(err)));
 };

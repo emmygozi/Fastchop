@@ -4,6 +4,7 @@ const getOrdersAdmin = (e) => {
   e.preventDefault();
 
   const notify = document.getElementById('notifyAdmin');
+  const adminMenuLogged = document.getElementById('adminMenuLogged');
 
   console.log(localStorage.token);
 
@@ -28,6 +29,10 @@ const getOrdersAdmin = (e) => {
           }, 2000);
         }
         if (res.status === 200) {
+          if (localStorage.role === 'admin'){
+            adminMenuLogged.innerHTML = '<a href="admin-dashboard">Manage Menus</a>';
+
+          }
             console.log(data);
           data.allOrders.forEach((aOrder) => {
               const addDate = new Date(aOrder.dateadded);
