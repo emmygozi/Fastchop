@@ -1,4 +1,4 @@
-/**  Post user login
+/**  PUT new  food
     * @param {string} name
     * @param {string} description
     * @param {string} imageurl
@@ -6,26 +6,28 @@
     * @return {string} error message
     * @public
    */
+const editForm = document.getElementById('editmenu');
 
-const basePath = 'api/v1';
-const loginForm = document.getElementById('myLoginForm');
-
-const login = (e) => {
+const menuEdited = (e) => {
   e.preventDefault(e);
-  const getFormName = document.forms.myLoginForm;
-  const password = getFormName.pass2.value;
-  const email = getFormName.email2.value;
-  const showNotification = document.getElementById('notifyUserLogin');
+  const getFormName = document.forms.editmenu;
+  const name = getFormName.food2.value;
+  const description = getFormName.description2.value;
+  const imageurl = getFormName.imageurl2.value;
+  const price = getFormName.price2.value;
+  const showNotification = document.getElementById('notifyAdminForMenu');
+  let span2 = document.getElementsByClassName("closed")[0];
 
 
   let headers = new Headers();
-  fetch('./auth/login', {
-      method: "POST",
+  fetch('./menu', {
+      method: "PUT",
       headers: {
         Accept: 'application/json, text/plain, */*',
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'x-auth-token': localStorage.token
       },
-      body: JSON.stringify({ email, password}),
+      body: JSON.stringify({ name, description, imageurl, price }),
 
   })
   .then(response => response.json())
@@ -38,16 +40,15 @@ const login = (e) => {
         showNotification.style.display = 'none';
       }, 2000);
     } else {
-      localStorage.token = result.token;
        showNotification.style.background = '#32c5d2';
        showNotification.style.display = 'block';
-       showNotification.innerHTML = 'Login successful';
+       showNotification.innerHTML = 'Saved menu sucessfully';
       setTimeout(() => {
-        window.location.replace('home');
+        location.reload();
       }, 5000);
     }
   })
   .catch(err => console.log(err));
 };
 
-loginForm.addEventListener('submit', login, false);
+editForm.addEventListener('submit', menuEdited, false);

@@ -37,5 +37,13 @@ router.get('/orders', (req, res) => {
   res.sendFile('/orders.html', { root });
 });
 
+router.get('/update-menu/:id', (req, res) => {
+  res.sendFile('update-menu.html', { root });
+});
+
+router.get('/delete-menu/:id', (req, res) => {
+  res.sendFile('delete-menu.html', { root });
+});
+
 
 export default router;

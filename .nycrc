@@ -10,9 +10,9 @@
     "**/*.test.js",
     "**/__tests__/**",
     "**/node_modules/**",
-    "./UI",
-    "./server/dbScript.js",
-    "./routes/userInteface/"
+    "**/server/routes/userInteface/**",
+    "**/server/helpers/dbScript/**",
+    "./UI"
   ],
   "watermarks": {
       "lines": [75, 75],

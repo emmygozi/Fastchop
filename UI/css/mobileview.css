@@ -296,6 +296,34 @@ input[type=text], input[type=email], textarea, input[type=password] {
 	width: 16em;
 }
 
+#notifyAdminForMenu {
+  width: 13em;
+}
+
+#notifyAdminDelete {
+  width: 20em;
+}
+
+#notifyUpdate {
+  width: 33em;
+}
+
+#notifyAdminForMenu2 {
+  width: 13em;
+}
+
+#updateForm {
+	margin-left: 0em;
+}
+
+#updateForm > input[type=text]{
+	width: inherit;
+}
+
+#editmenu {
+	margin-left: 0em;
+}
+
 #centerThisText {
 	margin-left: 0em;
 }
