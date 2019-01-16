@@ -1,0 +1,351 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Fast-food-fast
+  description: Fast-food-fast Documentation
+  # My Contact Info
+  contact:
+    email: ahaiweemmanuel@gmail.com
+basePath: /api/v1
+
+securityDefinitions:
+  x-auth-token:
+    name: x-auth-token
+    in: header
+
+# tags are used for organizing operations
+
+paths:
+  /auth/login:
+    post:
+      tags:
+        - x-auth-token
+      summary: login a users
+      description: Log in a user to the application
+      produces:
+      - application/json
+      parameters:
+      - name: email
+        in: formData
+        description: user email
+        type: email
+        required: true
+      - name: password
+        in: formData
+        description: user password
+        type: password
+        required: true
+      responses:
+        200: 
+          description: User is logged in sucessfully
+          examples:
+            application/json:
+              status: successful
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ5LCJpYXQiOjE1MzMxMzkxOTcsImV4cCI6MTUzMzIyNTU5N30.OKx5ezcJEp7JU3IrNTnmC5uNxJpoDBbTFWH2SHlX13Q
+              user:
+                email: fetch10@mail.com
+        400:
+          description: Invalid Input
+          examples:
+            application/json:
+              message: Invalid email or password
+
+  /auth/signup:
+    post:
+      tags:
+      - x-auth-token
+      summary: User signup
+      description: Signup a new user into the app
+      produces:
+      - application/json
+      parameters:
+      - name: name
+        in: formData
+        description: name of user
+        type: text
+        required: true
+      - name: email
+        in: formData
+        description: email of user
+        type: email
+        required: true
+      - name: password
+        in: formData
+        description: password of user
+        type: password
+        required: true
+
+      responses:
+        201:
+          description: User is successfully signed up
+          examples:
+            application/json:
+              status: successful
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ5LCJpYXQiOjE1MzMxMzkxOTcsImV4cCI6MTUzMzIyNTU5N30.OKx5ezcJEp7JU3IrNTnmC5uNxJpoDBbTFWH2SHlX13Q
+              user:
+                email: fetch10@mail.com
+        409:
+          description: User already registered
+          examples:
+            application/json:
+              message: User already registered
+
+  /order/:
+    put:
+      tags:
+      - order
+      summary: update a specific order
+      security:
+      - x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: formData
+        name: status
+        type: enum ('approved', 'declined')
+      responses:
+        200:
+          description: Updated menu successfully
+          examples:
+            application/json:
+            status: successfull
+            message: Menu updated successfully updated
+            entry:
+                menuid: 1,
+                userid: 2,
+                quantity: 4,
+                dateadded:  2018-08-01
+                
+        404: 
+          description: Order not found
+          examples:
+            application/json:
+              status: failed
+              message: Incorrect entry
+    get:
+      tags:
+      - order
+      summary: Get a order
+      description: Gets a single order
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View an order
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one order!
+              order:
+                menuid: 1,
+                userid: 2,
+                quantity: 4,
+                dateadded:  2018-08-01 10:07:18 +0000
+        400:
+          description: orders could not be gotten
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot get this order because it does not exist
+    post:
+      tags:
+      - order
+      summary: Post a order
+      description: Posts a single order
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        201:
+          description: View an order
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one order!
+              order:
+                  userid: 2,
+                  quantity: 4,
+        401:
+          description: orders could not be placed
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot place this order because menuid referenced has not been created
+    delete:
+      tags:
+      - order
+      summary: Get a user order
+      description: Gets a  user single order
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View an order
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one order!
+              order:
+                id: 1,
+                dateadded: 12-13-14,
+                quantity: 4,
+                user:
+        400:
+          description: orders could not be gotten
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot place this order because menuid referenced has not been created
+
+  /menu/:
+    put:
+      tags:
+      - menu
+      summary: update a specific menu
+      security:
+      - x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: formData
+        name: status
+        type: enum ('New','Processing', 'Cancelled', 'Complete')
+      responses:
+        200:
+          description: Updated menu successfully
+          examples:
+            application/json:
+            status: successfull
+            message: Menu updated successfully updated
+            entry:
+                menuid: 1,
+                userid: 2,
+                quantity: 4,
+                dateadded:  2018-08-01 10:07:18 +0000
+                
+        404: 
+          description: Menu not found
+          examples:
+            application/json:
+              status: failed
+              message: Incorrect entry
+    get:
+      tags:
+      - menu
+      summary: Get a menu
+      description: Gets a single menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View a menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one order!
+              order:
+                menuid: 1,
+                userid: 2,
+                quantity: 4,
+                dateadded:  2018-08-01 10:07:18 +0000
+        400:
+          description: orders could not be gotten
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot get this order because it does not exist
+    post:
+      tags:
+      - menu
+      summary: Post a menu
+      description: Posts a single menu
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        201:
+          description: View a menu
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one order!
+              order:
+                  userid: 2,
+                  quantity: 4,
+        401:
+          description: orders could not be saved
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot save this menu because it has already been created in database
+    delete:
+      tags:
+      - menu
+      summary: Get a user menu
+      description: Gets a  user single order
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: users signed in user id
+        type: integer
+      responses:
+        200:
+          description: View an order
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one order!
+              order:
+                id: 1,
+                dateadded: 12-13-14,
+                quantity: 4,
+                user:
+        400:
+          description: menu could not be gotten
+          examples: 
+            application/json:
+              status: Failed
+              message: You cannot get this menu because it has not been created
